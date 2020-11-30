@@ -1,8 +1,17 @@
 h1, div{
     text-align: center;
+
 }
 
 img {
     position: absolute;
+    left: 20%;
     display: block;
+}
+
+h3 {
+    position: absolute;
+    top: 1000px;
+    left: 23%;
+    color: gray;
 }
