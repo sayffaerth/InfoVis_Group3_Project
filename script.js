@@ -47,12 +47,14 @@ function visualizeAsLineChart(data) {
             .x(item => xAxis(item.day))
             .y(item => yAxis(Number(item.cases)))
         );
+}
  
+
 //Visualisiere das Race
 function visualizeRace(data){
     var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 700 - margin.left - margin.right,
-    height = 200 - margin.top - margin.bottom;
+    width = 200 - margin.left - margin.right,
+    height = 700 - margin.top - margin.bottom;
 
     var svg = d3.select("#visConRace")
         .append("svg")
@@ -73,7 +75,7 @@ function visualizeRace(data){
         .range([height, 0])
     svg.append("g")
         .call(d3.axisRight(yAxis)); 
-    }
+    
 
     const anchors = svg
         .selectAll('.anchor')
