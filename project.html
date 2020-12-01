@@ -6,10 +6,10 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>Die durch die Coronafälle beschlossenen Maßnahmen <br>
-         und das daraus resultierende Kaufverhalten in Deutschland.</h1>
+    <h2>Die durch die Coronafälle beschlossenen Maßnahmen <br>
+         und das daraus resultierende Kaufverhalten in Deutschland.</h2>
 
-    <div>
+    <div id="images">
     <img src="./Pictures/Deutschland.png" alt="Deutschland">
     <img src="./Pictures/Bayern.png" alt="Bayern">
     <img src="./Pictures/BadenWürttemberg.png" alt="Baden Württemberg"> 
@@ -29,14 +29,19 @@
     <img src="./Pictures/Thüringen.png" alt="Thüringen"> 
     </div>
 
+    <!--Helps align Graphic because of absolute position-->
+    <div style="width: 1000px; height: 600px;"></div>
+
     <div id="dataWrapper">
         <div id="visualizationContainer"></div>
+        <div id="visConRace"></div>
     </div>
 
-    <h3>Alexander Schmidt | Clara Sayffaerth | Johanna Prinz | Kay Köhle | Michael Lobbichler</h3>
+    <h4>Alexander Schmidt | Clara Sayffaerth | Johanna Prinz | Kay Köhle | Michael Lobbichler</h4>
 
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="script.js"></script>
-    <script src="fallzahlen.js"></script>
+    <script src="./Data/fallzahlen.js"></script>
+    <script src="./Data/20200520-vpi-absatz-verbrauchsgueter-kw-20-2020.csv"></script>
 </body>
 </html>

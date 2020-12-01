@@ -1,4 +1,4 @@
-h1, div{
+h2, div, .images{
     text-align: center;
 
 }
@@ -9,9 +9,9 @@ img {
     display: block;
 }
 
-h3 {
-    position: absolute;
-    top: 1000px;
-    left: 23%;
+
+h4 {
+    top: 900px;
+    text-align: center;
     color: gray;
 }
