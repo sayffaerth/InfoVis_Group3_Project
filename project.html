@@ -2,36 +2,25 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Coronavisulisation</title>
+    <title>Corona Visualisation</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <h2>Die durch die Coronafälle beschlossenen Maßnahmen <br>
          und das daraus resultierende Kaufverhalten in Deutschland.</h2>
 
-    <!--Images for Germany Card-->
-    <div id="imagesDE">
-    <img src="./Pictures/Deutschland.png" alt="Deutschland">
-    <img src="./Pictures/Bayern.png" alt="Bayern">
-    <img src="./Pictures/BadenWürttemberg.png" alt="Baden Württemberg"> 
-    <img src="./Pictures/Berlin.png" alt="Berlin">
-    <img src="./Pictures/Brandenburg.png" alt="Brandenburg">
-    <img src="./Pictures/Bremen.png" alt="Bremen"> 
-    <img src="./Pictures/Hamburg.png" alt="Hamburg">
-    <img src="./Pictures/Hessen.png" alt="Hessen"> 
-    <img src="./Pictures/MecklenburgVorpommern.png" alt="Mecklenburg Vorpommern">
-    <img src="./Pictures/Niedersachsen.png" alt="Niedersachsen"> 
-    <img src="./Pictures/NordrheinWestfalen.png" alt="Nordrhein Westfalen"> 
-    <img src="./Pictures/RheinlandPfalz.png" alt="Rheinland Pfalz">
-    <img src="./Pictures/Saarland.png" alt="Saarland"> 
-    <img src="./Pictures/Sachsen.png" alt="Sachsen">
-    <img src="./Pictures/SachsenAnhalt.png" alt="SachsenAnhalt">
-    <img src="./Pictures/SchleswigHolstein.png" alt="SchleswigHolstein"> 
-    <img src="./Pictures/Thüringen.png" alt="Thüringen"> 
-    </div>
+    <div id="cardSVG">
+    <!-- Befolgtes Tutorial: https://www.d3-graph-gallery.com/graph/choropleth_hover_effect.html-->
+    <!-- GeoDaten von http://opendatalab.de/projects/geojson-utilities/ -->
 
-    <!--Helps align Graphic because of absolute position-->
-    <div style="width: 1000px; height: 600px;"></div>
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <!-- Create an element where the map will take place -->
+    <svg id="my_dataviz" width="800" height="552"></svg>
+    <script src="grafik.js"></script>
+    </div>
 
     <!--Graphen-->
     <div id="dataWrapper">
@@ -39,12 +28,15 @@
         <div id="visualizationContainer"></div>
     </div>
 
+    <!--Namen der Gruppenmitglieder-->
     <h4>Alexander Schmidt | Clara Sayffaerth | Johanna Prinz | Kay Köhle | Michael Lobbichler</h4>
 
+    <!--D3 und JavaScript imports-->
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="script.js"></script>
     <script src="./Data/fallzahlen.js"></script>
     <script src="./Data/absatzzahlen_eh.js"></script>
+    
 
 </body>
 </html>

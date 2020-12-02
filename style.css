@@ -3,14 +3,12 @@ h2, div, .images{
 
 }
 
-img {
-    position: absolute;
-    left: 20%;
-    display: block;
-}
-
-
 h4 {
     text-align: center;
     color: gray;
+}
+
+.dataWrapper{
+    position: absolute;
+    display: block;
 }
