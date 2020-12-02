@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Structure xmlns="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message" xmlns:common="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/common" xmlns:compact="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/compact" xmlns:cross="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/cross" xmlns:generic="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/generic" xmlns:query="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/query" xmlns:structure="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/structure" xmlns:utility="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/utility" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message SDMXMessage.xsd">
+<Header>
+<ID>sdg_03_42_DSD</ID>
+<Test>false</Test>
+<Truncated>false</Truncated>
+<Name xml:lang="en">sdg_03_42_DSD</Name>
+<Prepared>2020-10-21T16:27:54</Prepared>
+<Sender id="EUROSTAT">
+<Name xml:lang="en">EUROSTAT</Name>
+</Sender>
+<Receiver id="XML">
+<Name xml:lang="en">XML File</Name>
+</Receiver>
+</Header>
+
+<CodeLists>
+<structure:CodeList id="CL_MORTALIT" agencyID="EUROSTAT" isFinal="true">
+<structure:Name xml:lang="en">Type of mortality</structure:Name>
+<structure:Name xml:lang="de">Art der Sterblichkeit</structure:Name>
+<structure:Name xml:lang="fr">Type de mortalité</structure:Name>
+<structure:Code value="TOTAL">
+<structure:Description xml:lang="en">Total</structure:Description>
+<structure:Description xml:lang="de">Insgesamt</structure:Description>
+<structure:Description xml:lang="fr">Total</structure:Description>
+</structure:Code>
+<structure:Code value="PRVT">
+<structure:Description xml:lang="en">Preventable mortality</structure:Description>
+<structure:Description xml:lang="de">Durch Prävention vermeidbare Sterblichkeit</structure:Description>
+<structure:Description xml:lang="fr">Mortalité évitable grâce à la prévention</structure:Description>
+</structure:Code>
+<structure:Code value="TRT">
+<structure:Description xml:lang="en">Treatable mortality</structure:Description>
+<structure:Description xml:lang="de">Durch Behandlung vermeidbare Sterblichkeit</structure:Description>
+<structure:Description xml:lang="fr">Mortalité évitable grâce aux traitements</structure:Description>
+</structure:Code>
+</structure:CodeList>
+<structure:CodeList id="CL_SEX" agencyID="EUROSTAT" isFinal="true">
+<structure:Name xml:lang="en">Sex</structure:Name>
+<structure:Name xml:lang="de">Geschlecht</structure:Name>
+<structure:Name xml:lang="fr">Sexe</structure:Name>
+<structure:Code value="T">
+<structure:Description xml:lang="en">Total</structure:Description>
+<structure:Description xml:lang="de">Insgesamt</structure:Description>
+<structure:Description xml:lang="fr">Total</structure:Description>
+</structure:Code>
+</structure:CodeList>
+<structure:CodeList id="CL_ICD10" agencyID="EUROSTAT" isFinal="true">
+<structure:Name xml:lang="en">International Statistical Classification of Diseases and Related Health Problems (ICD-10 2007)</structure:Name>
+<structure:Name xml:lang="de">Internationale statistische Klassifikation der Krankheiten und verwandter Gesundheitsprobleme (ICD-10 2007)</structure:Name>
+<structure:Name xml:lang="fr">Classification statistique internationale des maladies et des problèmes de santé connexes (CIM-10 2007)</structure:Name>
+<structure:Code value="TOTAL">
+<structure:Description xml:lang="en">Total</structure:Description>
+<structure:Description xml:lang="de">Insgesamt</structure:Description>
+<structure:Description xml:lang="fr">Total</structure:Description>
+</structure:Code>
+</structure:CodeList>
+<structure:CodeList id="CL_UNIT" agencyID="EUROSTAT" isFinal="true">
+<structure:Name xml:lang="en">Unit of measure</structure:Name>
+<structure:Name xml:lang="de">Maßeinheit</structure:Name>
+<structure:Name xml:lang="fr">Unité de mesure</structure:Name>
+<structure:Code value="RT">
+<structure:Description xml:lang="en">Rate</structure:Description>
+<structure:Description xml:lang="de">Quote</structure:Description>
+<structure:Description xml:lang="fr">Taux</structure:Description>
+</structure:Code>
+</structure:CodeList>
+<structure:CodeList id="CL_GEO" agencyID="EUROSTAT" isFinal="true">
+<structure:Name xml:lang="en">Geopolitical entity (reporting)</structure:Name>
+<structure:Name xml:lang="de">Geopolitische Meldeeinheit</structure:Name>
+<structure:Name xml:lang="fr">Entité géopolitique (déclarante)</structure:Name>
+<structure:Code value="EU27_2020">
+<structure:Description xml:lang="en">European Union - 27 countries (from 2020)</structure:Description>
+<structure:Description xml:lang="de">Europäische Union - 27 Länder (ab 2020)</structure:Description>
+<structure:Description xml:lang="fr">Union européenne - 27 pays (à partir de 2020)</structure:Description>
+</structure:Code>
+<structure:Code value="EU28">
+<structure:Description xml:lang="en">European Union - 28 countries (2013-2020)</structure:Description>
+<structure:Description xml:lang="de">Europäische Union - 28 Länder (2013-2020)</structure:Description>
+<structure:Description xml:lang="fr">Union européenne - 28 pays (2013-2020)</structure:Description>
+</structure:Code>
+<structure:Code value="BE">
+<structure:Description xml:lang="en">Belgium</structure:Description>
+<structure:Description xml:lang="de">Belgien</structure:Description>
+<structure:Description xml:lang="fr">Belgique</structure:Description>
+</structure:Code>
+<structure:Code value="BG">
+<structure:Description xml:lang="en">Bulgaria</structure:Description>
+<structure:Description xml:lang="de">Bulgarien</structure:Description>
+<structure:Description xml:lang="fr">Bulgarie</structure:Description>
+</structure:Code>
+<structure:Code value="CZ">
+<structure:Description xml:lang="en">Czechia</structure:Description>
+<structure:Description xml:lang="de">Tschechien</structure:Description>
+<structure:Description xml:lang="fr">Tchéquie</structure:Description>
+</structure:Code>
+<structure:Code value="DK">
+<structure:Description xml:lang="en">Denmark</structure:Description>
+<structure:Description xml:lang="de">Dänemark</structure:Description>
+<structure:Description xml:lang="fr">Danemark</structure:Description>
+</structure:Code>
+<structure:Code value="DE">
+<structure:Description xml:lang="en">Germany (until 1990 former territory of the FRG)</structure:Description>
+<structure:Description xml:lang="de">Deutschland (bis 1990 früheres Gebiet der BRD)</structure:Description>
+<structure:Description xml:lang="fr">Allemagne (jusqu'en 1990, ancien territoire de la RFA)</structure:Description>
+</structure:Code>
+<structure:Code value="EE">
+<structure:Description xml:lang="en">Estonia</structure:Description>
+<structure:Description xml:lang="de">Estland</structure:Description>
+<structure:Description xml:lang="fr">Estonie</structure:Description>
+</structure:Code>
+<structure:Code value="IE">
+<structure:Description xml:lang="en">Ireland</structure:Description>
+<structure:Description xml:lang="de">Irland</structure:Description>
+<structure:Description xml:lang="fr">Irlande</structure:Description>
+</structure:Code>
+<structure:Code value="EL">
+<structure:Description xml:lang="en">Greece</structure:Description>
+<structure:Description xml:lang="de">Griechenland</structure:Description>
+<structure:Description xml:lang="fr">Grèce</structure:Description>
+</structure:Code>
+<structure:Code value="ES">
+<structure:Description xml:lang="en">Spain</structure:Description>
+<structure:Description xml:lang="de">Spanien</structure:Description>
+<structure:Description xml:lang="fr">Espagne</structure:Description>
+</structure:Code>
+<structure:Code value="FR">
+<structure:Description xml:lang="en">France</structure:Description>
+<structure:Description xml:lang="de">Frankreich</structure:Description>
+<structure:Description xml:lang="fr">France</structure:Description>
+</structure:Code>
+<structure:Code value="HR">
+<structure:Description xml:lang="en">Croatia</structure:Description>
+<structure:Description xml:lang="de">Kroatien</structure:Description>
+<structure:Description xml:lang="fr">Croatie</structure:Description>
+</structure:Code>
+<structure:Code value="IT">
+<structure:Description xml:lang="en">Italy</structure:Description>
+<structure:Description xml:lang="de">Italien</structure:Description>
+<structure:Description xml:lang="fr">Italie</structure:Description>
+</structure:Code>
+<structure:Code value="CY">
+<structure:Description xml:lang="en">Cyprus</structure:Description>
+<structure:Description xml:lang="de">Zypern</structure:Description>
+<structure:Description xml:lang="fr">Chypre</structure:Description>
+</structure:Code>
+<structure:Code value="LV">
+<structure:Description xml:lang="en">Latvia</structure:Description>
+<structure:Description xml:lang="de">Lettland</structure:Description>
+<structure:Description xml:lang="fr">Lettonie</structure:Description>
+</structure:Code>
+<structure:Code value="LT">
+<structure:Description xml:lang="en">Lithuania</structure:Description>
+<structure:Description xml:lang="de">Litauen</structure:Description>
+<structure:Description xml:lang="fr">Lituanie</structure:Description>
+</structure:Code>
+<structure:Code value="LU">
+<structure:Description xml:lang="en">Luxembourg</structure:Description>
+<structure:Description xml:lang="de">Luxemburg</structure:Description>
+<structure:Description xml:lang="fr">Luxembourg</structure:Description>
+</structure:Code>
+<structure:Code value="HU">
+<structure:Description xml:lang="en">Hungary</structure:Description>
+<structure:Description xml:lang="de">Ungarn</structure:Description>
+<structure:Description xml:lang="fr">Hongrie</structure:Description>
+</structure:Code>
+<structure:Code value="MT">
+<structure:Description xml:lang="en">Malta</structure:Description>
+<structure:Description xml:lang="de">Malta</structure:Description>
+<structure:Description xml:lang="fr">Malte</structure:Description>
+</structure:Code>
+<structure:Code value="NL">
+<structure:Description xml:lang="en">Netherlands</structure:Description>
+<structure:Description xml:lang="de">Niederlande</structure:Description>
+<structure:Description xml:lang="fr">Pays-Bas</structure:Description>
+</structure:Code>
+<structure:Code value="AT">
+<structure:Description xml:lang="en">Austria</structure:Description>
+<structure:Description xml:lang="de">Österreich</structure:Description>
+<structure:Description xml:lang="fr">Autriche</structure:Description>
+</structure:Code>
+<structure:Code value="PL">
+<structure:Description xml:lang="en">Poland</structure:Description>
+<structure:Description xml:lang="de">Polen</structure:Description>
+<structure:Description xml:lang="fr">Pologne</structure:Description>
+</structure:Code>
+<structure:Code value="PT">
+<structure:Description xml:lang="en">Portugal</structure:Description>
+<structure:Description xml:lang="de">Portugal</structure:Description>
+<structure:Description xml:lang="fr">Portugal</structure:Description>
+</structure:Code>
+<structure:Code value="RO">
+<structure:Description xml:lang="en">Romania</structure:Description>
+<structure:Description xml:lang="de">Rumänien</structure:Description>
+<structure:Description xml:lang="fr">Roumanie</structure:Description>
+</structure:Code>
+<structure:Code value="SI">
+<structure:Description xml:lang="en">Slovenia</structure:Description>
+<structure:Description xml:lang="de">Slowenien</structure:Description>
+<structure:Description xml:lang="fr">Slovénie</structure:Description>
+</structure:Code>
+<structure:Code value="SK">
+<structure:Description xml:lang="en">Slovakia</structure:Description>
+<structure:Description xml:lang="de">Slowakei</structure:Description>
+<structure:Description xml:lang="fr">Slovaquie</structure:Description>
+</structure:Code>
+<structure:Code value="FI">
+<structure:Description xml:lang="en">Finland</structure:Description>
+<structure:Description xml:lang="de">Finnland</structure:Description>
+<structure:Description xml:lang="fr">Finlande</structure:Description>
+</structure:Code>
+<structure:Code value="SE">
+<structure:Description xml:lang="en">Sweden</structure:Description>
+<structure:Description xml:lang="de">Schweden</structure:Description>
+<structure:Description xml:lang="fr">Suède</structure:Description>
+</structure:Code>
+<structure:Code value="UK">
+<structure:Description xml:lang="en">United Kingdom</structure:Description>
+<structure:Description xml:lang="de">Vereinigtes Königreich</structure:Description>
+<structure:Description xml:lang="fr">Royaume-Uni</structure:Description>
+</structure:Code>
+<structure:Code value="IS">
+<structure:Description xml:lang="en">Iceland</structure:Description>
+<structure:Description xml:lang="de">Island</structure:Description>
+<structure:Description xml:lang="fr">Islande</structure:Description>
+</structure:Code>
+<structure:Code value="LI">
+<structure:Description xml:lang="en">Liechtenstein</structure:Description>
+<structure:Description xml:lang="de">Liechtenstein</structure:Description>
+<structure:Description xml:lang="fr">Liechtenstein</structure:Description>
+</structure:Code>
+<structure:Code value="NO">
+<structure:Description xml:lang="en">Norway</structure:Description>
+<structure:Description xml:lang="de">Norwegen</structure:Description>
+<structure:Description xml:lang="fr">Norvège</structure:Description>
+</structure:Code>
+<structure:Code value="CH">
+<structure:Description xml:lang="en">Switzerland</structure:Description>
+<structure:Description xml:lang="de">Schweiz</structure:Description>
+<structure:Description xml:lang="fr">Suisse</structure:Description>
+</structure:Code>
+<structure:Code value="RS">
+<structure:Description xml:lang="en">Serbia</structure:Description>
+<structure:Description xml:lang="de">Serbien</structure:Description>
+<structure:Description xml:lang="fr">Serbie</structure:Description>
+</structure:Code>
+<structure:Code value="TR">
+<structure:Description xml:lang="en">Turkey</structure:Description>
+<structure:Description xml:lang="de">Türkei</structure:Description>
+<structure:Description xml:lang="fr">Turquie</structure:Description>
+</structure:Code>
+</structure:CodeList>
+<structure:CodeList id="CL_TIME_FORMAT" agencyID="SDMX" isFinal="true">
+<structure:Name xml:lang="en">Time Format</structure:Name>
+<structure:Code value="P1Y">
+<structure:Description xml:lang="en">Annual</structure:Description>
+</structure:Code>
+<structure:Code value="P6M">
+<structure:Description xml:lang="en">Semi-annual</structure:Description>
+</structure:Code>
+<structure:Code value="P3M">
+<structure:Description xml:lang="en">Quarterly</structure:Description>
+</structure:Code>
+<structure:Code value="P1M">
+<structure:Description xml:lang="en">Monthly</structure:Description>
+</structure:Code>
+<structure:Code value="P7D">
+<structure:Description xml:lang="en">Weekly</structure:Description>
+</structure:Code>
+<structure:Code value="P1D">
+<structure:Description xml:lang="en">Daily</structure:Description>
+</structure:Code>
+<structure:Code value="PT1M">
+<structure:Description xml:lang="en">Minutely</structure:Description>
+</structure:Code>
+</structure:CodeList>
+<structure:CodeList id="CL_FREQ" agencyID="SDMX" isFinal="true">
+<structure:Name xml:lang="en">Frequency code list</structure:Name>
+<structure:Code value="A">
+<structure:Description xml:lang="en">Annual</structure:Description>
+</structure:Code>
+<structure:Code value="S">
+<structure:Description xml:lang="en">Half-yearly, semester</structure:Description>
+</structure:Code>
+<structure:Code value="Q">
+<structure:Description xml:lang="en">Quarterly</structure:Description>
+</structure:Code>
+<structure:Code value="M">
+<structure:Description xml:lang="en">Monthly</structure:Description>
+</structure:Code>
+<structure:Code value="W">
+<structure:Description xml:lang="en">Weekly</structure:Description>
+</structure:Code>
+<structure:Code value="B">
+<structure:Description xml:lang="en">Business week</structure:Description>
+</structure:Code>
+<structure:Code value="D">
+<structure:Description xml:lang="en">Daily</structure:Description>
+</structure:Code>
+<structure:Code value="H">
+<structure:Description xml:lang="en">Hourly</structure:Description>
+</structure:Code>
+<structure:Code value="N">
+<structure:Description xml:lang="en">Minutely</structure:Description>
+</structure:Code>
+</structure:CodeList>
+<structure:CodeList id="CL_OBS_STATUS" agencyID="EUROSTAT" isFinal="true">
+<structure:Name xml:lang="en">Observation status code list</structure:Name>
+<structure:Code value="c">
+<structure:Description xml:lang="en">confidential</structure:Description>
+<structure:Description xml:lang="de">vertraulich</structure:Description>
+<structure:Description xml:lang="fr">confidentiel</structure:Description>
+</structure:Code>
+<structure:Code value="d">
+<structure:Description xml:lang="en">definition differs (see metadata)</structure:Description>
+<structure:Description xml:lang="de">abweichende Definition (siehe Metadaten)</structure:Description>
+<structure:Description xml:lang="fr">définition différente (voir métadonnées)</structure:Description>
+</structure:Code>
+<structure:Code value="e">
+<structure:Description xml:lang="en">estimated</structure:Description>
+<structure:Description xml:lang="de">geschätzt</structure:Description>
+<structure:Description xml:lang="fr">estimé</structure:Description>
+</structure:Code>
+<structure:Code value="f">
+<structure:Description xml:lang="en">forecast</structure:Description>
+<structure:Description xml:lang="de">Prognose</structure:Description>
+<structure:Description xml:lang="fr">prévision</structure:Description>
+</structure:Code>
+<structure:Code value="n">
+<structure:Description xml:lang="en">not significant</structure:Description>
+<structure:Description xml:lang="de">unbedeutend</structure:Description>
+<structure:Description xml:lang="fr">non significatif</structure:Description>
+</structure:Code>
+<structure:Code value="p">
+<structure:Description xml:lang="en">provisional</structure:Description>
+<structure:Description xml:lang="de">vorläufig</structure:Description>
+<structure:Description xml:lang="fr">provisoire</structure:Description>
+</structure:Code>
+<structure:Code value="r">
+<structure:Description xml:lang="en">revised</structure:Description>
+<structure:Description xml:lang="de">revidiert</structure:Description>
+<structure:Description xml:lang="fr">révisé</structure:Description>
+</structure:Code>
+<structure:Code value="s">
+<structure:Description xml:lang="en">Eurostat estimate</structure:Description>
+<structure:Description xml:lang="de">Eurostat Schätzung</structure:Description>
+<structure:Description xml:lang="fr">estimation Eurostat</structure:Description>
+</structure:Code>
+<structure:Code value="u">
+<structure:Description xml:lang="en">low reliability</structure:Description>
+<structure:Description xml:lang="de">geringe Zuverlässigkeit</structure:Description>
+<structure:Description xml:lang="fr">peu fiable</structure:Description>
+</structure:Code>
+<structure:Code value="z">
+<structure:Description xml:lang="en">not applicable</structure:Description>
+<structure:Description xml:lang="de">nicht zutreffend</structure:Description>
+<structure:Description xml:lang="fr">non applicable</structure:Description>
+</structure:Code>
+<structure:Code value="b">
+<structure:Description xml:lang="en">break in time series</structure:Description>
+<structure:Description xml:lang="de">Zeitreihenbruch</structure:Description>
+<structure:Description xml:lang="fr">rupture de série</structure:Description>
+</structure:Code>
+</structure:CodeList>
+</CodeLists>
+
+<Concepts>
+<structure:ConceptScheme agencyID="EUROSTAT" id="CONCEPTS" isFinal="true">
+<structure:Name xml:lang="en">Concepts</structure:Name>
+<structure:Concept id="FREQ"><structure:Name xml:lang="en">Frequency</structure:Name>
+</structure:Concept>
+<structure:Concept id="mortalit"><structure:Name xml:lang="en">Type of mortality</structure:Name>
+<structure:Name xml:lang="de">Art der Sterblichkeit</structure:Name>
+<structure:Name xml:lang="fr">Type de mortalité</structure:Name>
+</structure:Concept>
+<structure:Concept id="sex"><structure:Name xml:lang="en">Sex</structure:Name>
+<structure:Name xml:lang="de">Geschlecht</structure:Name>
+<structure:Name xml:lang="fr">Sexe</structure:Name>
+</structure:Concept>
+<structure:Concept id="icd10"><structure:Name xml:lang="en">International Statistical Classification of Diseases and Related Health Problems (ICD-10 2007)</structure:Name>
+<structure:Name xml:lang="de">Internationale statistische Klassifikation der Krankheiten und verwandter Gesundheitsprobleme (ICD-10 2007)</structure:Name>
+<structure:Name xml:lang="fr">Classification statistique internationale des maladies et des problèmes de santé connexes (CIM-10 2007)</structure:Name>
+</structure:Concept>
+<structure:Concept id="unit"><structure:Name xml:lang="en">Unit of measure</structure:Name>
+<structure:Name xml:lang="de">Maßeinheit</structure:Name>
+<structure:Name xml:lang="fr">Unité de mesure</structure:Name>
+</structure:Concept>
+<structure:Concept id="geo"><structure:Name xml:lang="en">Geopolitical entity (reporting)</structure:Name>
+<structure:Name xml:lang="de">Geopolitische Meldeeinheit</structure:Name>
+<structure:Name xml:lang="fr">Entité géopolitique (déclarante)</structure:Name>
+</structure:Concept>
+<structure:Concept id="TIME_PERIOD"><structure:Name xml:lang="en">Time period or range</structure:Name>
+</structure:Concept>
+<structure:Concept id="OBS_VALUE"><structure:Name xml:lang="en">Observation Value</structure:Name>
+</structure:Concept>
+<structure:Concept id="OBS_STATUS"><structure:Name xml:lang="en">Observation Status</structure:Name>
+</structure:Concept>
+<structure:Concept id="TIME_FORMAT"><structure:Name xml:lang="en">Time Format</structure:Name>
+</structure:Concept>
+</structure:ConceptScheme>
+</Concepts>
+
+<KeyFamilies>
+<structure:KeyFamily id="sdg_03_42_DSD" agencyID="EUROSTAT" isFinal="true" isExternalReference="false"><structure:Name xml:lang="en">sdg_03_42_DSD</structure:Name>
+
+<structure:Components>
+<structure:Dimension conceptSchemeRef="CONCEPTS" conceptSchemeAgency="EUROSTAT" conceptRef="FREQ" codelistAgency="SDMX" codelist="CL_FREQ" isFrequencyDimension="true"/>
+<structure:Dimension conceptSchemeRef="CONCEPTS" conceptSchemeAgency="EUROSTAT" conceptRef="mortalit" codelistAgency="ESTAT" codelist="CL_MORTALIT" crossSectionalAttachDataSet="false" crossSectionalAttachGroup="false" crossSectionalAttachSection="true" crossSectionalAttachObservation="false"></structure:Dimension>
+<structure:Dimension conceptSchemeRef="CONCEPTS" conceptSchemeAgency="EUROSTAT" conceptRef="sex" codelistAgency="ESTAT" codelist="CL_SEX" crossSectionalAttachDataSet="false" crossSectionalAttachGroup="false" crossSectionalAttachSection="true" crossSectionalAttachObservation="false"></structure:Dimension>
+<structure:Dimension conceptSchemeRef="CONCEPTS" conceptSchemeAgency="EUROSTAT" conceptRef="icd10" codelistAgency="ESTAT" codelist="CL_ICD10" crossSectionalAttachDataSet="false" crossSectionalAttachGroup="false" crossSectionalAttachSection="true" crossSectionalAttachObservation="false"></structure:Dimension>
+<structure:Dimension conceptSchemeRef="CONCEPTS" conceptSchemeAgency="EUROSTAT" conceptRef="unit" codelistAgency="ESTAT" codelist="CL_UNIT" crossSectionalAttachDataSet="false" crossSectionalAttachGroup="false" crossSectionalAttachSection="true" crossSectionalAttachObservation="false"></structure:Dimension>
+<structure:Dimension conceptSchemeRef="CONCEPTS" conceptSchemeAgency="EUROSTAT" conceptRef="geo" codelistAgency="ESTAT" codelist="CL_GEO" crossSectionalAttachDataSet="false" crossSectionalAttachGroup="false" crossSectionalAttachSection="true" crossSectionalAttachObservation="false"></structure:Dimension>
+<structure:TimeDimension conceptSchemeRef="CONCEPTS" conceptSchemeAgency="EUROSTAT" conceptRef="TIME_PERIOD"><structure:TextFormat textType="String"></structure:TextFormat>
+</structure:TimeDimension>
+<structure:PrimaryMeasure conceptSchemeRef="CONCEPTS" conceptSchemeAgency="EUROSTAT" conceptRef="OBS_VALUE">
+<structure:TextFormat textType="Double"></structure:TextFormat>
+</structure:PrimaryMeasure>
+
+<structure:Attribute conceptRef="TIME_FORMAT" conceptSchemeRef="CONCEPTS" conceptSchemeAgency="EUROSTAT" codelistAgency="SDMX" codelist="CL_TIME_FORMAT" attachmentLevel="Series" assignmentStatus="Mandatory"></structure:Attribute>
+<structure:Attribute conceptSchemeRef="CONCEPTS" conceptSchemeAgency="EUROSTAT" conceptRef="OBS_STATUS" codelistAgency="EUROSTAT" codelist="CL_OBS_STATUS" attachmentLevel="Observation" assignmentStatus="Conditional" crossSectionalAttachDataSet="false" crossSectionalAttachGroup="false" crossSectionalAttachSection="false" crossSectionalAttachObservation="true"><structure:TextFormat textType="String"></structure:TextFormat>
+</structure:Attribute>
+</structure:Components>
+</structure:KeyFamily>
+</KeyFamilies>
+
+</Structure>

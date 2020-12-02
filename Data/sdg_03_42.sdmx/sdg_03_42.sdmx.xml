@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactData xmlns="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message" xmlns:common="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/common" xmlns:compact="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/compact" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:data="urn:sdmx:org.sdmx.infomodel.keyfamily.KeyFamily=EUROSTAT:sdg_03_42_DSD:compact" xsi:schemaLocation="http://www.SDMX.org/resources/SDMXML/schemas/v2_0/message SDMXMessage.xsd urn:sdmx:org.sdmx.infomodel.keyfamily.KeyFamily=EUROSTAT:sdg_03_42_DSD:compact EUROSTAT_sdg_03_42_Compact.xsd http://www.SDMX.org/resources/SDMXML/schemas/v2_0/compact SDMXCompactData.xsd">
+<Header>
+<ID>sdg_03_42</ID>
+<Test>false</Test>
+<Name xml:lang="en">sdg_03_42</Name>
+<Prepared>2020-10-21T16:27:54</Prepared>
+<Sender id="EUROSTAT">
+<Name xml:lang="en">EUROSTAT</Name>
+</Sender>
+<Receiver id="XML">
+<Name xml:lang="en">SDMX-ML File</Name>
+</Receiver>
+<DataSetID>sdg_03_42</DataSetID>
+<Extracted>2020-10-21T16:27:54</Extracted>
+</Header>
+<data:DataSet>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="AT" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="166.32" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="168.77" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="164.11" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="160.94" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="164.53" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="158.9" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="155.4" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="BE" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="170.35" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="168.5" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="165.79" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="159.46" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="158.22" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="152.97" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="148.32" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="BG" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="221.54" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="235.2" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="237.6" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="242.5" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="243.23" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="230.82" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="229.59" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="CH" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="122.66" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="121.54" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="120.94" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="115.14" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="115.54" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="110.46" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="109" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="CY" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="107.47" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="112.01" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="106.53" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="107.49" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="108.62" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="98.19" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="110.59" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="CZ" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="221.51" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="215.27" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="215.93" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="200.34" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="201.98" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="190.95" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="194.29" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="DE" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="162.77" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="160.04" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="161.39" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="155.12" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="158.95" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="156.63" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="154.84" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="DK" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="182.64" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="181.85" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="171.95" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="172.57" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="163.69" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="160.2" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="156.9" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="EE" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="298.84" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="300.57" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="279.22" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="278.79" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="269.73" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="260.97" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="247.08" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="EL" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="148.68" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="150.99" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="149.77" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="141.9" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="144.17" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="139.96" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="140.99" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="ES" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="125.74" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="123.97" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="122" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="118.79" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="118.09" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="116.15" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="115.65" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="EU27_2020" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="175.96" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="173.11" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="169.25" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="164.06" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="164.37" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="160.42" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="EU28" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="173.69" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="170.87" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="167.29" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="162.45" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="162.85" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="159.47" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="FI" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="187.62" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="182.15" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="178.48" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="167.97" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="162.65" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="165.4" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="162.17" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="FR" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="143.18" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="138.95" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="136.32" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="131.54" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="131.96" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="128.78" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="HR" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="258.88" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="253.17" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="241.75" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="237.7" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="243.48" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="230.54" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="230.27" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="HU" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="357.67" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="348.28" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="331" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="329.37" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="333.68" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="324.43" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="326.97" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="IE" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="157.15" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="152.17" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="149.06" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="146.62" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="136.22" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="137.42" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="130.04" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="IS" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="136.38" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="128.69" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="128.63" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="115.59" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="124.33" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="138.27" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="125.58" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="IT" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="123.17" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="120.54" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="114.82" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="111.24" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="111.97" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="108.08" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="107.31" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="LI" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="141.55" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="108.03" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="136.68" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="100.38" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="90.56" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="116.26" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="97.92" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="LT" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="376.47" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="367.22" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="360.32" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="340.25" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="339.24" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="331.24" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="302.98" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="LU" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="148.63" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="150.38" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="145.52" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="143.97" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="133.01" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="138.45" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="130.33" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="LV" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="367.37" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="362.28" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="357.91" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="345.35" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="338.3" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="329.11" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="322.17" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="MT" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="133.31" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="129.97" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="118.09" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="121.73" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="114.01" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="115.15" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="120.55" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="NL" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="140.68" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="139.25" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="136" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="131.82" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="134.75" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="133.47" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="129.06" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="NO" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="142.51" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="135.63" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="136.41" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="127.66" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="127.71" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="128.47" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="119.8" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="PL" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="243.52" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="240.37" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="233.59" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="222.73" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="220.01" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="216.76" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="220.88" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="PT" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="147.98" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="142.05" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="140.17" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="142.94" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="140.56" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="138.98" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="137.5" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="RO" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="334.83" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="328.65" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="314.3" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="315.24" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="310.28" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="306.46" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="304.7" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="RS" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="250.48" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="244.41" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="237.67" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="232.62" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="237.32" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="233.84" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="234.15" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="SE" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="126.69" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="124.9" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="125.7" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="123.24" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="121.27" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="120.38" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="117.73" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="SI" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="208.32" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="203.11" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="199.4" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="187.97" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="192.14" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="183.58" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="188.07" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="SK" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="279.21" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="275.44" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="260.42" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="252.23" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="257.75" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="243.36" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="240.86" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="TR" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="179.45" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="171.08" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="196.41" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="190.25" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="184.1" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="184.34" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="177.94" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="PRVT" geo="UK" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="157.38" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="154.59" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="153.11" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="150.65" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="151.63" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="152.21" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="151.44" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="AT" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="247.6" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="248.66" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="242.86" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="238.6" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="243.55" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="236.69" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="232.14" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="BE" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="252.66" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="250.54" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="247.43" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="234.32" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="232.15" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="224.47" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="219.87" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="BG" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="416.63" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="441.31" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="430.44" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="443.29" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="440.69" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="425.17" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="421.66" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="CH" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="185.12" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="181.2" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="178.56" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="171.44" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="171.35" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="163.16" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="161.15" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="CY" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="186.62" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="196.25" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="180.59" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="180.95" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="188.22" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="169.4" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="185.35" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="CZ" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="369.25" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="360.74" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="358.88" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="332.2" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="337.27" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="319.14" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="322.76" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="DE" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="257.25" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="252.04" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="252.93" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="242.54" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="248.32" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="243.55" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="240.63" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="DK" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="273.87" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="268.74" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="252.37" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="250.6" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="241.49" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="236.23" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="230.37" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="EE" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="459.81" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="463.26" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="433.51" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="431.12" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="417.96" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="403.95" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="384.6" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="EL" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="242.84" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="247.35" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="240.9" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="236.41" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="240.82" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="234.9" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="235.87" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="ES" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="199.98" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="196.5" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="192.49" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="187.24" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="186.42" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="182.99" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="181.81" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="EU27_2020" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="279.35" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="274.84" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="267.9" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="258.89" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="260.23" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="253.59" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="EU28" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="276.01" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="271.5" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="264.91" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="256.5" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="257.95" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="252.26" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="FI" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="274.11" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="267.12" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="258.95" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="245.33" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="237.54" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="242.21" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="238.98" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="FR" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="210.81" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="205.23" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="201.4" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="194.43" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="194.83" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="191.33" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="HR" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="413.59" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="403.8" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="383.5" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="382.61" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="392.85" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="370.08" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="369.68" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="HU" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="555.2" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="541.31" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="515.94" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="512.02" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="517.57" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="500.39" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="506.15" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="IE" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="251.14" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="241.83" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="235.55" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="230.35" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="220.03" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="217.54" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="204.28" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="IS" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="200.52" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="190.85" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="197.1" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="178.28" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="191.14" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="200.61" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="182.81" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="IT" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="198.61" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="195.61" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="186.22" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="180.25" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="183.28" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="174.76" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="174.27" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="LI" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="209.42" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="179.51" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="207.63" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="147.69" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="165.82" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="178.9" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="159.68" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="LT" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="597.92" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="586.29" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="575.05" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="542.21" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="552.22" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="536.85" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="487.31" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="LU" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="231.64" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="226.95" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="229.17" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="210.99" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="203.57" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="209.31" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="203.88" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="LV" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="603.54" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="588.28" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="578.77" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="554.68" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="545.22" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="532.27" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="520.6" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="MT" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="240.75" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="239.33" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="209.74" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="215.6" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="200.62" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="202.5" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="207.34" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="NL" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="219.76" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="217.69" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="209.85" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="200.4" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="205.46" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="202.41" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="194.7" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="NO" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="218.53" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="210.37" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="206.49" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="194.51" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="192.04" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="191.44" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="182.06" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="PL" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="392.62" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="386.76" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="375.84" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="353.66" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="351.2" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="346.55" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="355.48" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="PT" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="242.76" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="235.09" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="230.23" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="232.09" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="227.46" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="227.85" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="221.97" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="RO" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="559.32" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="548.45" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="525.26" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="522.88" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="519.24" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="514.46" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="512.27" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="RS" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="435.79" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="424.66" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="409.74" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="400.41" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="415.95" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="406.59" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="409.39" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="SE" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="204.15" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="200.6" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="200.44" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="193.78" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="192.12" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="188.03" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="184.57" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="SI" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="308.89" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="297.24" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="294.28" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="277.31" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="284.42" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="263.22" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="266.83" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="SK" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="461.18" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="457.74" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="443.73" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="423.14" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="434.68" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="411.68" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="416.9" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="TR" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="305.59" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="292.05" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="333.48" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="329.34" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="323.39" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="325.51" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="317.23" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TOTAL" geo="UK" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="251.77" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="247" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="243.19" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="239.06" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="241.22" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="242.32" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="240.65" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="AT" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="81.28" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="79.89" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="78.75" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="77.66" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="79.02" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="77.8" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="76.74" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="BE" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="82.31" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="82.04" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="81.65" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="74.86" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="73.93" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="71.5" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="71.55" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="BG" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="195.09" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="206.11" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="192.83" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="200.79" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="197.45" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="194.35" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="192.07" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="CH" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="62.46" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="59.66" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="57.62" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="56.3" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="55.81" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="52.7" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="52.15" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="CY" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="79.15" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="84.24" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="74.06" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="73.46" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="79.6" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="71.21" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="74.76" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="CZ" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="147.74" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="145.47" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="142.95" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="131.86" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="135.29" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="128.2" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="128.47" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="DE" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="94.48" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="92" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="91.54" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="87.42" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="89.37" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="86.92" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="85.78" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="DK" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="91.23" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="86.9" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="80.42" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="78.03" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="77.81" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="76.03" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="73.47" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="EE" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="160.97" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="162.69" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="154.29" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="152.33" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="148.24" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="142.98" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="137.52" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="EL" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="94.15" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="96.36" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="91.13" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="94.51" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="96.65" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="94.93" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="94.88" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="ES" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="74.24" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="72.53" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="70.49" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="68.46" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="68.33" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="66.84" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="66.16" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="EU27_2020" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="103.39" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="101.73" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="98.65" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="94.83" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="95.85" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="93.16" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="EU28" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="102.32" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="100.63" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="97.62" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="94.05" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="95.09" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="92.79" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="FI" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="86.49" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="84.97" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="80.46" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="77.36" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="74.89" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="76.81" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="76.81" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="FR" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="67.64" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="66.06" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="65.08" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="62.9" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="62.86" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="62.54" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="HR" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="154.72" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="150.64" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="141.75" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="144.91" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="149.37" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="139.54" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="139.41" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="HU" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="197.53" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="193.03" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="184.94" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="182.65" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="183.9" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="175.96" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="179.17" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="IE" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="93.99" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="89.67" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="86.49" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="83.73" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="83.81" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="80.12" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="74.24" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="IS" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="64.15" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="62.15" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="68.47" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="62.69" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="66.81" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="62.35" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="57.23" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="IT" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="75.43" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="75.07" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="71.4" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="69.02" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="71.31" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="66.68" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="66.96" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="LI" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="67.87" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="71.48" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="70.95" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="47.31" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="75.26" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="62.64" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="61.76" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="LT" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="221.45" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="219.07" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="214.73" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="201.96" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="212.98" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="205.61" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="184.33" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="LU" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="83.01" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="76.56" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="83.65" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="67.02" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="70.56" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="70.86" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="73.54" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="LV" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="236.17" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="226" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="220.85" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="209.33" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="206.92" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="203.16" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="198.43" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="MT" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="107.44" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="109.36" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="91.64" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="93.87" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="86.61" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="87.35" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="86.79" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="NL" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="79.08" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="78.44" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="73.85" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="68.58" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="70.71" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="68.93" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="65.63" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="NO" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="76.02" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="74.74" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="70.08" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="66.86" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="64.33" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="62.97" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="62.25" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="PL" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="149.1" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="146.39" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="142.25" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="130.93" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="131.19" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="129.79" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="134.6" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="PT" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="94.78" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="93.05" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="90.06" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="89.16" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="86.9" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="88.87" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="84.47" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="RO" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="224.5" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="219.8" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="210.96" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="207.64" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="208.96" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="208" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="207.56" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="RS" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="185.31" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="180.25" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="172.07" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="167.79" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="178.63" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="172.76" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="175.23" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="SE" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="77.46" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="75.7" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="74.74" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="70.54" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="70.85" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="67.64" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="66.85" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="SI" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="100.58" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="94.13" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="94.89" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="89.34" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="92.27" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="79.64" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="78.76" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="SK" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="181.97" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="182.3" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="183.31" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="170.9" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="176.93" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="168.31" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="176.03" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="TR" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="126.14" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="120.96" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="137.07" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="139.09" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="139.28" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="141.17" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="139.29" OBS_STATUS="p" />
+</data:Series>
+<data:Series FREQ="A" sex="T" icd10="TOTAL" unit="RT" mortalit="TRT" geo="UK" TIME_FORMAT="P1Y">
+<data:Obs TIME_PERIOD="2011" OBS_VALUE="94.39" />
+<data:Obs TIME_PERIOD="2012" OBS_VALUE="92.47" />
+<data:Obs TIME_PERIOD="2013" OBS_VALUE="90.08" />
+<data:Obs TIME_PERIOD="2014" OBS_VALUE="88.41" />
+<data:Obs TIME_PERIOD="2015" OBS_VALUE="89.59" />
+<data:Obs TIME_PERIOD="2016" OBS_VALUE="90.11" />
+<data:Obs TIME_PERIOD="2017" OBS_VALUE="89.21" OBS_STATUS="p" />
+</data:Series>
+</data:DataSet>
+</CompactData>
