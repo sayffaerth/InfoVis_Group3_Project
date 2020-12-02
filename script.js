@@ -5,12 +5,13 @@ function traverseData(data){
     visualizeAsLineChart(fallzahlen);
 }
 
-//Get Data Kaufverhalten
-d3.csv("./Data/20200520-vpi-absatz-verbrauchsgueter-kw-20-2020.csv", function(data){
+/**Get Data Kaufverhalten
+function salesData(data){
     const racezahlen = data.filter(item => item);
     visualizeRace(racezahlen);
-});
+}; */
 
+console.log(racezahlen);
 
 // Visualisiere Fallzahlen Funktion
 function visualizeAsLineChart(data) {
