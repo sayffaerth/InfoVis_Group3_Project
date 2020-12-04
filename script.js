@@ -4,7 +4,7 @@ function traverseData(data){
 
     visualizeAsLineChart(fallzahlen);
 }
-
+// test
 /**Get Data Kaufverhalten
 function salesData(data){
     const racezahlen = data.filter(item => item);
