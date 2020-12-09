@@ -17,13 +17,19 @@
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
     <!-- Create an element where the map will take place -->
     <svg id="my_dataviz" width="800" height="552"></svg>
     <script src="grafik.js"></script>
+    <script src="race.js"></script>
     </div>
 
     <!--Graphen-->
+    <button onclick="showKW(0)">Click me!</button>
+    <button onclick="showKW(1)">Click me!</button>
+    <button onclick="showKW(2)">Click me!</button>
     <div id="dataWrapper">
+        <div id="container"></div>
         <div id="visConRace"></div>
         <div id="visualizationContainer"></div>
     </div>

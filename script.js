@@ -11,8 +11,6 @@ function salesData(data){
     visualizeRace(racezahlen);
 }; */
 
-console.log(racezahlen);
-
 // Visualisiere Fallzahlen Funktion
 function visualizeAsLineChart(data) {
     var margin = {top: 10, right: 30, bottom: 30, left: 60},
@@ -31,13 +29,19 @@ function visualizeAsLineChart(data) {
         .range([0, width]);
     svg.append("g")
         .attr("transform", `translate(0, ${height})`)
-        .call(d3.axisBottom(xAxis));
+        .call(d3.axisBottom(xAxis))
+        .on('mouseover', function(event){
+            var target = event.target || event.srcElement;
+            console.log(target.innerHTML);
+            var caseNumber = target.innerHTML;
+            showKW(caseNumber);
+        } );
 
     var yAxis =d3.scaleLinear()
         .domain([(d3.min(data, item => Number(item.cases)))-1, d3.max(data, item => Number(item.cases))])
         .range([height, 0])
     svg.append("g")
-        .call(d3.axisLeft(yAxis)); 
+        .call(d3.axisLeft(yAxis))
 
     svg.append("path")
         .datum(data)
