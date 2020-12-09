@@ -523,25 +523,46 @@ function showKW(n) {
     
       // create data
       var data = [
-        {x: "Seife", value: currentData.Seife.split(',')[0]},
-        {x: "Toilettenpapier", value: currentData.Toilettenpapier.split(',')[0]},
+        {x: "Seife", value: currentData.Seife.split(',')[0],
+        normal:   {
+          label: {enabled: true}
+        },
+      hovered:  {
+          fill: "#5cd65c",
+          label: {enabled: true}
+        }},
+        {x: "Toilettenpapier", value: currentData.Toilettenpapier.split(',')[0],
+        normal:   {
+          label: {enabled: true}
+        },
+      hovered:  {
+          fill: "#5cd65c",
+          label: {enabled: true}
+        }},
         {x: "Mehl", value: currentData.Mehl.split(',')[0],
          normal:   {
-             fill: "#5cd65c",
-             stroke: null,
              label: {enabled: true}
            },
          hovered:  {
              fill: "#5cd65c",
              label: {enabled: true}
-           },
-         selected: {
-             fill: "#5cd65c",
-             label: {enabled: true}
-           }
+           }},
+        {x: "Desinfektionsmittel", value: currentData.Desinfektionsmittel.split(',')[0],
+        normal:   {
+          label: {enabled: true}
         },
-        {x: "Desinfektionsmittel", value: currentData.Desinfektionsmittel.split(',')[0]},
-        {x: "Hefe", value: currentData.Hefe.split(',')[0]}
+      hovered:  {
+          fill: "#5cd65c",
+          label: {enabled: true}
+        }},
+        {x: "Hefe", value: currentData.Hefe.split(',')[0],
+        normal:   {
+          label: {enabled: true}
+        },
+      hovered:  {
+          fill: "#5cd65c",
+          label: {enabled: true}
+        }}
       ];
   
       // create a chart

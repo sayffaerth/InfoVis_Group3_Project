@@ -34,7 +34,7 @@ function visualizeAsLineChart(data) {
             var target = event.target || event.srcElement;
             console.log(target.innerHTML);
             var caseNumber = target.innerHTML;
-            showKW(caseNumber);
+            showKW(caseNumber - 1);
         } );
 
     var yAxis =d3.scaleLinear()
