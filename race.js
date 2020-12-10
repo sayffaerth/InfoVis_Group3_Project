@@ -1,3 +1,4 @@
+
 var mydata = [
   {
     "Kalenderwoche": "32. KW 2019",
