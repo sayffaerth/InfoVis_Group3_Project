@@ -28,7 +28,7 @@ function visualizeAsLineChart(data) {
     var y = d3.scaleLinear()
     	.rangeRound([height, 0]);
     var y_axis = d3.axisBottom(y);
-    var xFormat = "%b";;
+    var xFormat = "%b";
     var parseTime = d3.timeParse("%d/%m/%Y");
     
     x.domain(d3.extent(data, function(d) { return parseTime(d.dateRep); }));
