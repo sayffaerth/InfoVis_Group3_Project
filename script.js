@@ -13,6 +13,7 @@ function salesData(data){
 
 // Visualisiere Fallzahlen Funktion
 function visualizeAsLineChart(data) {
+
     var margin = {top: 10, right: 30, bottom: 30, left: 60},
     width = 700 - margin.left - margin.right,
     height = 190 - margin.top - margin.bottom;
@@ -52,46 +53,4 @@ function visualizeAsLineChart(data) {
             .x(item => xAxis(item.day))
             .y(item => yAxis(Number(item.cases)))
         );
-}
- 
-
-//Visualisiere das Race
-function visualizeRace(data){
-    var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 200 - margin.left - margin.right,
-    height = 700 - margin.top - margin.bottom;
-
-    var svg = d3.select("#visConRace")
-        .append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-            .attr("transform", `translate(${margin.left}, ${margin.top})`);
-
-    var xAxis = d3.scaleLinear()
-        .domain(d3.min(data.Kalenderwoche), d3.max(data.Kalenderwoche))
-        .range([0, width]);
-    svg.append("g")
-        .attr("transform", `translate(0, ${height})`)
-        .call(d3.axisBottom(xAxis));
-
-    var yAxis =d3.scaleLinear()
-        .domain([0, d3.max(data.Desinfektionsmittel)])
-        .range([height, 0])
-    svg.append("g")
-        .call(d3.axisRight(yAxis)); 
-    
-
-    const anchors = svg
-        .selectAll('.anchor')
-        .data(data)
-        .enter()
-        .append('circle')
-        .attr('class', 'anchor')
-        .attr('fill', 'white')
-        .attr('stroke', 'steelblue')
-        .attr('stroke-width', 1)
-        .attr('r', 2)
-        .attr('cx', ({jahr}) => xAxis(jahr))
-        .attr('cy', ({wert}) => yAxis(wert))
 }

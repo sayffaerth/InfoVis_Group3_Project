@@ -506,20 +506,90 @@ var mydata = [
   }
  ]
 
-function showKW(n) {
+ var currentData = mydata[0];
+        
+    anychart.onDocumentReady(function () {
+      
+        // create data
+        var data = [
+          {x: "Seife", value: currentData.Seife.split(',')[0],
+          normal:   {
+            label: {enabled: true}
+          },
+        hovered:  {
+            fill: "#5cd65c",
+            label: {enabled: true}
+          }},
+          {x: "Toilettenpapier", value: currentData.Toilettenpapier.split(',')[0],
+          normal:   {
+            label: {enabled: true}
+          },
+        hovered:  {
+            fill: "#5cd65c",
+            label: {enabled: true}
+          }},
+          {x: "Mehl", value: currentData.Mehl.split(',')[0],
+           normal:   {
+               label: {enabled: true}
+             },
+           hovered:  {
+               fill: "#5cd65c",
+               label: {enabled: true}
+             }},
+          {x: "Desinfektionsmittel", value: currentData.Desinfektionsmittel.split(',')[0],
+          normal:   {
+            label: {enabled: true}
+          },
+        hovered:  {
+            fill: "#5cd65c",
+            label: {enabled: true}
+          }},
+          {x: "Hefe", value: currentData.Hefe.split(',')[0],
+          normal:   {
+            label: {enabled: true}
+          },
+        hovered:  {
+            fill: "#5cd65c",
+            label: {enabled: true}
+          }}
+        ];
+    
+        // create a chart
+        chart = anychart.column();
+    
+        // create a column series and set the data
+        var series = chart.column(data);
+    
+        // set the chart title
+        chart.title("Absatzindex für KW: " + currentData.Kalenderwoche);
+    
+        // set the titles of the axes
+        chart.xAxis().title("Produkte");
+        chart.yAxis().title("Absatzindex");
+  
+        //set minimum and maximum for the yAxis
+        chart.yScale().minimum(0);
+        chart.yScale().maximum(200);
+    
+        // set the container id
+        chart.container("container");
+  
+        // initiate drawing the chart
+        chart.draw();
+  
+    });
 
+function showKW(n) {
+  
   var currentData = mydata[n];
 
   if(document.getElementById('container')) {
     const container = document.getElementById('container');
-    container.remove();
+    const newDiv = document.createElement("div"); 
+    container.parentNode.replaceChild(newDiv, container);
+    newDiv.setAttribute("id", "container");
   } 
-
-  var newDiv = document.createElement("div"); 
-  newDiv.setAttribute("id", "container");
-
-  document.getElementById('dataWrapper').appendChild(newDiv);
-      
+  
     anychart.onDocumentReady(function () {
     
       // create data
@@ -578,12 +648,16 @@ function showKW(n) {
       // set the titles of the axes
       chart.xAxis().title("Produkte");
       chart.yAxis().title("Absatzindex");
+
+      //set minimum and maximum for the yAxis
+      chart.yScale().minimum(0);
+      chart.yScale().maximum(200);
   
       // set the container id
       chart.container("container");
 
       // initiate drawing the chart
-      var drawing = chart.draw();
+      chart.draw();
 
   });
 }
