@@ -1,13 +1,13 @@
-/*
-// The svg
-var svg = d3.select("#my_dataviz");
-width = +svg.attr("width");
-height = +svg.attr("height");
+//The svg
+var svg = d3.select("#my_dataviz"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
 
 // Map and projection
+var path = d3.geoPath();
 var projection = d3.geoMercator()
-    .center([15, 51.2])                // GPS of location to zoom on
-    .scale(2000)                       // This is like the zoom
+    .scale(2000)        // This is like the zoom
+    .center([15,51.2])  // GPS of location to zoom on
     .translate([width / 2, height / 2]);
 
 
@@ -29,7 +29,7 @@ tooltip.append("g:text")
     .attr("font-size", "12px")
     .attr("font-weight", "bold");
 
-
+/*
 // Load external data and boot
 d3.json("./Data/bundeslaender_simplify200.geojson", function (data) {
 
@@ -48,16 +48,6 @@ d3.json("./Data/bundeslaender_simplify200.geojson", function (data) {
         .on("mouseleave", mouseLeave)
 });
 */
-var svg = d3.select("svg"),
-    width = +svg.attr("width"),
-    height = +svg.attr("height");
-
-// Map and projection
-var path = d3.geoPath();
-var projection = d3.geoMercator()
-    .scale(2000)
-    .center([15,51.2])
-    .translate([width / 2, height / 2]);
 
 // Data and color scale
 var data = d3.map();
@@ -92,7 +82,6 @@ function ready(error, topo) {
         .on("mouseleave", mouseLeave );
 }
 
-
 let mouseOver = function (d) {
     tooltip
         .style("opacity", 1);
@@ -105,7 +94,8 @@ let mouseOver = function (d) {
     d3.select(this)
         .transition()
         .duration(200)
-        .style("opacity", 0.8);
+        .style("opacity", 0.8)
+        .style("stroke", "steelblue")
 };
 
 let mouseMove = function (d) {
@@ -129,5 +119,6 @@ let mouseLeave = function (d) {
     d3.select(this)
         .transition()
         .duration(200)
-        .style("opacity", 1);
+        .style("opacity", 1)
+        .style("stroke", "transparent")
 };
