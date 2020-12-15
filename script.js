@@ -13,58 +13,128 @@ function salesData(data){
 
 // Visualisiere Fallzahlen Funktion
 function visualizeAsLineChart(data) {
-    var svg = d3.select("body").append("svg")
-      .attr("width", 700)
-      .attr("height", 190)
+  var margin = { top: 30, right: 120, bottom: 30, left: 50 },
+  width = 800 - margin.left - margin.right,
+  height = 200 - margin.top - margin.bottom,
+  tooltip = { width: 100, height: 100, x: 10, y: -30 };
 
-    var margin = {left:30, right:30, top: 10, bottom: 30}
-    var width = svg.attr("width") - margin.left - margin.right;
-    var height = svg.attr("height") - margin.bottom - margin.top;
+var parseDate = d3.timeParse("%d/%m/%Y"),
+  bisectDate = d3.bisector(function(d) { return d.dateRep; }).left,
+  formatValue = d3.format(","),
+  dateFormatter = d3.timeFormat("%d/%m/%y");
 
-    var x = d3.scaleTime()
-    	.rangeRound([0, width]);
-    var x_axis = d3.axisBottom(x);
-    
-    var y = d3.scaleLinear()
-    	.rangeRound([height, 0]);
-    var y_axis = d3.axisBottom(y);
-    var xFormat = "%b";
-    var parseTime = d3.timeParse("%d/%m/%Y");
-    
-    x.domain(d3.extent(data, function(d) { return parseTime(d.dateRep); }));
-  	y.domain([0, d3.max(data, function(d) { return d3.max([d.cases/1000]);
-              })]);
+var x = d3.scaleTime()
+      .range([0, width]);
 
-    var a = function(d) {return d.cases};
-    
-    var multiline = function(category) {
-      var line = d3.line()
-                  .x(function(d) { return x(parseTime(d.dateRep)); })
-                  .y(function(d) { return y(d.cases/1000); });
-      return line;
-    }
-    
-    var color = d3.scaleOrdinal(d3.schemeCategory10);
-    
-    var g = svg.append("g")
-        .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
-    
-      g.append("path")
-        .datum(data) 
-        .attr("fill", "none")
-        .attr("stroke", "steelblue")
-        .attr("stroke-width", 1.5)
-        .attr("d", multiline(data.cases));
-    
-      // Add the X Axis
-  		g.append("g")
+var y = d3.scaleLinear()
+      .range([height, 0]);
+
+var xAxis = d3.axisBottom(x)
+  .tickFormat(dateFormatter);
+
+var yAxis = d3.axisLeft(y)
+  .tickFormat(d3.format("s"))
+
+var line = d3.line()
+  .x(function(d) { return x(d.dateRep); })
+  .y(function(d) { return y(d.cases); });
+
+var svg = d3.select("body").append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  data.forEach(function(d) {
+      d.dateRep = parseDate(d.dateRep);
+      d.cases = +d.cases;
+  });
+
+  data.sort(function(a, b) {
+      return a.dateRep - b.dateRep;
+  });
+
+  x.domain([data[0].dateRep, data[data.length - 1].dateRep]);
+  y.domain(d3.extent(data, function(d) { return d.cases; }));
+
+  svg.append("g")
+      .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x).tickFormat(d3.timeFormat(xFormat)));
-    
-      // Add the Y Axis
-  		g.append("g")
-      .call(d3.axisLeft(y));
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+      .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Fallzahlen");
+
+  svg.append("path")
+      .datum(data)
+      .attr("fill", "none")
+      .attr("stroke", "steelblue")
+      .attr("class", "line")
+      .attr("d", line);
+
+  var focus = svg.append("g")
+      .attr("class", "focus")
+      .style("display", "none");
+
+  focus.append("circle")
+      .attr("r", 5);
+
+  focus.append("rect")
+      .attr("class", "tooltip")
+      .attr("width", 100)
+      .attr("height", 50)
+      .attr("x", 10)
+      .attr("y", -22)
+      .attr("rx", 4)
+      .attr("ry", 4)
+      .style("fill", "none")
+      .style("pointer-events", "all");
+
+  focus.append("text")
+      .attr("class", "tooltip-date")
+      .attr("font-family", "calibri")
+      .attr("x", 18)
+      .attr("y", -2);
+
+  focus.append("text")
+      .attr("x", 18)
+      .attr("y", 18)
+      .attr("font-family", "calibri")
+      .text("Fallzahl:");
+
+  focus.append("text")
+      .attr("class", "tooltip-likes")
+      .attr("font-family", "calibri")
+      .attr("x", 75)
+      .attr("y", 18);
+
+  svg.append("rect")
+      .attr("class", "overlay")
+      .attr("width", width)
+      .attr("height", height)
+      .style("fill", "none")
+      .style("pointer-events", "all")
+      .on("mouseover", function() { focus.style("display", null); })
+      .on("mouseout", function() { focus.style("display", "none"); })
+      .on("mousemove", mousemove);
+
+  function mousemove() {
+      var x0 = x.invert(d3.mouse(this)[0]),
+          i = bisectDate(data, x0, 1),
+          d0 = data[i - 1],
+          d1 = data[i],
+          d = x0 - d0.dateRep > d1.dateRep - x0 ? d1 : d0;
+      focus.attr("transform", "translate(" + x(d.dateRep) + "," + y(d.cases) + ")");
+      focus.select(".tooltip-date").text(dateFormatter(d.dateRep));
+      focus.select(".tooltip-likes").text(formatValue(d.cases));
+  }
 }
  
 
