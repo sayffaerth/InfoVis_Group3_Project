@@ -100,9 +100,9 @@ function visualizeAsLineChart(data) {
         focus.append("rect")
             .attr("class", "tooltip")
             .attr("width", 100)
-            .attr("height", 50)
+            .attr("height", 40)
             .attr("x", 10)
-            .attr("y", -22)
+            .attr("y", -15)
             .attr("rx", 4)
             .attr("ry", 4)
             .style("fill", "white")
@@ -124,7 +124,7 @@ function visualizeAsLineChart(data) {
             .text("Fallzahl:");
 
         focus.append("text")
-            .attr("class", "tooltip-likes")
+            .attr("class", "tooltip-cases")
             .attr("font-family", "calibri")
             .attr("font-size","14px")
             .attr("x", 70)
@@ -148,7 +148,7 @@ function visualizeAsLineChart(data) {
                 d = x0 - d0.dateRep > d1.dateRep - x0 ? d1 : d0;
             focus.attr("transform", "translate(" + x(d.dateRep) + "," + y(d.cases) + ")");
             focus.select(".tooltip-date").text(dateFormatter(d.dateRep));
-            focus.select(".tooltip-likes").text(formatValue(d.cases));
+            focus.select(".tooltip-cases").text(formatValue(d.cases));
         }
     }
  
