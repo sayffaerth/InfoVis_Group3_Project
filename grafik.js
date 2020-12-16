@@ -1,5 +1,5 @@
 //Load the SVG element that shall contain the visualisation
-var svg = d3.select("#my_dataviz"),
+var svg = d3.select("#map_viz"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
 
@@ -13,21 +13,18 @@ var projection = d3.geoMercator()
     .center([15,51.2])  // GPS of location to zoom on
     .translate([width / 2, height / 2]);
 
-// Data and color scale
-var data = d3.map();
-var colorScale = d3.scaleThreshold()
-    .domain([0, 1, 2, 3, 4, 5])
-    .range(d3.schemeBlues[7]);
-
 // Fetch JSON Data and use it in visualisation as soon as it's done loading
+var data = d3.map();
 d3.queue()
     .defer(d3.json, "https://opendata.arcgis.com/datasets/ef4b445a53c1406892257fe63129a8ea_0.geojson")
     .await(dataLoaded);
+//For additional details about the datasets used please refer to the Github Project Wiki - Datensätze (german)
 
 // Call this as soon as the data is loaded to use it in the visualisation
 function dataLoaded(error, topo) {
     // Draw the map
     svg.append("g")
+        .classed("map",true)
         .selectAll("path")
         .data(topo.features)
         .enter()
@@ -36,22 +33,45 @@ function dataLoaded(error, topo) {
         .attr("d", d3.geoPath()
             .projection(projection)
         )
-        // set the color of each country
-        .attr("fill", function (d) {
-            d.total = data.get(d.id) || 0;
-            return colorScale(d.total);
-        })
+        // basecolor = 50% gray to see the countries even when no data is available
+        .attr("fill", "#808080")
         .style("stroke", "#fff")
         .on("mouseover", mouseOver )
         .on("mousemove", mouseMove)
         .on("mouseleave", mouseLeave );
+
+    assignIDs();
+    updateMapFillData();
 }
+
+
+
+//Fügt den einzelnen Ländern ihre Namen als class als Identifier hinzu
+//Aktuell hardgecodet für RKI Tagesstand
+function assignIDs(){
+    d3.select(".map").selectAll("path").each(function () {
+        var u = d3.select(this)
+        u.classed(u.data()[0].properties.LAN_ew_GEN,true);
+    })
+}
+
+
+function updateMapFillData(){
+    console.log("update");
+    d3.select(".map").selectAll("path").attr("fill",(function (){
+        var inzidenz = d3.select(this).data()[0].properties.cases7_bl_per_100k;
+        console.log(inzidenz);
+        return d3.interpolateReds(valueMap(inzidenz,0,200,0,1));
+    }));
+}
+
+
 // %%%%%%%%%%%%%%%%%%%%
 // % Tooltip          %
 // %%%%%%%%%%%%%%%%%%%%
 
 
-var tooltip = d3.select("#my_dataviz").append("g")
+var tooltip = d3.select("#map_viz").append("g")
     .attr("class", "tooltip")
     .style("opacity", 0);
 
@@ -116,3 +136,5 @@ let mouseLeave = function (d) {
         .style("stroke-opacity", 0.2)
 
 };
+
+const valueMap = (value, x1, y1, x2, y2) => (value - x1) * (y2 - x2) / (y1 - x1) + x2;
