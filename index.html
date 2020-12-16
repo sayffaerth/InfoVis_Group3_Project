@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Corona Visualisation</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h2>Die durch die Coronafälle beschlossenen Maßnahmen <br>
+         und das daraus resultierende Kaufverhalten in Deutschland.</h2>
+
+    <div id="cardSVG">
+    <!-- Befolgtes Tutorial: https://www.d3-graph-gallery.com/graph/choropleth_hover_effect.html-->
+    <!-- GeoDaten von http://opendatalab.de/projects/geojson-utilities/ -->
+
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+    <!-- Create an element where the map will take place -->
+    <svg id="my_dataviz" width="800" height="552"></svg>
+    <script src="grafik.js"></script>
+    </div>
+
+    <!--Graphen-->
+    <div id="dataWrapper">
+        <div id="visConRace"></div>
+        <div id="visualizationContainer"></div>
+    </div>
+
+    <!--Namen der Gruppenmitglieder-->
+    <h4>Alexander Schmidt | Clara Sayffaerth | Johanna Prinz | Kay Köhle | Michael Lobbichler</h4>
+
+    <!--D3 und JavaScript imports-->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="script.js"></script>
+    <script src="./Data/fallzahlen.js"></script>
+    <script src="./Data/absatzzahlen_eh.js"></script>
+    
+
+</body>
+</html>
