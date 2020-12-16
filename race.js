@@ -508,7 +508,7 @@ var mydata = [
 
  var currentData = mydata[0];
         
-      
+ anychart.onDocumentReady(function () {      
         // create data
         var data = [
           {x: "Seife", value: currentData.Seife.split(',')[0],
@@ -575,6 +575,7 @@ var mydata = [
   
         // initiate drawing the chart
         chart.draw();
+      });
   
 
 function showKW(n) {
