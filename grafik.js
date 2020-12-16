@@ -57,10 +57,8 @@ function assignIDs(){
 
 
 function updateMapFillData(){
-    console.log("update");
     d3.select(".map").selectAll("path").attr("fill",(function (){
         var inzidenz = d3.select(this).data()[0].properties.cases7_bl_per_100k;
-        console.log(inzidenz);
         return d3.interpolateReds(valueMap(inzidenz,0,200,0,1));
     }));
 }
