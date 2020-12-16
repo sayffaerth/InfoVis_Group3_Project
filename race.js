@@ -508,7 +508,6 @@ var mydata = [
 
  var currentData = mydata[0];
         
-    anychart.onDocumentReady(function () {
       
         // create data
         var data = [
@@ -577,7 +576,6 @@ var mydata = [
         // initiate drawing the chart
         chart.draw();
   
-    });
 
 function showKW(n) {
   
