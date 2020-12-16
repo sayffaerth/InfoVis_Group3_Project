@@ -1,3 +1,5 @@
+var fallTime;
+
 // Get Data Fallzahlen
 function traverseData(data){
     const fallzahlen = data.filter(item => item.year == 2020);
@@ -149,7 +151,10 @@ function visualizeAsLineChart(data) {
             focus.attr("transform", "translate(" + x(d.dateRep) + "," + y(d.cases) + ")");
             focus.select(".tooltip-date").text(dateFormatter(d.dateRep));
             focus.select(".tooltip-cases").text(formatValue(d.cases));
+            fallTime = dateFormatter(d.dateRep)
         }
+
+        console.log(fallTime);
     }
  
 
