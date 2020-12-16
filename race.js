@@ -1,172 +1,5 @@
+
 var mydata = [
-  {
-    "Kalenderwoche": "32. KW 2019",
-    "Seife": "96,5092581",
-    "Toilettenpapier": "97,00002953",
-    "Mehl": "71,45644738",
-    "Desinfektionsmittel": "105,0908161",
-    "Hefe": "84,3214438"
-  },
-  {
-    "Kalenderwoche": "33. KW 2019",
-    "Seife": "94,67640936",
-    "Toilettenpapier": "98,63923037",
-    "Mehl": "83,79257476",
-    "Desinfektionsmittel": "100,4236204",
-    "Hefe": "94,13606871"
-  },
-  {
-    "Kalenderwoche": "34. KW 2019",
-    "Seife": "114,3856076",
-    "Toilettenpapier": "89,85417539",
-    "Mehl": "72,32259714",
-    "Desinfektionsmittel": "96,08335393",
-    "Hefe": "90,35196562"
-  },
-  {
-    "Kalenderwoche": "35. KW 2019",
-    "Seife": "95,12220888",
-    "Toilettenpapier": "98,72927031",
-    "Mehl": "75,53540142",
-    "Desinfektionsmittel": "101,0774787",
-    "Hefe": "86,86391611"
-  },
-  {
-    "Kalenderwoche": "36. KW 2019",
-    "Seife": "93,67811422",
-    "Toilettenpapier": "98,57241125",
-    "Mehl": "99,88504415",
-    "Desinfektionsmittel": "126,025556",
-    "Hefe": "95,69528426"
-  },
-  {
-    "Kalenderwoche": "37. KW 2019",
-    "Seife": "103,7033215",
-    "Toilettenpapier": "95,89727718",
-    "Mehl": "79,62040823",
-    "Desinfektionsmittel": "96,01571341",
-    "Hefe": "92,20364622"
-  },
-  {
-    "Kalenderwoche": "38. KW 2019",
-    "Seife": "82,12958253",
-    "Toilettenpapier": "94,24670288",
-    "Mehl": "77,55097005",
-    "Desinfektionsmittel": "88,21450716",
-    "Hefe": "86,59298222"
-  },
-  {
-    "Kalenderwoche": "39. KW 2019",
-    "Seife": "96,77335734",
-    "Toilettenpapier": "107,0119972",
-    "Mehl": "110,1583914",
-    "Desinfektionsmittel": "93,58065481",
-    "Hefe": "95,94289271"
-  },
-  {
-    "Kalenderwoche": "40. KW 2019",
-    "Seife": "108,537394",
-    "Toilettenpapier": "101,0233933",
-    "Mehl": "96,94582455",
-    "Desinfektionsmittel": "100,0515976",
-    "Hefe": "105,7557234"
-  },
-  {
-    "Kalenderwoche": "41. KW 2019",
-    "Seife": "94,01087926",
-    "Toilettenpapier": "91,31945698",
-    "Mehl": "84,67385641",
-    "Desinfektionsmittel": "90,10844162",
-    "Hefe": "90,55830599"
-  },
-  {
-    "Kalenderwoche": "42. KW 2019",
-    "Seife": "84,74627783",
-    "Toilettenpapier": "89,94468923",
-    "Mehl": "83,0014792",
-    "Desinfektionsmittel": "91,14559621",
-    "Hefe": "91,13785331"
-  },
-  {
-    "Kalenderwoche": "43. KW 2019",
-    "Seife": "83,73741872",
-    "Toilettenpapier": "89,55656969",
-    "Mehl": "103,9252605",
-    "Desinfektionsmittel": "87,24499308",
-    "Hefe": "91,04275731"
-  },
-  {
-    "Kalenderwoche": "44. KW 2019",
-    "Seife": "126,7729185",
-    "Toilettenpapier": "115,1753027",
-    "Mehl": "107,0424312",
-    "Desinfektionsmittel": "94,03159159",
-    "Hefe": "113,3023984"
-  },
-  {
-    "Kalenderwoche": "45. KW 2019",
-    "Seife": "114,274686",
-    "Toilettenpapier": "106,3419105",
-    "Mehl": "119,0002612",
-    "Desinfektionsmittel": "91,43870512",
-    "Hefe": "105,0075152"
-  },
-  {
-    "Kalenderwoche": "46. KW 2019",
-    "Seife": "97,44733861",
-    "Toilettenpapier": "98,69467601",
-    "Mehl": "107,796605",
-    "Desinfektionsmittel": "88,42870213",
-    "Hefe": "109,5452092"
-  },
-  {
-    "Kalenderwoche": "47. KW 2019",
-    "Seife": "93,92531111",
-    "Toilettenpapier": "93,33350831",
-    "Mehl": "123,8715214",
-    "Desinfektionsmittel": "88,24832741",
-    "Hefe": "108,8633889"
-  },
-  {
-    "Kalenderwoche": "48. KW 2019",
-    "Seife": "121,2109885",
-    "Toilettenpapier": "100,6011533",
-    "Mehl": "161,7515007",
-    "Desinfektionsmittel": "96,77103252",
-    "Hefe": "108,6050148"
-  },
-  {
-    "Kalenderwoche": "49. KW 2019",
-    "Seife": "102,0975981",
-    "Toilettenpapier": "104,0918597",
-    "Mehl": "136,4769965",
-    "Desinfektionsmittel": "93,14099145",
-    "Hefe": "103,1558346"
-  },
-  {
-    "Kalenderwoche": "50. KW 2019",
-    "Seife": "102,0944289",
-    "Toilettenpapier": "102,7464734",
-    "Mehl": "129,0387614",
-    "Desinfektionsmittel": "95,32803483",
-    "Hefe": "103,4752136"
-  },
-  {
-    "Kalenderwoche": "51. KW 2019",
-    "Seife": "106,799621",
-    "Toilettenpapier": "128,8642172",
-    "Mehl": "151,9042677",
-    "Desinfektionsmittel": "114,3462934",
-    "Hefe": "147,8922227"
-  },
-  {
-    "Kalenderwoche": "52. KW 2019",
-    "Seife": "89,00355762",
-    "Toilettenpapier": "97,05452739",
-    "Mehl": "92,06851164",
-    "Desinfektionsmittel": "85,95982327",
-    "Hefe": "118,1540886"
-  },
   {
     "Kalenderwoche": "01. KW 2020",
     "Seife": "88,5905064",
@@ -505,40 +338,109 @@ var mydata = [
   }
  ]
 
-function showKW(n) {
+ var currentData = mydata[0];
+        
+ anychart.onDocumentReady(function () {      
+        // create data
+        var data = [
+          {x: "Seife", value: currentData.Seife.split(',')[0],
+          normal:   {
+            label: {enabled: true}
+          },
+        hovered:  {
+            fill: "#5cd65c",
+            label: {enabled: true}
+          }},
+          {x: "Toilettenpapier", value: currentData.Toilettenpapier.split(',')[0],
+          normal:   {
+            label: {enabled: true}
+          },
+        hovered:  {
+            fill: "#5cd65c",
+            label: {enabled: true}
+          }},
+          {x: "Mehl", value: currentData.Mehl.split(',')[0],
+           normal:   {
+               label: {enabled: true}
+             },
+           hovered:  {
+               fill: "#5cd65c",
+               label: {enabled: true}
+             }},
+          {x: "Desinfektionsmittel", value: currentData.Desinfektionsmittel.split(',')[0],
+          normal:   {
+            label: {enabled: true}
+          },
+        hovered:  {
+            fill: "#5cd65c",
+            label: {enabled: true}
+          }},
+          {x: "Hefe", value: currentData.Hefe.split(',')[0],
+          normal:   {
+            label: {enabled: true}
+          },
+        hovered:  {
+            fill: "#5cd65c",
+            label: {enabled: true}
+          }}
+        ];
+    
+        // create a chart
+        chart = anychart.column();
+    
+        // create a column series and set the data
+        var series = chart.column(data);
+    
+        // set the chart title
+        chart.title("Absatzindex für KW: " + currentData.Kalenderwoche);
+    
+        // set the titles of the axes
+        chart.xAxis().title("Produkte");
+        chart.yAxis().title("Absatzindex");
+  
+        //set minimum and maximum for the yAxis
+        chart.yScale().minimum(0);
+        chart.yScale().maximum(900);
+    
+        // set the container id
+        chart.container("container");
+  
+        // initiate drawing the chart
+        chart.draw();
+      });
+  
 
-  var currentData = mydata[n];
+function showKW(n) {
+  
+var currentData = mydata[n];
 
   if(document.getElementById('container')) {
     const container = document.getElementById('container');
-    container.remove();
+    const newDiv = document.createElement("div"); 
+    container.parentNode.replaceChild(newDiv, container);
+    newDiv.setAttribute("id", "container");
   } 
-
-  var newDiv = document.createElement("div"); 
-  newDiv.setAttribute("id", "container");
-
-  document.getElementById('dataWrapper').appendChild(newDiv);
-      
-    anychart.onDocumentReady(function () {
+  
+  anychart.onDocumentReady(function () {
     
       // create data
       var data = [
         {x: "Seife", value: currentData.Seife.split(',')[0],
-        normal:   {
-          label: {enabled: true}
-        },
-      hovered:  {
-          fill: "#5cd65c",
-          label: {enabled: true}
-        }},
-        {x: "Toilettenpapier", value: currentData.Toilettenpapier.split(',')[0],
-        normal:   {
-          label: {enabled: true}
-        },
-      hovered:  {
-          fill: "#5cd65c",
-          label: {enabled: true}
-        }},
+          normal:   {
+            label: {enabled: true}
+          },
+        hovered:  {
+            fill: "#5cd65c",
+            label: {enabled: true}
+          }},
+          {x: "Toilettenpapier", value: currentData.Toilettenpapier.split(',')[0],
+          normal:   {
+            label: {enabled: true}
+          },
+        hovered:  {
+            fill: "#5cd65c",
+            label: {enabled: true}
+          }},
         {x: "Mehl", value: currentData.Mehl.split(',')[0],
          normal:   {
              label: {enabled: true}
@@ -577,12 +479,16 @@ function showKW(n) {
       // set the titles of the axes
       chart.xAxis().title("Produkte");
       chart.yAxis().title("Absatzindex");
+
+      //set minimum and maximum for the yAxis
+      chart.yScale().minimum(0);
+      chart.yScale().maximum(900);
   
       // set the container id
       chart.container("container");
 
       // initiate drawing the chart
-      var drawing = chart.draw();
+      chart.draw();
 
   });
 }

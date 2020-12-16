@@ -151,10 +151,18 @@ function visualizeAsLineChart(data) {
             focus.attr("transform", "translate(" + x(d.dateRep) + "," + y(d.cases) + ")");
             focus.select(".tooltip-date").text(dateFormatter(d.dateRep));
             focus.select(".tooltip-cases").text(formatValue(d.cases));
-            fallTime = dateFormatter(d.dateRep)
+            fallTime = dateFormatter(d.dateRep);
+            var month = fallTime.split("/")[1];
+            if(month.charAt(0) == 0) {
+                month = month.substring(1);
+                console.log(month);
+                showKW(month);
+            } else {
+                showKW(month);
+            }
+            console.log(month);
         }
 
-        console.log(fallTime);
     }
  
 
