@@ -1,11 +1,20 @@
 h2, div, .images{
     text-align: center;
+    color: white;
 
 }
 
 h4 {
     text-align: center;
     color: gray;
+}
+
+body{
+    background-color: #262626;
+}
+
+.xaxis line, .yaxis line, .xaxis path, .yaxis path, .xaxis text, .yaxis text{
+    stroke: white;
 }
 
 .dataWrapper{

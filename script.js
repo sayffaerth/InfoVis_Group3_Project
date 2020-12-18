@@ -23,7 +23,8 @@ function visualizeAsLineChart(data) {
     var parseDate = d3.timeParse("%d/%m/%Y"),
         bisectDate = d3.bisector(function(d) { return d.dateRep; }).left,
         formatValue = d3.format(","),
-        dateFormatter = d3.timeFormat("%d/%m/%y");
+        dateFormatter = d3.timeFormat("%b %y");
+        dateFormatter2 = d3.timeFormat("%d/%m/%Y");
 
     var x = d3.scaleTime()
             .range([0, width]);
@@ -35,11 +36,12 @@ function visualizeAsLineChart(data) {
         .tickFormat(dateFormatter);
 
     var yAxis = d3.axisLeft(y)
-        .tickFormat(d3.format("s"))
+        .tickFormat(d3.format(""));
 
     var line = d3.line()
         .x(function(d) { return x(d.dateRep); })
         .y(function(d) { return y(d.cases); });
+
 
     var svg = d3.select("body").append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -56,16 +58,16 @@ function visualizeAsLineChart(data) {
             return a.dateRep - b.dateRep;
         });
 
-        x.domain([data[0].dateRep, data[data.length - 1].dateRep]);
+        x.domain([data[0].dateRep, data[data.length-1].dateRep]);
         y.domain(d3.extent(data, function(d) { return d.cases; }));
 
         svg.append("g")
-            .attr("class", "x axis")
+            .attr("class", "xaxis")
             .attr("transform", "translate(0," + height + ")")
             .call(xAxis);
 
         svg.append("g")
-            .attr("class", "y axis")
+            .attr("class", "yaxis")
             .call(yAxis)
             .append("text")
             .attr("transform", "rotate(-90)")
@@ -77,7 +79,7 @@ function visualizeAsLineChart(data) {
         svg.append("path")
             .datum(data)
             .attr("fill", "none")
-            .attr("stroke", "steelblue")
+            .attr("stroke", "#9de0ff")
             .attr("class", "line")
             .attr("d", line);
 
@@ -87,7 +89,7 @@ function visualizeAsLineChart(data) {
 
         focus.append("line")
           .attr("class", "x")
-          .style("stroke", "black")
+          .style("stroke", "white")
           .style("opacity", 0.5)
           .style("stroke-width", "2px")
           .attr("y1", -250)
@@ -96,7 +98,7 @@ function visualizeAsLineChart(data) {
         focus.append("circle")
           .attr("class", "y")
           .style("fill", "none")
-          .style("stroke", "black")
+          .style("stroke", "white")
           .attr("r", 4);
 
         focus.append("rect")
@@ -107,7 +109,7 @@ function visualizeAsLineChart(data) {
             .attr("y", -15)
             .attr("rx", 4)
             .attr("ry", 4)
-            .style("fill", "white")
+            .style("fill", "grey")
             .style("opacity", 0.7)
             .style("pointer-events", "all");
 
@@ -116,21 +118,24 @@ function visualizeAsLineChart(data) {
             .attr("font-family", "calibri")
             .attr("font-size","14px")
             .attr("x", 18)
-            .attr("y", 0);
+            .attr("y", 0)
+            .style("fill", "white");
 
         focus.append("text")
             .attr("x", 18)
             .attr("y", 18)
             .attr("font-family", "calibri")
             .attr("font-size","14px")
-            .text("Fallzahl:");
+            .text("Fallzahl:")
+            .style("fill", "white");
 
         focus.append("text")
             .attr("class", "tooltip-cases")
             .attr("font-family", "calibri")
             .attr("font-size","14px")
             .attr("x", 70)
-            .attr("y", 18);
+            .attr("y", 18)
+            .style("fill", "white");
 
         svg.append("rect")
             .attr("class", "overlay")
@@ -149,7 +154,7 @@ function visualizeAsLineChart(data) {
                 d1 = data[i],
                 d = x0 - d0.dateRep > d1.dateRep - x0 ? d1 : d0;
             focus.attr("transform", "translate(" + x(d.dateRep) + "," + y(d.cases) + ")");
-            focus.select(".tooltip-date").text(dateFormatter(d.dateRep));
+            focus.select(".tooltip-date").text(dateFormatter2(d.dateRep));
             focus.select(".tooltip-cases").text(formatValue(d.cases));
             fallTime = dateFormatter(d.dateRep);
             var month = fallTime.split("/")[1];
