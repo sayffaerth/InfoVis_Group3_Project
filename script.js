@@ -16,7 +16,7 @@ function salesData(data){
 // Visualisiere Fallzahlen Funktion
 function visualizeAsLineChart(data) {
   var margin = { top: 10, right: 120, bottom: 20, left: 50 },
-        width = 700 - margin.left - margin.right,
+        width = 1000 - margin.left - margin.right,
         height = 170 - margin.top - margin.bottom,
         tooltip = { width: 100, height: 100, x: 10, y: -30 };
 
@@ -38,11 +38,12 @@ function visualizeAsLineChart(data) {
     var yAxis = d3.axisLeft(y)
         .tickFormat(d3.format(""));
 
+    //Zeichnet Funktion
     var line = d3.line()
         .x(function(d) { return x(d.dateRep); })
         .y(function(d) { return y(d.cases); });
 
-
+    //Zeichnet Fläche
     var svg = d3.select("#visFall")
         .append("svg")
             .attr("width", width + margin.left + margin.right)
@@ -50,17 +51,22 @@ function visualizeAsLineChart(data) {
         .append("g")
             .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
+        //Convertiert die Daten
         data.forEach(function(d) {
             d.dateRep = parseDate(d.dateRep);
             d.cases = +d.cases;
         });
 
+        //Sortiert das Datum
         data.sort(function(a, b) {
             return a.dateRep - b.dateRep;
         });
 
-        x.domain([data[0].dateRep, data[data.length-1].dateRep]);
-        y.domain(d3.extent(data, function(d) { return d.cases; }));
+        //Legt Achsenbeschriftung fest
+        x.domain([data[0].dateRep, parseDate("01/12/2020")]);
+        //x.domain([data[0].dateRep, data[data.length-1].dateRep]);
+        y.domain([0, 24000]);
+        //y.domain(d3.extent(data, function(d) { return d.cases; }));
 
         svg.append("g")
             .attr("class", "xaxis")
@@ -226,13 +232,10 @@ function visualizeRace(data){
             return a.Kalenderwoche - b.Kalenderwoche;
         });
 
-        for(var i=1; i < data.length; i++){
-            var produkte = [1, ]
-        }
+        var produkte = ["Seife", "Toilettenpapier", "Mehl", "Desinfektionsmittel", "Hefe"];
         
-
-        x.domain(data.map(function(d) { return d.salesperson; }));
-        y.domain([0, d3.max(data, function(d) { return d.cases; })]);
+        x.domain(data.map(function(d) { return produkte; }));
+        y.domain([0, 900]);
 
         svg.append("g")
             .attr("class", "xaxis")
