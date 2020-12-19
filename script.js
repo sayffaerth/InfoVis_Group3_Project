@@ -163,7 +163,8 @@ function visualizeAsLineChart(data) {
             focus.attr("transform", "translate(" + x(d.dateRep) + "," + y(d.cases) + ")");
             focus.select(".tooltip-date").text(dateFormatter2(d.dateRep));
             focus.select(".tooltip-cases").text(formatValue(d.cases));
-            fallTime = dateFormatter(d.dateRep);
+            /** 
+            fallTime = dateFormatter2(d.dateRep);
             var month = fallTime.split("/")[1];
             if(month.charAt(0) == 0) {
                 month = month.substring(1);
@@ -172,7 +173,7 @@ function visualizeAsLineChart(data) {
             } else {
                 showKW(month);
             }
-            console.log(month);
+            console.log(month); */
         }
 
     }
@@ -193,7 +194,7 @@ function visualizeRace(data){
         .append("g")
             .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-    var parseDate = d3.timeParse("%g. KW /%Y"),
+    var parseDate = d3.timeParse("%W. KW /%Y"),
         bisectDate = d3.bisector(function(d) { return d.Kalenderwoche; }).left,
         formatValue = d3.format(","),
         dateFormatter = d3.timeFormat("%Y");
@@ -207,56 +208,52 @@ function visualizeRace(data){
         d.Hefe = +d.Hefe;
     });
 
-    var x = d3.scaleTime()
+    var x = d3.scaleBand()
             .range([0, width]);
 
     var y = d3.scaleLinear()
             .range([height, 0]);
 
-    var xAxis = d3.axisBottom(x)
-        .tickFormat(dateFormatter);
+    var xAxis = d3.axisBottom(x);
 
     var yAxis = d3.axisLeft(y)
         .tickFormat(d3.format(""));
 
         var line = d3.line()
-        .x(function(d) { return x(d.Kalenderwoche); })
-        .y(function(d) { return y(d.cases); });
+        .x(function(d) { return y(d.keys()); })
+        .y(function(d) { return y(d.values()); });
 
-        data.forEach(function(d) {
-            d.Kalenderwoche = parseDate(d.Kalenderwoche);
-            d.cases = +d.cases;
-        });
+    data.sort(function(a, b) {
+        return a.Kalenderwoche - b.Kalenderwoche;
+    });
 
-        data.sort(function(a, b) {
-            return a.Kalenderwoche - b.Kalenderwoche;
-        });
+    var produkte = ["Seife", "Toilettenpapier", "Mehl", "Desinfektionsmittel", "Hefe"];
 
-        var produkte = ["Seife", "Toilettenpapier", "Mehl", "Desinfektionsmittel", "Hefe"];
+    console.log(data)
         
-        x.domain(data.map(function(d) { return produkte; }));
-        y.domain([0, 900]);
+    x.domain(produkte);
+    y.domain([0, 900]);
 
-        svg.append("g")
-            .attr("class", "xaxis")
-            .attr("transform", "translate(0," + height + ")")
-            .call(xAxis);
+    svg.append("g")
+        .attr("class", "xaxis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
 
-        svg.append("g")
-            .attr("class", "yaxis")
-            .call(yAxis)
-            .append("text")
-            .attr("transform", "rotate(-90)")
-            .attr("y", 6)
-            .attr("dy", ".71em")
-            .style("text-anchor", "end")
-            .text("Absatzindex");
+    svg.append("g")
+        .attr("class", "yaxis")
+        .call(yAxis)
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .text("Absatzindex");
 
-        svg.append("path")
-            .datum(data)
-            .attr("fill", "none")
-            .attr("stroke", "#9de0ff")
-            .attr("class", "line")
-            .attr("d", line);
+    svg.append("path")
+        .datum(data)
+        .attr("fill", "none")
+        .attr("stroke", "#9de0ff")
+        .attr("class", "line")
+        .attr("d", line);
 
 }
