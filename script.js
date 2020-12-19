@@ -194,51 +194,45 @@ function visualizeRace(data){
         .append("g")
             .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-    var parseDate = d3.timeParse("%W. KW /%Y"),
+    //Formatierungen für die Zeit
+    var parseDate = d3.timeParse("%W. KW %Y"),
         bisectDate = d3.bisector(function(d) { return d.Kalenderwoche; }).left,
         formatValue = d3.format(","),
         dateFormatter = d3.timeFormat("%Y");
 
+    //Formatiert Kalenderwochen in den Daten
     data.forEach(function(d) {
         d.Kalenderwoche = parseDate(d.Kalenderwoche);
-        d.Seife = +d.Seife;
-        d.Toilettenpapier = +d.Toilettenpapier;
-        d.Mehl = +d.Mehl;
-        d.Desinfektionsmittel = +d.Desinfektionsmittel;
-        d.Hefe = +d.Hefe;
     });
 
+    //Größe Achsen
     var x = d3.scaleBand()
             .range([0, width]);
 
     var y = d3.scaleLinear()
             .range([height, 0]);
 
+    //Position Achse
     var xAxis = d3.axisBottom(x);
+    var yAxis = d3.axisLeft(y);
 
-    var yAxis = d3.axisLeft(y)
-        .tickFormat(d3.format(""));
-
-        var line = d3.line()
-        .x(function(d) { return y(d.keys()); })
-        .y(function(d) { return y(d.values()); });
-
+    //Sortieren
     data.sort(function(a, b) {
         return a.Kalenderwoche - b.Kalenderwoche;
     });
 
+    //Achsenbeschriftung
     var produkte = ["Seife", "Toilettenpapier", "Mehl", "Desinfektionsmittel", "Hefe"];
-
-    console.log(data)
-        
-    x.domain(produkte);
+    x.domain(Object.keys(dataToDraw(data)));
     y.domain([0, 900]);
 
+    //X-Achse
     svg.append("g")
         .attr("class", "xaxis")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis);
 
+    //Y-Achse
     svg.append("g")
         .attr("class", "yaxis")
         .call(yAxis)
@@ -249,11 +243,31 @@ function visualizeRace(data){
         .style("text-anchor", "end")
         .text("Absatzindex");
 
-    svg.append("path")
-        .datum(data)
-        .attr("fill", "none")
-        .attr("stroke", "#9de0ff")
-        .attr("class", "line")
-        .attr("d", line);
+    //Entfernt die Kalenderwochen von den Daten
+    function dataToDraw(data){
+            let returnData = {
+                Seife : parseFloat(data.Seife),
+                Toilettenpapier : parseFloat(data.Toilettenpapier), 
+                Mehl : parseFloat(data.Mehl),
+                Desinfektionsmittel : parseFloat(data.Desinfektionsmittel),
+                Hefe : parseFloat(data.Hefe)
+            }
+            return returnData
+    }
 
+    timeChoose(data[0]);
+
+    function timeChoose(data){
+    
+    console.log(Object.values(dataToDraw(data)));
+
+    svg.selectAll(".bar")
+        .data(dataToDraw(data))
+        .enter().append("rect")
+            .attr("class", "bar")
+            .attr("x", function(d) { return x(Object.keys(dataToDraw(d))); })
+            .attr("y", function(d) { return y(Object.values(dataToDraw(d))); })
+            .attr("width", x.bandwidth())
+            .attr("height", function(d) { return height - y(Object.values(dataToDraw(d))); });
+    }
 }
