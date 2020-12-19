@@ -7,11 +7,11 @@ function traverseData(data){
     visualizeAsLineChart(fallzahlen);
 }
 
-/**Get Data Kaufverhalten
+//Get Data Kaufverhalten
 function salesData(data){
     const racezahlen = data.filter(item => item);
     visualizeRace(racezahlen);
-}; */
+};
 
 // Visualisiere Fallzahlen Funktion
 function visualizeAsLineChart(data) {
@@ -43,11 +43,12 @@ function visualizeAsLineChart(data) {
         .y(function(d) { return y(d.cases); });
 
 
-    var svg = d3.select("body").append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
+    var svg = d3.select("#visFall")
+        .append("svg")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
         .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+            .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
         data.forEach(function(d) {
             d.dateRep = parseDate(d.dateRep);
@@ -103,7 +104,7 @@ function visualizeAsLineChart(data) {
 
         focus.append("rect")
             .attr("class", "tooltip")
-            .attr("width", 100)
+            .attr("width", 106)
             .attr("height", 40)
             .attr("x", 10)
             .attr("y", -15)
@@ -170,45 +171,89 @@ function visualizeAsLineChart(data) {
 
     }
  
+//----------------------------------------------------------------------------------
 
 //Visualisiere das Race
-/**function visualizeRace(data){
+function visualizeRace(data){
+    
     var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 200 - margin.left - margin.right,
-    height = 700 - margin.top - margin.bottom;
+    width = 500 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
-    var svg = d3.select("#visConRace")
+    var svg = d3.select("#visRace")
         .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
         .append("g")
             .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-    var xAxis = d3.scaleLinear()
-        .domain(d3.min(data.Kalenderwoche), d3.max(data.Kalenderwoche))
-        .range([0, width]);
-    svg.append("g")
-        .attr("transform", `translate(0, ${height})`)
-        .call(d3.axisBottom(xAxis));
+    var parseDate = d3.timeParse("%g. KW /%Y"),
+        bisectDate = d3.bisector(function(d) { return d.Kalenderwoche; }).left,
+        formatValue = d3.format(","),
+        dateFormatter = d3.timeFormat("%Y");
 
-    var yAxis =d3.scaleLinear()
-        .domain([0, d3.max(data.Desinfektionsmittel)])
-        .range([height, 0])
-    svg.append("g")
-        .call(d3.axisRight(yAxis)); 
-    
+    data.forEach(function(d) {
+        d.Kalenderwoche = parseDate(d.Kalenderwoche);
+        d.Seife = +d.Seife;
+        d.Toilettenpapier = +d.Toilettenpapier;
+        d.Mehl = +d.Mehl;
+        d.Desinfektionsmittel = +d.Desinfektionsmittel;
+        d.Hefe = +d.Hefe;
+    });
 
-    const anchors = svg
-        .selectAll('.anchor')
-        .data(data)
-        .enter()
-        .append('circle')
-        .attr('class', 'anchor')
-        .attr('fill', 'white')
-        .attr('stroke', 'steelblue')
-        .attr('stroke-width', 1)
-        .attr('r', 2)
-        .attr('cx', ({jahr}) => xAxis(jahr))
-        .attr('cy', ({wert}) => yAxis(wert))
+    var x = d3.scaleTime()
+            .range([0, width]);
+
+    var y = d3.scaleLinear()
+            .range([height, 0]);
+
+    var xAxis = d3.axisBottom(x)
+        .tickFormat(dateFormatter);
+
+    var yAxis = d3.axisLeft(y)
+        .tickFormat(d3.format(""));
+
+        var line = d3.line()
+        .x(function(d) { return x(d.Kalenderwoche); })
+        .y(function(d) { return y(d.cases); });
+
+        data.forEach(function(d) {
+            d.Kalenderwoche = parseDate(d.Kalenderwoche);
+            d.cases = +d.cases;
+        });
+
+        data.sort(function(a, b) {
+            return a.Kalenderwoche - b.Kalenderwoche;
+        });
+
+        for(var i=1; i < data.length; i++){
+            var produkte = [1, ]
+        }
+        
+
+        x.domain(data.map(function(d) { return d.salesperson; }));
+        y.domain([0, d3.max(data, function(d) { return d.cases; })]);
+
+        svg.append("g")
+            .attr("class", "xaxis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);
+
+        svg.append("g")
+            .attr("class", "yaxis")
+            .call(yAxis)
+            .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .text("Absatzindex");
+
+        svg.append("path")
+            .datum(data)
+            .attr("fill", "none")
+            .attr("stroke", "#9de0ff")
+            .attr("class", "line")
+            .attr("d", line);
+
 }
-*/

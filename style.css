@@ -1,4 +1,5 @@
 h2, div, .images{
+
     text-align: center;
     color: white;
 
@@ -17,9 +18,45 @@ body{
     stroke: white;
 }
 
-.dataWrapper{
-    position: absolute;
+svg {
+    position: relative;
     display: block;
+    margin: 0 auto;
+}
+
+#dataWrapper{
+    margin: auto;
+}
+
+#visGer{
+    right: 200px;
+    display: block;
+}
+
+#visRace{
+    height: 500px;
+    width: 500px;
+    position: relative;
+    display: block;
+    margin-top: -520px;
+    margin-left: 50%;
+}
+
+#visFall{
+    height: 170px;
+    width: 700px;
+    position: relative;
+    display: block;
+    margin: auto;
+    padding-left: 80px;
+    padding-top: 20px;
+}
+
+#mapSVG{
+    height: 560px;
+    width: 560px;
+    display: block;
+    margin: auto;
 }
 
 #container {

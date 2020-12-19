@@ -8,7 +8,7 @@
 <body>
     <h2>Die durch die Coronafälle beschlossenen Maßnahmen <br>
          und das daraus resultierende Kaufverhalten in Deutschland.</h2>
-
+    <div id="dataWrapper"></div>
     <div id="mapSVG">
 
     <!-- Load d3.js -->
@@ -16,18 +16,17 @@
     <script src="https://d3js.org/d3-scale.v3.min.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
     <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+    <!--<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>-->
     <!-- Create an element where the map will take place -->
-    <svg id="map_viz" width="800" height="552"></svg>
+    <svg id="visGer" width="560" height="560"></svg>
     <script src="grafik.js"></script>
-    <script src="race.js"></script>
+    <!--<script src="race.js"></script>-->
     </div>
 
     <!--Graphen-->
-    <div id="dataWrapper">
-        <div id="container"></div>
-        <div id="visConRace"></div>
-        <div id="visualizationContainer"></div>
+    
+        <div id="visRace"></div>
+        <div id="visFall"></div>
     </div>
 
     

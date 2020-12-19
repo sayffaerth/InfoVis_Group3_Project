@@ -1,5 +1,5 @@
 //Load the SVG element that shall contain the visualisation
-var svg = d3.select("#map_viz"),
+var svg = d3.select("#visGer"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
 
@@ -9,8 +9,8 @@ var svg = d3.select("#map_viz"),
 
 var path = d3.geoPath();
 var projection = d3.geoMercator()
-    .scale(2000)        // This is like the zoom
-    .center([15,51.2])  // GPS of location to zoom on
+    .scale(2400)        // This is like the zoom
+    .center([11,51.2])  // GPS of location to zoom on
     .translate([width / 2, height / 2]);
 
 // Fetch JSON Data and use it in visualisation as soon as it's done loading
