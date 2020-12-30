@@ -25,6 +25,7 @@ function visualizeAsLineChart(data) {
         formatValue = d3.format(","),
         dateFormatter = d3.timeFormat("%b %y");
         dateFormatter2 = d3.timeFormat("%d/%m/%Y");
+        dateFormatter3 = d3.timeFormat("%m");
 
     var x = d3.scaleTime()
             .range([0, width]);
@@ -163,17 +164,9 @@ function visualizeAsLineChart(data) {
             focus.attr("transform", "translate(" + x(d.dateRep) + "," + y(d.cases) + ")");
             focus.select(".tooltip-date").text(dateFormatter2(d.dateRep));
             focus.select(".tooltip-cases").text(formatValue(d.cases));
-            /** 
-            fallTime = dateFormatter2(d.dateRep);
-            var month = fallTime.split("/")[1];
-            if(month.charAt(0) == 0) {
-                month = month.substring(1);
-                console.log(month);
-                showKW(month);
-            } else {
-                showKW(month);
-            }
-            console.log(month); */
+            
+            var month = dateFormatter3(d.dateRep);
+            console.log(month);
         }
 
     }
@@ -258,16 +251,26 @@ function visualizeRace(data){
     timeChoose(data[0]);
 
     function timeChoose(data){
+
+    var newData = {
+        Seife : parseFloat(data.Seife),
+        Toilettenpapier : parseFloat(data.Toilettenpapier), 
+        Mehl : parseFloat(data.Mehl),
+        Desinfektionsmittel : parseFloat(data.Desinfektionsmittel),
+        Hefe : parseFloat(data.Hefe)
+    }
     
-    console.log(Object.values(dataToDraw(data)));
+    console.log(newData.Seife);
+    console.log(Object.values(newData));
 
     svg.selectAll(".bar")
-        .data(dataToDraw(data))
-        .enter().append("rect")
+        .data(newData)
+        .enter()
+        .append("rect")
             .attr("class", "bar")
-            .attr("x", function(d) { return x(Object.keys(dataToDraw(d))); })
-            .attr("y", function(d) { return y(Object.values(dataToDraw(d))); })
+            .attr("x", function(d) { return x(Object.keys(newData)); })
+            .attr("y", function(d) { return y(Object.values(d)); })
             .attr("width", x.bandwidth())
-            .attr("height", function(d) { return height - y(Object.values(dataToDraw(d))); });
+            .attr("height", function(d) { return height - y(Object.values(d)); });
     }
 }
