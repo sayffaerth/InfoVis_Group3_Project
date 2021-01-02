@@ -1,4 +1,5 @@
-var fallTime;
+var month;
+var week;
 
 // Get Data Fallzahlen
 function traverseData(data){
@@ -23,9 +24,10 @@ function visualizeAsLineChart(data) {
     var parseDate = d3.timeParse("%d/%m/%Y"),
         bisectDate = d3.bisector(function(d) { return d.dateRep; }).left,
         formatValue = d3.format(","),
-        dateFormatter = d3.timeFormat("%b %y");
-        dateFormatter2 = d3.timeFormat("%d/%m/%Y");
-        dateFormatter3 = d3.timeFormat("%m");
+        dateFormatter = d3.timeFormat("%b %y"); // Monthname Jahreszahl
+        dateFormatter2 = d3.timeFormat("%d/%m/%Y"); //Tag/Monat/Jahr
+        dateFormatter3 = d3.timeFormat("%m"); //Month
+        dateFormatter4 = d3.timeFormat("%W"); //Week
 
     var x = d3.scaleTime()
             .range([0, width]);
@@ -165,8 +167,11 @@ function visualizeAsLineChart(data) {
             focus.select(".tooltip-date").text(dateFormatter2(d.dateRep));
             focus.select(".tooltip-cases").text(formatValue(d.cases));
             
-            var month = dateFormatter3(d.dateRep);
-            console.log(month);
+            //Variable für den Monat und die Woche
+            month = dateFormatter3(d.dateRep);
+            week = dateFormatter4(d.dateRep);
+            //console.log(month);
+            //console.log(week);
         }
 
     }
@@ -192,6 +197,7 @@ function visualizeRace(data){
         bisectDate = d3.bisector(function(d) { return d.Kalenderwoche; }).left,
         formatValue = d3.format(","),
         dateFormatter = d3.timeFormat("%Y");
+        dateFormatter2 = d3.timeFormat("%m");
 
     //Formatiert Kalenderwochen in den Daten
     data.forEach(function(d) {
@@ -200,7 +206,7 @@ function visualizeRace(data){
 
     //Größe Achsen
     var x = d3.scaleBand()
-            .range([0, width]);
+            .range([0, width]).padding(0.7);
 
     var y = d3.scaleLinear()
             .range([height, 0]);
@@ -215,7 +221,6 @@ function visualizeRace(data){
     });
 
     //Achsenbeschriftung
-    var produkte = ["Seife", "Toilettenpapier", "Mehl", "Desinfektionsmittel", "Hefe"];
     x.domain(Object.keys(dataToDraw(data)));
     y.domain([0, 900]);
 
@@ -248,19 +253,33 @@ function visualizeRace(data){
             return returnData
     }
 
+    console.log(data.Seife);
+    // for (let i of data) {
+    // if (dateFormatter2(d.Kalenderwoche) == week){
+    // timeChoose(data[i]);}}
     timeChoose(data[0]);
 
     function timeChoose(data){
 
+    /** 
     var newData = {
-        Seife : parseFloat(data.Seife),
-        Toilettenpapier : parseFloat(data.Toilettenpapier), 
-        Mehl : parseFloat(data.Mehl),
-        Desinfektionsmittel : parseFloat(data.Desinfektionsmittel),
-        Hefe : parseFloat(data.Hefe)
-    }
+        "Seife" : parseFloat(data.Seife),
+        "Toilettenpapier" : parseFloat(data.Toilettenpapier), 
+        "Mehl" : parseFloat(data.Mehl),
+        "Desinfektionsmittel" : parseFloat(data.Desinfektionsmittel),
+        "Hefe" : parseFloat(data.Hefe)
+    } */
+
     
-    console.log(newData.Seife);
+    var newData = [
+        {"Product": "Seife", "Count": parseFloat(data.Seife)},
+        {"Product": "Toilettenpapier", Count: parseFloat(data.Toilettenpapier)},
+        {"Product": "Mehl", "Count": parseFloat(data.Mehl)},
+        {"Product": "Desinfektionsmittel", Count: parseFloat(data.Desinfektionsmittel)},
+        {"Product": "Hefe", "Count": parseFloat(data.Hefe)}
+    ]
+    
+    console.log(week);
     console.log(Object.values(newData));
 
     svg.selectAll(".bar")
@@ -268,9 +287,10 @@ function visualizeRace(data){
         .enter()
         .append("rect")
             .attr("class", "bar")
-            .attr("x", function(d) { return x(Object.keys(newData)); })
-            .attr("y", function(d) { return y(Object.values(d)); })
+            .attr("x", function(d) { return x(d.Product); })
+            .attr("y", function(d) { return y(d.Count); })
             .attr("width", x.bandwidth())
-            .attr("height", function(d) { return height - y(Object.values(d)); });
+            .attr("height", function(d) { return height - y(d.Count); })
+            .attr("fill", "#9de0ff");
     }
 }
