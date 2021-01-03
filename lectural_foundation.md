@@ -13,3 +13,26 @@ Human Visual Perception:
     --> Gesetz der Verbundenheit: Graphen entsprechend positionieren, damit der gemeinsame Zeitverlauf erkannt wird
         --> Inhalte die für alle Darstellungen gelten (z.B. Play-Button für Zeitverlauf) entsprechend distanziert zu allen Graphiken platzieren, damit nicht fälschlicherweise eine Verbundenheit nur zu einer Darstellung assoziiert wird
 - SEEV Modell
+    --> Einfache und intuitive Gestaltung/Positionierung
+
+Colors:
+- Angemessenen Kontrast zwischen Vorder- und Hintergrund schaffen
+    --> Dunkelgrauer Hintergrund mit Graphiken aus Rot (Skala), Türkis und Weiß
+- Schwarze oder weiße Ränder um Symbole reduzieren den Kontrast
+    --> Da Hintergrundfarbe dunkelgrau, bietet sich weiß als Randfarbe an
+    --> Weiße Umrandung um Bundesländer in der Deutschlandkarte, um Kontrast zum Hintergrund als auch innerhalb der Karte zu reduzieren und klare Grenzen zu schaffen
+    --> Selbe Anwendung für Produktsymbole im Graphen für "Race" vorteilhaft (je nach Symbolfarbe möglicherweise allerdings nicht notwendig)
+        --> Da Symbole klein sind, soll die Farbe eine hohe Sättigung besitzen
+    --> Keine Anwendung für Graphen der gesmaten Infektionszahlen, da keine Symbole im Graphen enthalten sind
+    --> Generelles Gerüst der Graphen in Weiß, um hohen Kontrast zum Hintergrund zu schaffen
+- Wenig unterschiedliche Farben verwenden
+    --> Weiß, Rot, Türkis
+- Farbskala 
+    --> Für Färbung der einzelnen Bundesländern zur Darstellung der jeweiligen Inzidenz wird eine Farbskala von Dunkel zu Hell (in rot) verwendet
+        --> Inzidenzwerte sind ordinale Daten, weshalb die Helligkeit eine Rangordnung darstellt
+        --> Kontrast zum Hintergrund ist bei jeder Helligkeitsstufe ausreichend
+        --> Darstellungsweise wurde durch Medien schon geprägt
+            --> Mögliche, falsche Interpretation von dem/der Betrachter/in im Falle von einer stark abweichenden Darstellung in einer geographischen Karte
+        --> Rot wird mit "Gefahr" antizipiert, weshalb die Farbe zu der Darstellung eines Virus passt
+
+
