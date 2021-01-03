@@ -1,5 +1,5 @@
-let month;
-let week;
+var month;
+var week;
 
 // Get Data Fallzahlen
 function traverseData(data){
@@ -189,7 +189,7 @@ function visualizeAsLineChart(data){
           timer = setInterval(step, 1);
           button.text("Pause");
         }
-        console.log("Slider moving: " + moving);
+        //console.log("Slider moving: " + moving);
       })
     
     //Play Funktion
@@ -202,7 +202,7 @@ function visualizeAsLineChart(data){
         clearInterval(timer);
         // timer = 0;
         playButton.text("Play");
-        console.log("Slider moving: " + moving);
+        //console.log("Slider moving: " + moving);
       }
     }
 
@@ -247,7 +247,6 @@ function visualizeAsLineChart(data){
 }
  
 //----------------------------------------------------------------------------------
-
 //Visualisiere das Race
 function visualizeRace(data){
     
@@ -311,6 +310,25 @@ function visualizeRace(data){
         .style("text-anchor", "end")
         .text("Absatzindex");
 
+    svg.append("line")
+        .attr("class", "x")
+        .style("stroke", "red")
+        .style("opacity", 0.6)
+        .style("stroke-width", "2px")
+        .attr("y1", 410)
+        .attr("y2", 410)
+        .attr("x1", 0)
+        .attr("x2", 410);
+
+    svg.append("text")  
+        .attr("class", "hunder")
+        .text("Vorjahres Durchschnitt")
+        .attr("transform", "translate("+ (318) + "," + (405) + ")")
+        .attr("font-family", "calibri")
+        .attr("font-size","10px")
+        .style("fill", "red")
+        .style("opacity", 0.8);
+
     //Entfernt die Kalenderwochen von den Daten
     function dataToDraw(data){
             let returnData = {
@@ -323,24 +341,12 @@ function visualizeRace(data){
             return returnData
     }
 
-    
     // for (let i of data) {
     // if (dateFormatter2(d.Kalenderwoche) == week){
     // timeChoose(data[i]);}}
     timeChoose(data[0]);
 
     function timeChoose(data){
-
-    /** 
-    var newData = {
-        "Seife" : parseFloat(data.Seife),
-        "Toilettenpapier" : parseFloat(data.Toilettenpapier), 
-        "Mehl" : parseFloat(data.Mehl),
-        "Desinfektionsmittel" : parseFloat(data.Desinfektionsmittel),
-        "Hefe" : parseFloat(data.Hefe)
-    } */
-
-    console.log(month);
     var newData = [
         {"Product": "Seife", "Count": parseFloat(data.Seife)},
         {"Product": "Toilettenpapier", Count: parseFloat(data.Toilettenpapier)},
@@ -349,8 +355,6 @@ function visualizeRace(data){
         {"Product": "Hefe", "Count": parseFloat(data.Hefe)}
     ]
     
-    console.log(week);
-
     svg.selectAll(".bar")
         .data(newData)
         .enter()
