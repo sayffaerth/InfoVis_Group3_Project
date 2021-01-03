@@ -1,5 +1,5 @@
-var month;
-var week;
+let month;
+let week;
 
 // Get Data Fallzahlen
 function traverseData(data){
@@ -15,166 +15,236 @@ function salesData(data){
 };
 
 // Visualisiere Fallzahlen Funktion
-function visualizeAsLineChart(data) {
-  var margin = { top: 10, right: 120, bottom: 20, left: 50 },
-        width = 1000 - margin.left - margin.right,
-        height = 170 - margin.top - margin.bottom,
-        tooltip = { width: 100, height: 100, x: 10, y: -30 };
+function visualizeAsLineChart(data){
 
     var parseDate = d3.timeParse("%d/%m/%Y"),
-        bisectDate = d3.bisector(function(d) { return d.dateRep; }).left,
-        formatValue = d3.format(","),
-        dateFormatter = d3.timeFormat("%b %y"); // Monthname Jahreszahl
-        dateFormatter2 = d3.timeFormat("%d/%m/%Y"); //Tag/Monat/Jahr
-        dateFormatter3 = d3.timeFormat("%m"); //Month
-        dateFormatter4 = d3.timeFormat("%W"); //Week
-
-    var x = d3.scaleTime()
-            .range([0, width]);
-
-    var y = d3.scaleLinear()
-            .range([height, 0]);
-
-    var xAxis = d3.axisBottom(x)
-        .tickFormat(dateFormatter);
-
-    var yAxis = d3.axisLeft(y)
-        .tickFormat(d3.format(""));
-
+            bisectDate = d3.bisector(function(d) { return d.dateRep; }).left,
+            formatValue = d3.format(","),
+            dateFormatter = d3.timeFormat("%b %y"); // Monthname Jahreszahl
+            dateFormatter2 = d3.timeFormat("%d/%m/%Y"); //Tag/Monat/Jahr
+            dateFormatter3 = d3.timeFormat("%m"); //Month
+            dateFormatter4 = d3.timeFormat("%W"); //Week
+    
+    var margin = { top: 10, right: 120, bottom: 20, left: 50 },
+            width = 1000 - margin.left - margin.right,
+            height = 170 - margin.top - margin.bottom;
+    
     //Zeichnet Funktion
     var line = d3.line()
         .x(function(d) { return x(d.dateRep); })
         .y(function(d) { return y(d.cases); });
-
+    
     //Zeichnet Fläche
     var svg = d3.select("#visFall")
         .append("svg")
             .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
+            .attr("height", height + margin.top + margin.bottom) 
         .append("g")
             .attr("transform", `translate(${margin.left}, ${margin.top})`);
-
-        //Convertiert die Daten
-        data.forEach(function(d) {
-            d.dateRep = parseDate(d.dateRep);
-            d.cases = +d.cases;
-        });
-
-        //Sortiert das Datum
-        data.sort(function(a, b) {
-            return a.dateRep - b.dateRep;
-        });
-
-        //Legt Achsenbeschriftung fest
-        x.domain([data[0].dateRep, parseDate("01/12/2020")]);
-        //x.domain([data[0].dateRep, data[data.length-1].dateRep]);
-        y.domain([0, 24000]);
+    
+    
+    //Convertiert die Daten
+    data.forEach(function(d) {
+        d.dateRep = parseDate(d.dateRep);
+        d.cases = +d.cases;
+    });
+    
+    //Sortiert das Datum
+    data.sort(function(a, b) {
+        return a.dateRep - b.dateRep;
+    });
+    
+    //Default Einstellungen
+    var moving = false;
+    var currentValue = 0;
+    var targetValue = width;
+    
+    var playButton = d3.select("#play-button");
+        
+    //Legt Achsen fest
+    var x = d3.scaleTime()
+        .domain([data[0].dateRep, data[data.length-1].dateRep])
+        .range([0, targetValue])
+        .clamp(true);
+    
+    var y = d3.scaleLinear()
+        .domain([0, 24000])
+        .range([height, 0]);
         //y.domain(d3.extent(data, function(d) { return d.cases; }));
-
-        svg.append("g")
-            .attr("class", "xaxis")
-            .attr("transform", "translate(0," + height + ")")
-            .call(xAxis);
-
-        svg.append("g")
-            .attr("class", "yaxis")
-            .call(yAxis)
-            .append("text")
-            .attr("transform", "rotate(-90)")
-            .attr("y", 6)
-            .attr("dy", ".71em")
-            .style("text-anchor", "end")
-            .text("Fallzahlen");
-
-        svg.append("path")
-            .datum(data)
-            .attr("fill", "none")
-            .attr("stroke", "#9de0ff")
-            .attr("class", "line")
-            .attr("d", line);
-
-        var focus = svg.append("g")
-            .attr("class", "focus")
-            .style("display", "none");
-
-        focus.append("line")
-          .attr("class", "x")
-          .style("stroke", "white")
-          .style("opacity", 0.5)
-          .style("stroke-width", "2px")
-          .attr("y1", -250)
-          .attr("y2", 250);
-
-        focus.append("circle")
-          .attr("class", "y")
-          .style("fill", "none")
-          .style("stroke", "white")
-          .attr("r", 4);
-
-        focus.append("rect")
-            .attr("class", "tooltip")
-            .attr("width", 106)
-            .attr("height", 40)
-            .attr("x", 10)
-            .attr("y", -15)
-            .attr("rx", 4)
-            .attr("ry", 4)
-            .style("fill", "grey")
-            .style("opacity", 0.7)
-            .style("pointer-events", "all");
-
-        focus.append("text")
-            .attr("class", "tooltip-date")
-            .attr("font-family", "calibri")
-            .attr("font-size","14px")
-            .attr("x", 18)
-            .attr("y", 0)
-            .style("fill", "white");
-
-        focus.append("text")
-            .attr("x", 18)
-            .attr("y", 18)
-            .attr("font-family", "calibri")
-            .attr("font-size","14px")
-            .text("Fallzahl:")
-            .style("fill", "white");
-
-        focus.append("text")
-            .attr("class", "tooltip-cases")
-            .attr("font-family", "calibri")
-            .attr("font-size","14px")
-            .attr("x", 70)
-            .attr("y", 18)
-            .style("fill", "white");
-
-        svg.append("rect")
-            .attr("class", "overlay")
-            .attr("width", width)
-            .attr("height", height)
-            .style("fill", "none")
-            .style("pointer-events", "all")
-            .on("mouseover", function() { focus.style("display", null); })
-            .on("mouseout", function() { focus.style("display", "none"); })
-            .on("mousemove", mousemove);
-
-        function mousemove() {
-            var x0 = x.invert(d3.mouse(this)[0]),
-                i = bisectDate(data, x0, 1),
-                d0 = data[i - 1],
-                d1 = data[i],
-                d = x0 - d0.dateRep > d1.dateRep - x0 ? d1 : d0;
-            focus.attr("transform", "translate(" + x(d.dateRep) + "," + y(d.cases) + ")");
-            focus.select(".tooltip-date").text(dateFormatter2(d.dateRep));
-            focus.select(".tooltip-cases").text(formatValue(d.cases));
-            
-            //Variable für den Monat und die Woche
-            month = dateFormatter3(d.dateRep);
-            week = dateFormatter4(d.dateRep);
-            //console.log(month);
-            //console.log(week);
+    
+    var xAxis = d3.axisBottom(x)
+        .tickFormat(dateFormatter);
+    
+    var yAxis = d3.axisLeft(y)
+        .tickFormat(d3.format(""));
+    
+    //Achsen
+    svg.append("g")
+        .attr("class", "xaxis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+    
+    svg.append("g")
+        .attr("class", "yaxis")
+        .call(yAxis)
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .text("Fallzahlen");
+    
+    //Fallzahlenverlauf
+    svg.append("path")
+        .datum(data)
+        .attr("fill", "none")
+        .attr("stroke", "#9de0ff")
+        .attr("class", "line")
+        .attr("d", line);
+    
+    
+    //Slider
+    var slider = svg.append("g")
+        .attr("class", "slider");
+    
+    //Linie an der Slider entlang läuft
+    slider.append("line")
+        .attr("class", "track")
+        .attr("x1", x.range()[0])
+        .attr("x2", x.range()[1])
+        .attr("y1", y.range()[0])
+        .attr("y2", y.range()[0])
+      .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
+        .attr("class", "track-overlay")
+        .call(d3.drag()
+            .on("start.interrupt", function() { slider.interrupt(); })
+            .on("start drag", function() {
+              currentValue = d3.event.x;
+              currentValueY = d3.event.y;
+              update(x.invert(currentValue)); 
+            })
+        );
+    
+    slider.insert("g", ".track-overlay")
+        .attr("class", "ticks")
+        .attr("transform", "translate(0," + 30 + ")");
+    
+    //Line
+    var liner = slider.append("line")
+        .attr("class", "x")
+        .style("stroke", "white")
+        .style("opacity", 0.5)
+        .style("stroke-width", "2px")
+        .attr("y1", -7)
+        .attr("y2", 140);
+    
+    //Focus Kreis
+    var focus = slider.append("circle")
+        .attr("class", "y")
+        .style("fill", "none")
+        .style("stroke", "white")
+        .attr("r", 4)
+        .attr("cy", 140);
+    
+    //Hintergrund Quadrat
+    var quader = slider.append("rect")
+        .attr("class", "tooltip")
+        .attr("width", 75)
+        .attr("height", 30)
+        .attr("transform", "translate("+ (7) + "," + (-7) + ")")
+        .style("fill", "grey")
+        .style("opacity", 0.7)
+        .attr("rx", 4)
+        .attr("ry", 4);
+    
+    //Texte am Slider
+    var label1 = slider.append("text")  
+        .attr("class", "label")
+        .text(dateFormatter2(data[0].dateRep))
+        .attr("transform", "translate("+ (15) + "," + (6) + ")")
+        .attr("font-family", "calibri")
+        .attr("font-size","10px")
+        .style("fill", "white");
+    
+    var label2 = slider.append("text")  
+        .attr("class", "label")
+        .text("Fallzahl:"+ data[0].cases)
+        .attr("transform", "translate("+ (15) + "," + (18) + ")")
+        .attr("font-family", "calibri")
+        .attr("font-size","10px")
+        .style("fill", "white");
+    
+    
+    //Button Funktion
+    playButton
+        .on("click", function() {
+        var button = d3.select(this);
+        if (button.text() == "Pause") {
+          moving = false;
+          clearInterval(timer);
+          // timer = 0;
+          button.text("Play");
+        } else {
+          moving = true;
+          timer = setInterval(step, 1);
+          button.text("Pause");
         }
-
+        console.log("Slider moving: " + moving);
+      })
+    
+    //Play Funktion
+    function step() {
+      update(x.invert(currentValue));
+      currentValue = currentValue + (targetValue/1500);
+      if (currentValue > targetValue) {
+        moving = false;
+        currentValue = 0;
+        clearInterval(timer);
+        // timer = 0;
+        playButton.text("Play");
+        console.log("Slider moving: " + moving);
+      }
     }
+
+    //Formt die Zeit über den Datensatz zu den Cases um
+    function transformCases(){
+        var x0 = x.invert(currentValue),
+            i = bisectDate(data, x0, 1),
+            d0 = data[i - 1],
+            d1 = data[i],
+            d = x0 - d0.dateRep > d1.dateRep - x0 ? d1 : d0;
+        return d;
+    }
+    
+    // Update position and text of label according to slider scale
+    function update(h) {
+        
+        //Mitbewegen der Linie
+        liner.attr("x1", x(h));
+        liner.attr("x2", x(h));
+    
+        //Mitbewegen der Texte
+        label1
+            .attr("x", x(h))
+            .text(dateFormatter2(h));
+        label2
+            .attr("x", x(h))
+            .text("Fallzahl:"+transformCases().cases);
+    
+        //Mitbewegen des Positionskreises
+        focus
+            .attr("cx", x(h))
+            .attr("cy", y(transformCases().cases));
+    
+        quader
+            .attr("x", x(h));
+
+        //Angabe aktueller Monat und Week
+        //TODO: Auslagern für Race und Grafik
+        month = dateFormatter3(h);
+        week = dateFormatter4(h);
+    }
+}
  
 //----------------------------------------------------------------------------------
 
@@ -253,7 +323,7 @@ function visualizeRace(data){
             return returnData
     }
 
-    console.log(data.Seife);
+    
     // for (let i of data) {
     // if (dateFormatter2(d.Kalenderwoche) == week){
     // timeChoose(data[i]);}}
@@ -270,7 +340,7 @@ function visualizeRace(data){
         "Hefe" : parseFloat(data.Hefe)
     } */
 
-    
+    console.log(month);
     var newData = [
         {"Product": "Seife", "Count": parseFloat(data.Seife)},
         {"Product": "Toilettenpapier", Count: parseFloat(data.Toilettenpapier)},
@@ -280,7 +350,6 @@ function visualizeRace(data){
     ]
     
     console.log(week);
-    console.log(Object.values(newData));
 
     svg.selectAll(".bar")
         .data(newData)
