@@ -35,4 +35,12 @@ Colors:
             --> Mögliche, falsche Interpretation von dem/der Betrachter/in im Falle von einer stark abweichenden Darstellung in einer geographischen Karte
         --> Rot wird mit "Gefahr" antizipiert, weshalb die Farbe zu der Darstellung eines Virus passt
 
-
+Channels:
+    --> Farbskala für Inzidenzwerte der Bundesländert hat eine intrinsische Bedeutung: je dunkler, desto höher ist der Inzidenzwert
+        --> weiterer Faktor für die Nutzung der roten Farbskala in der Graphik der Deutschlandkarte
+    --> Inzidenzwerte (relative Infektionen zur Einwohnerzahl) wird für die Deutschlandkarte gewählt und nicht die kompletten Infektionen, um nicht ungewollt einen "lie factor" zu erzeugen
+        --> in Bundesländern mit höheren Einwohnerzahlen sind die Infektionszahlen (wahrscheinlich) höher und würden somit bei der Einfärbung der Bundesländer zu falschen Impressionen führen
+            --> z.B. kann das Saarland deutlich weniger Gesamtinfektionen als Bayern besitzen, jedoch eine höhere Inzidenz haben
+    --> Farbänderung der Bundesländer in intervallen, damit der/die Betrachter/in nicht zu viele Farbkategorien unterscheiden muss
+        --> Fokus auf ?5? unterschiedliche Farbkategorien
+        --> Nebeneffekt: Inzidenzwerte der Bundesländer können leichter (wenn auch nicht akurater) verglichen werden
