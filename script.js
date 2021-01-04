@@ -121,7 +121,6 @@ function visualizeAsLineChart(data){
             .on("start.interrupt", function() { slider.interrupt(); })
             .on("start drag", function() {
               currentValue = d3.event.x;
-              currentValueY = d3.event.y;
               update(x.invert(currentValue)); 
             })
         );
@@ -244,7 +243,7 @@ function visualizeAsLineChart(data){
         //TODO: Auslagern für Race und Grafik
         month = dateFormatter3(h);
         week = dateFormatter4(h);
-
+ 
     }
 }
  
@@ -314,8 +313,8 @@ function visualizeRace(data){
 
     svg.append("line")
         .attr("class", "x")
-        .style("stroke", "red")
-        .style("opacity", 0.6)
+        .style("stroke", "#ef885a")
+        .style("opacity", 1)
         .style("stroke-width", "2px")
         .attr("y1", 410)
         .attr("y2", 410)
@@ -328,8 +327,8 @@ function visualizeRace(data){
         .attr("transform", "translate("+ (318) + "," + (405) + ")")
         .attr("font-family", "calibri")
         .attr("font-size","10px")
-        .style("fill", "red")
-        .style("opacity", 0.8);
+        .style("fill", "#ef885a")
+        .style("opacity", 1);
 
     //Entfernt die Kalenderwochen von den Daten
     function dataToDraw(data){
@@ -367,5 +366,41 @@ function visualizeRace(data){
             .attr("width", x.bandwidth())
             .attr("height", function(d) { return height - y(d.Count); })
             .attr("fill", "#9de0ff");
+    
+    //Bilder
+    var imgSeife = svg.append('image')
+    .attr('href', './Pictures/Verkaufszahlen/Seife_oB.png')
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr("x", 36)
+    .attr("y",  y(110 + newData[0].Count) );
+
+    var imgToi = svg.append('image')
+    .attr('href', './Pictures/Verkaufszahlen/Klopapier.png')
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr("x", 108)
+    .attr("y", y(105 + newData[1].Count) );
+
+    var imgMehl = svg.append('image')
+    .attr('href', './Pictures/Verkaufszahlen/Mehl.png')
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr("x", 180)
+    .attr("y", y(100 + newData[2].Count) );
+    
+    var imgDes = svg.append('image')
+    .attr('href', './Pictures/Verkaufszahlen/Desinfektionsmittel.png')
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr("x", 252)
+    .attr("y", y(105 + newData[3].Count) );
+    
+    var imgHefe = svg.append('image')
+    .attr('href', './Pictures/Verkaufszahlen/Hefe.png')
+    .attr('width', 50)
+    .attr('height', 50)
+    .attr("x", 324)
+    .attr("y",  y(90 + newData[4].Count) );
     }
 }

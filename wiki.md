@@ -8,7 +8,7 @@ Corona-Statistiken per Landkreis in Deutschland https://experience.arcgis.com/ex
 Gemeldete Coronafälle RKI https://npgeo-corona-npgeo-de.hub.arcgis.com/datasets/dd4580c810204019a7b8eb3e0b329dd6_0/data
 7-Tages Inzidenz nach Bundesländern https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Daten/Fallzahlen_Kum_Tab.html;jsessionid=7C875B1345265630C21E865B901E9912.internet121
 Weitere Daten https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/nCoV.html;jsessionid=63D496FE54CA8EE4C296E26799510EFF.internet092
-
+Kaufverhalten Umsatzänderung https://www.destatis.de/DE/Presse/Pressemitteilungen/2020/05/PD20_178_61.html
 
 
 
