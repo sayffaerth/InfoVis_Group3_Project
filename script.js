@@ -396,5 +396,51 @@ d3.json("/Data/absatzindex.json", function(data) {
     .attr('height', 50)
     .attr("x", 324)
     .attr("y",  y(90 + newData[4].Count) );
+    
+
+    //Zahlen über Balken
+    var textSeife = svg.append("text")  
+        .attr("class", "hunder")
+        .text(newData[0].Count.toString()) 
+        .attr("transform", "translate("+ (61-newData[0].Count.toString().length*3) + "," + y(70 + newData[0].Count) + ")")
+        .attr("font-family", "arial")
+        .attr("font-size","11px")
+        .style("fill", "white")
+        .style("text-align", "center");
+
+    var textToi = svg.append("text")  
+        .attr("class", "hunder")
+        .text(newData[1].Count.toString())
+        .attr("transform", "translate("+ (132-newData[1].Count.toString().length*3) + "," + y(95 + newData[1].Count) + ")")
+        .attr("font-family", "arial")
+        .attr("font-size","11px")
+        .style("fill", "white");
+
+    var textMehl = svg.append("text")  
+        .attr("class", "hunder")
+        .text(newData[2].Count.toString())
+        .attr("transform", "translate("+ (205-newData[2].Count.toString().length*3) + "," + y(95 + newData[2].Count) + ")")
+        .attr("font-family", "arial")
+        .attr("font-size","11px")
+        .style("fill", "white");
+
+    var textDes = svg.append("text")  
+        .attr("class", "hunder")
+        .text(newData[3].Count.toString())
+        .attr("transform", "translate("+ (277-newData[3].Count.toString().length*3) + "," + y(103 + newData[3].Count) + ")")
+        .attr("font-family", "arial")
+        .attr("font-size","11px")
+        .style("fill", "white");
+
+    var textHefe = svg.append("text")  
+        .attr("class", "hunder")
+        .text(newData[4].Count.toString())
+        .attr("transform", "translate("+ (348-newData[4].Count.toString().length*3) + "," + y(68 + newData[4].Count) + ")")
+        .attr("font-family", "arial")
+        .attr("font-size","11px")
+        .style("fill", "white");
+
+
     }
+
 });
