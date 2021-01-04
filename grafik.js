@@ -109,7 +109,6 @@ var mousemove = function (d) {
     let cases = d3.select(this).data()[0].properties.cases7_bl_per_100k;
     cases = Math.round(cases);
     let land = d3.select(this).data()[0].properties.LAN_ew_GEN;
-    console.log(land);
     htmlTooltip
         .html(land + "<br> Inzidenzwert: " + cases)
         .style("left",document.getElementById("visGer").getBoundingClientRect().x + (d3.mouse(this)[0]) + 20 + "px")
