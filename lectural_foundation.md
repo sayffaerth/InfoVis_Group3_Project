@@ -35,9 +35,6 @@ Colors:
             --> Mögliche, falsche Interpretation von dem/der Betrachter/in im Falle von einer stark abweichenden Darstellung in einer geographischen Karte
         --> Rot wird mit "Gefahr" antizipiert, weshalb die Farbe zu der Darstellung eines Virus passt
 
-<<<<<<< HEAD
-
-=======
 Channels:
     --> Farbskala für Inzidenzwerte der Bundesländert hat eine intrinsische Bedeutung: je dunkler, desto höher ist der Inzidenzwert
         --> weiterer Faktor für die Nutzung der roten Farbskala in der Graphik der Deutschlandkarte
@@ -47,4 +44,3 @@ Channels:
     --> Farbänderung der Bundesländer in intervallen, damit der/die Betrachter/in nicht zu viele Farbkategorien unterscheiden muss
         --> Fokus auf ?5? unterschiedliche Farbkategorien
         --> Nebeneffekt: Inzidenzwerte der Bundesländer können leichter (wenn auch nicht akurater) verglichen werden
->>>>>>> a88992c6064d12fa5c49153cbd30080ca6b0b59e
