@@ -283,7 +283,7 @@ function visualizeRace(data){
 
     //Position Achse
     var xAxis = d3.axisBottom(x);
-    var yAxis = d3.axisLeft(y);
+    var yAxis = d3.axisLeft(y).tickFormat(d3.format(""));
 
     //Sortieren
     data.sort(function(a, b) {
@@ -292,7 +292,7 @@ function visualizeRace(data){
 
     //Achsenbeschriftung
     x.domain(Object.keys(dataToDraw(data)));
-    y.domain([0, 900]);
+    y.domain([0, 1000]);
 
     //X-Achse
     svg.append("g")
@@ -316,15 +316,15 @@ function visualizeRace(data){
         .style("stroke", "#ef885a")
         .style("opacity", 1)
         .style("stroke-width", "2px")
-        .attr("y1", 410)
-        .attr("y2", 410)
+        .attr("y1", 414.5)
+        .attr("y2", 414.5)
         .attr("x1", 0)
         .attr("x2", 410);
 
     svg.append("text")  
         .attr("class", "hunder")
         .text("Vorjahres Durchschnitt")
-        .attr("transform", "translate("+ (318) + "," + (405) + ")")
+        .attr("transform", "translate("+ (318) + "," + (410) + ")")
         .attr("font-family", "calibri")
         .attr("font-size","10px")
         .style("fill", "#ef885a")
@@ -345,7 +345,7 @@ function visualizeRace(data){
     // for (let i of data) {
     // if (dateFormatter2(d.Kalenderwoche) == week){
     // timeChoose(data[i]);}}
-    timeChoose(data[0]);
+    timeChoose(data[30]);
 
     function timeChoose(data){
     var newData = [
