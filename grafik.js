@@ -81,7 +81,8 @@ var htmlTooltip = d3.select("#mapSVG")
     .append("div")
     .style("opacity", 0)
     .attr("class", "tooltip")
-    .style("background-color", "white")
+    .style("background-color", "#262626")
+    .style("color", "white")
     .style("border", "solid")
     .style("border-width", "2px")
     .style("border-radius", "5px")
@@ -108,6 +109,7 @@ var mousemove = function (d) {
     let cases = d3.select(this).data()[0].properties.cases7_bl_per_100k;
     cases = Math.round(cases);
     let land = d3.select(this).data()[0].properties.LAN_ew_GEN;
+    console.log(land);
     htmlTooltip
         .html(land + "<br> Inzidenzwert: " + cases)
         .style("left",document.getElementById("visGer").getBoundingClientRect().x + (d3.mouse(this)[0]) + 20 + "px")
