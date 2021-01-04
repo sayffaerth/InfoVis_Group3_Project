@@ -41,6 +41,27 @@ Channels:
     --> Inzidenzwerte (relative Infektionen zur Einwohnerzahl) wird für die Deutschlandkarte gewählt und nicht die kompletten Infektionen, um nicht ungewollt einen "lie factor" zu erzeugen
         --> in Bundesländern mit höheren Einwohnerzahlen sind die Infektionszahlen (wahrscheinlich) höher und würden somit bei der Einfärbung der Bundesländer zu falschen Impressionen führen
             --> z.B. kann das Saarland deutlich weniger Gesamtinfektionen als Bayern besitzen, jedoch eine höhere Inzidenz haben
-    --> Farbänderung der Bundesländer in intervallen, damit der/die Betrachter/in nicht zu viele Farbkategorien unterscheiden muss
-        --> Fokus auf ?5? unterschiedliche Farbkategorien
-        --> Nebeneffekt: Inzidenzwerte der Bundesländer können leichter (wenn auch nicht akurater) verglichen werden
+    --> Linare Farbänderung der Bundesländer anstatt häufig genutzer Kategorien nach Intervallen
+        --> "Minimale" und "Maximale" Farbe definiert
+        --> Abwägung zwischen:
+            --> Wenige unterschiedliche Farbkategorien für eine einfachere Unterscheidung (Farbkategorien nach Intervallen)
+            --> Möglichkeit, Inzidenzen der Bundesländer akurater zu vergleichen
+        --> Entscheidung für linare Farbänderung für eine wahrheitsgetreuere Darstellung
+        --> Unterschiedliche Farben bleiben deutlich; zudem kann z.B. zwischen Inzidenzen von 51 und 99 Unterschiede erkannt werden
+
+"Gute" Visualizierung:
+    --> Data-Ink ratio
+        --> Vermeidung von 3D Grafiken
+            --> 3D Grafiken auf 2D Bildschirmen führt oft zu Problemen
+            --> das Nicht-Nutzen von 3D Grafiken veringert die Wahrscheinlichkeit, einen lie-factor > 1 in den Grafiken zu besitzen (3D Grafiken können leichter die Werte "verzerren")
+        --> Für das "Rennen" sind die Produktnamen auf der X-Achse und die Produkticons über den Balken redundant
+            --> Trotzdem haben wir uns für Beides entschieden, da die Icons über den Balken das Prinzip des "Rennen" besser darstellen und der/die Nutzer/in die Icons bei Bedarf mit der Beschriftung besser identifizieren kann
+            --> Bateman: "Mehr kann auch mehr sein" --> Icons auf den Balken macht den Graphen attraktiver, verspielter und lebendiger (Hanrahan)
+    --> Lie-Factor
+        --> keine 3D Grafiken
+        --> Referenzpunkte zeigen
+            --> Deutschlandkarte: Farblegende
+            --> Rennen: 100 % als Referenzlinie zum Vorjahresumsatz
+            --> Infektionszahlen gesamt: 0 Punkt der Infektionen
+    
+
