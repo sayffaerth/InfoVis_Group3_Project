@@ -1,0 +1,522 @@
+[
+  {
+    "Kalenderwoche": "2019/32",
+    "Seife": "96,5",
+    "Toilettenpapier": "97",
+    "Mehl": "71,5",
+    "Desinfektionsmittel": "105,1",
+    "Hefe": "84,3"
+  },
+  {
+    "Kalenderwoche": "2019/33",
+    "Seife": "94,7",
+    "Toilettenpapier": "98,6",
+    "Mehl": "83,8",
+    "Desinfektionsmittel": "100,4",
+    "Hefe": "94,1"
+  },
+  {
+    "Kalenderwoche": "2019/34",
+    "Seife": "114,4",
+    "Toilettenpapier": "89,9",
+    "Mehl": "72,3",
+    "Desinfektionsmittel": "96,1",
+    "Hefe": "90,4"
+  },
+  {
+    "Kalenderwoche": "2019/35",
+    "Seife": "95,1",
+    "Toilettenpapier": "98,7",
+    "Mehl": "75,5",
+    "Desinfektionsmittel": "101,1",
+    "Hefe": "86,9"
+  },
+  {
+    "Kalenderwoche": "2019/36",
+    "Seife": "93,7",
+    "Toilettenpapier": "98,6",
+    "Mehl": "99,9",
+    "Desinfektionsmittel": "126",
+    "Hefe": "95,7"
+  },
+  {
+    "Kalenderwoche": "2019/37",
+    "Seife": "103,7",
+    "Toilettenpapier": "95,9",
+    "Mehl": "79,6",
+    "Desinfektionsmittel": "96",
+    "Hefe": "92,2"
+  },
+  {
+    "Kalenderwoche": "2019/38",
+    "Seife": "82,1",
+    "Toilettenpapier": "94,2",
+    "Mehl": "77,6",
+    "Desinfektionsmittel": "88,2",
+    "Hefe": "86,6"
+  },
+  {
+    "Kalenderwoche": "2019/39",
+    "Seife": "96,8",
+    "Toilettenpapier": "107",
+    "Mehl": "110,2",
+    "Desinfektionsmittel": "93,6",
+    "Hefe": "95,9"
+  },
+  {
+    "Kalenderwoche": "2019/40",
+    "Seife": "108,5",
+    "Toilettenpapier": "101",
+    "Mehl": "96,9",
+    "Desinfektionsmittel": "100,1",
+    "Hefe": "105,8"
+  },
+  {
+    "Kalenderwoche": "2019/41",
+    "Seife": "94",
+    "Toilettenpapier": "91,3",
+    "Mehl": "84,7",
+    "Desinfektionsmittel": "90,1",
+    "Hefe": "90,6"
+  },
+  {
+    "Kalenderwoche": "2019/42",
+    "Seife": "84,7",
+    "Toilettenpapier": "89,9",
+    "Mehl": "83",
+    "Desinfektionsmittel": "91,1",
+    "Hefe": "91,1"
+  },
+  {
+    "Kalenderwoche": "2019/43",
+    "Seife": "83,7",
+    "Toilettenpapier": "89,6",
+    "Mehl": "103,9",
+    "Desinfektionsmittel": "87,2",
+    "Hefe": "91"
+  },
+  {
+    "Kalenderwoche": "2019/44",
+    "Seife": "126,8",
+    "Toilettenpapier": "115,2",
+    "Mehl": "107",
+    "Desinfektionsmittel": "94",
+    "Hefe": "113,3"
+  },
+  {
+    "Kalenderwoche": "2019/45",
+    "Seife": "114,3",
+    "Toilettenpapier": "106,3",
+    "Mehl": "119",
+    "Desinfektionsmittel": "91,4",
+    "Hefe": "105"
+  },
+  {
+    "Kalenderwoche": "2019/46",
+    "Seife": "97,4",
+    "Toilettenpapier": "98,7",
+    "Mehl": "107,8",
+    "Desinfektionsmittel": "88,4",
+    "Hefe": "109,5"
+  },
+  {
+    "Kalenderwoche": "2019/47",
+    "Seife": "93,9",
+    "Toilettenpapier": "93,3",
+    "Mehl": "123,9",
+    "Desinfektionsmittel": "88,2",
+    "Hefe": "108,9"
+  },
+  {
+    "Kalenderwoche": "2019/48",
+    "Seife": "121,2",
+    "Toilettenpapier": "100,6",
+    "Mehl": "161,8",
+    "Desinfektionsmittel": "96,8",
+    "Hefe": "108,6"
+  },
+  {
+    "Kalenderwoche": "2019/49",
+    "Seife": "102,1",
+    "Toilettenpapier": "104,1",
+    "Mehl": "136,5",
+    "Desinfektionsmittel": "93,1",
+    "Hefe": "103,2"
+  },
+  {
+    "Kalenderwoche": "2019/50",
+    "Seife": "102,1",
+    "Toilettenpapier": "102,7",
+    "Mehl": "129",
+    "Desinfektionsmittel": "95,3",
+    "Hefe": "103,5"
+  },
+  {
+    "Kalenderwoche": "2019/51",
+    "Seife": "106,8",
+    "Toilettenpapier": "128,9",
+    "Mehl": "151,9",
+    "Desinfektionsmittel": "114,3",
+    "Hefe": "147,9"
+  },
+  {
+    "Kalenderwoche": "2019/52",
+    "Seife": "89",
+    "Toilettenpapier": "97,1",
+    "Mehl": "92,1",
+    "Desinfektionsmittel": "86",
+    "Hefe": "118,2"
+  },
+  {
+    "Kalenderwoche": "2020/01",
+    "Seife": "88,6",
+    "Toilettenpapier": "116,1",
+    "Mehl": "90,1",
+    "Desinfektionsmittel": "101,1",
+    "Hefe": "127,2"
+  },
+  {
+    "Kalenderwoche": "2020/02",
+    "Seife": "121,2",
+    "Toilettenpapier": "101",
+    "Mehl": "76,7",
+    "Desinfektionsmittel": "96,3",
+    "Hefe": "83,2"
+  },
+  {
+    "Kalenderwoche": "2020/03",
+    "Seife": "81,7",
+    "Toilettenpapier": "89,9",
+    "Mehl": "78,3",
+    "Desinfektionsmittel": "90,3",
+    "Hefe": "85,6"
+  },
+  {
+    "Kalenderwoche": "2020/04",
+    "Seife": "84,3",
+    "Toilettenpapier": "89,5",
+    "Mehl": "99,8",
+    "Desinfektionsmittel": "99,6",
+    "Hefe": "87"
+  },
+  {
+    "Kalenderwoche": "2020/05",
+    "Seife": "122,5",
+    "Toilettenpapier": "104,7",
+    "Mehl": "87,3",
+    "Desinfektionsmittel": "190",
+    "Hefe": "94,3"
+  },
+  {
+    "Kalenderwoche": "2020/06",
+    "Seife": "95,8",
+    "Toilettenpapier": "97,3",
+    "Mehl": "81",
+    "Desinfektionsmittel": "161,4",
+    "Hefe": "88,8"
+  },
+  {
+    "Kalenderwoche": "2020/07",
+    "Seife": "85,7",
+    "Toilettenpapier": "87,6",
+    "Mehl": "82,2",
+    "Desinfektionsmittel": "137",
+    "Hefe": "89,3"
+  },
+  {
+    "Kalenderwoche": "2020/08",
+    "Seife": "86,5",
+    "Toilettenpapier": "98,6",
+    "Mehl": "84,6",
+    "Desinfektionsmittel": "126,6",
+    "Hefe": "100,4"
+  },
+  {
+    "Kalenderwoche": "2020/09",
+    "Seife": "222,4",
+    "Toilettenpapier": "155,9",
+    "Mehl": "250,2",
+    "Desinfektionsmittel": "758,7",
+    "Hefe": "196,5"
+  },
+  {
+    "Kalenderwoche": "2020/10",
+    "Seife": "252,7",
+    "Toilettenpapier": "198,8",
+    "Mehl": "199,3",
+    "Desinfektionsmittel": "850,5",
+    "Hefe": "150,7"
+  },
+  {
+    "Kalenderwoche": "2020/11",
+    "Seife": "335",
+    "Toilettenpapier": "230,7",
+    "Mehl": "292,4",
+    "Desinfektionsmittel": "306,2",
+    "Hefe": "231,7"
+  },
+  {
+    "Kalenderwoche": "2020/12",
+    "Seife": "436,6",
+    "Toilettenpapier": "310,8",
+    "Mehl": "205,3",
+    "Desinfektionsmittel": "50,7",
+    "Hefe": "151,5"
+  },
+  {
+    "Kalenderwoche": "2020/13",
+    "Seife": "232,7",
+    "Toilettenpapier": "145,9",
+    "Mehl": "239,4",
+    "Desinfektionsmittel": "264,7",
+    "Hefe": "63,5"
+  },
+  {
+    "Kalenderwoche": "2020/14",
+    "Seife": "229,5",
+    "Toilettenpapier": "71,1",
+    "Mehl": "157,4",
+    "Desinfektionsmittel": "375,5",
+    "Hefe": "127,7"
+  },
+  {
+    "Kalenderwoche": "2020/15",
+    "Seife": "111,6",
+    "Toilettenpapier": "35,8",
+    "Mehl": "156,4",
+    "Desinfektionsmittel": "163,4",
+    "Hefe": "138,7"
+  },
+  {
+    "Kalenderwoche": "2020/16",
+    "Seife": "109,5",
+    "Toilettenpapier": "35,3",
+    "Mehl": "91,2",
+    "Desinfektionsmittel": "171",
+    "Hefe": "138,7"
+  },
+  {
+    "Kalenderwoche": "2020/17",
+    "Seife": "127",
+    "Toilettenpapier": "92,5",
+    "Mehl": "116",
+    "Desinfektionsmittel": "198,8",
+    "Hefe": "129,6"
+  },
+  {
+    "Kalenderwoche": "2020/18",
+    "Seife": "124,3",
+    "Toilettenpapier": "100,8",
+    "Mehl": "114,2",
+    "Desinfektionsmittel": "73,4",
+    "Hefe": "110,1"
+  },
+  {
+    "Kalenderwoche": "2020/19",
+    "Seife": "125,1",
+    "Toilettenpapier": "80,6",
+    "Mehl": "100",
+    "Desinfektionsmittel": "156,6",
+    "Hefe": "155,1"
+  },
+  {
+    "Kalenderwoche": "2020/20",
+    "Seife": "137,9",
+    "Toilettenpapier": "71,9",
+    "Mehl": "86,2",
+    "Desinfektionsmittel": "252,1",
+    "Hefe": "152,3"
+  },
+  {
+    "Kalenderwoche": "2020/21",
+    "Seife": "118,8",
+    "Toilettenpapier": "71,1",
+    "Mehl": "80,9",
+    "Desinfektionsmittel": "248,2",
+    "Hefe": "118,5"
+  },
+  {
+    "Kalenderwoche": "2020/22",
+    "Seife": "127,6",
+    "Toilettenpapier": "90,6",
+    "Mehl": "86",
+    "Desinfektionsmittel": "187,3",
+    "Hefe": "129,4"
+  },
+  {
+    "Kalenderwoche": "2020/23",
+    "Seife": "111,3",
+    "Toilettenpapier": "81,4",
+    "Mehl": "68,5",
+    "Desinfektionsmittel": "103,6",
+    "Hefe": "110,1"
+  },
+  {
+    "Kalenderwoche": "2020/24",
+    "Seife": "118,9",
+    "Toilettenpapier": "86,8",
+    "Mehl": "68,5",
+    "Desinfektionsmittel": "180,5",
+    "Hefe": "141,5"
+  },
+  {
+    "Kalenderwoche": "2020/25",
+    "Seife": "120,7",
+    "Toilettenpapier": "96,5",
+    "Mehl": "71,5",
+    "Desinfektionsmittel": "194,6",
+    "Hefe": "126,6"
+  },
+  {
+    "Kalenderwoche": "2020/26",
+    "Seife": "115,6",
+    "Toilettenpapier": "87,4",
+    "Mehl": "64,5",
+    "Desinfektionsmittel": "167,8",
+    "Hefe": "89,5"
+  },
+  {
+    "Kalenderwoche": "2020/27",
+    "Seife": "118,6",
+    "Toilettenpapier": "97,6",
+    "Mehl": "73,7",
+    "Desinfektionsmittel": "196,1",
+    "Hefe": "94,8"
+  },
+  {
+    "Kalenderwoche": "2020/28",
+    "Seife": "115,9",
+    "Toilettenpapier": "94,3",
+    "Mehl": "73,7",
+    "Desinfektionsmittel": "172",
+    "Hefe": "95,5"
+  },
+  {
+    "Kalenderwoche": "2020/29",
+    "Seife": "121,6",
+    "Toilettenpapier": "98,2",
+    "Mehl": "71,8",
+    "Desinfektionsmittel": "153,5",
+    "Hefe": "95,1"
+  },
+  {
+    "Kalenderwoche": "2020/30",
+    "Seife": "108,7",
+    "Toilettenpapier": "99,4",
+    "Mehl": "66,5",
+    "Desinfektionsmittel": "136,4",
+    "Hefe": "97,9"
+  },
+  {
+    "Kalenderwoche": "2020/31",
+    "Seife": "120,4",
+    "Toilettenpapier": "109,3",
+    "Mehl": "73,3",
+    "Desinfektionsmittel": "146,4",
+    "Hefe": "109,5"
+  },
+  {
+    "Kalenderwoche": "2020/32",
+    "Seife": "119,8",
+    "Toilettenpapier": "110,3",
+    "Mehl": "66,2",
+    "Desinfektionsmittel": "126,7",
+    "Hefe": "96"
+  },
+  {
+    "Kalenderwoche": "2020/33",
+    "Seife": "144,1",
+    "Toilettenpapier": "102,9",
+    "Mehl": "62,3",
+    "Desinfektionsmittel": "146,5",
+    "Hefe": "96,6"
+  },
+  {
+    "Kalenderwoche": "2020/34",
+    "Seife": "125",
+    "Toilettenpapier": "104,5",
+    "Mehl": "69,5",
+    "Desinfektionsmittel": "142,2",
+    "Hefe": "103,6"
+  },
+  {
+    "Kalenderwoche": "2020/35",
+    "Seife": "118,4",
+    "Toilettenpapier": "107",
+    "Mehl": "82,4",
+    "Desinfektionsmittel": "127,5",
+    "Hefe": "117,7"
+  },
+  {
+    "Kalenderwoche": "2020/36",
+    "Seife": "117,2",
+    "Toilettenpapier": "158,6",
+    "Mehl": "118,4",
+    "Desinfektionsmittel": "108,4",
+    "Hefe": "116,2"
+  },
+  {
+    "Kalenderwoche": "2020/37",
+    "Seife": "124,3",
+    "Toilettenpapier": "92,7",
+    "Mehl": "78",
+    "Desinfektionsmittel": "110,2",
+    "Hefe": "105,9"
+  },
+  {
+    "Kalenderwoche": "2020/38",
+    "Seife": "157,9",
+    "Toilettenpapier": "100,8",
+    "Mehl": "75,1",
+    "Desinfektionsmittel": "114,8",
+    "Hefe": "99"
+  },
+  {
+    "Kalenderwoche": "2020/39",
+    "Seife": "131",
+    "Toilettenpapier": "111,1",
+    "Mehl": "102,2",
+    "Desinfektionsmittel": "133,1",
+    "Hefe": "107,8"
+  },
+  {
+    "Kalenderwoche": "2020/40",
+    "Seife": "113,5",
+    "Toilettenpapier": "96,3",
+    "Mehl": "89,5",
+    "Desinfektionsmittel": "121,3",
+    "Hefe": "107,7"
+  },
+  {
+    "Kalenderwoche": "2020/41",
+    "Seife": "129,6",
+    "Toilettenpapier": "121,4",
+    "Mehl": "99",
+    "Desinfektionsmittel": "152,5",
+    "Hefe": "115,2"
+  },
+  {
+    "Kalenderwoche": "2020/42",
+    "Seife": "162,3",
+    "Toilettenpapier": "189,8",
+    "Mehl": "128,4",
+    "Desinfektionsmittel": "172,5",
+    "Hefe": "134,8"
+  },
+  {
+    "Kalenderwoche": "2020/43",
+    "Seife": "155,5",
+    "Toilettenpapier": "238,9",
+    "Mehl": "163",
+    "Desinfektionsmittel": "193,7",
+    "Hefe": "166,6"
+  },
+  {
+    "Kalenderwoche": "2020/44",
+    "Seife": "151",
+    "Toilettenpapier": "184,2",
+    "Mehl": "200,6",
+    "Desinfektionsmittel": "203,6",
+    "Hefe": "173,7"
+  }
+]

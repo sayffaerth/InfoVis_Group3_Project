@@ -110,8 +110,8 @@ var mousemove = function (d) {
     let land = d3.select(this).data()[0].properties.LAN_ew_GEN;
     htmlTooltip
         .html(land + "<br> Inzidenzwert: " + cases)
-        .style("left",document.getElementById("map_viz").getBoundingClientRect().x + (d3.mouse(this)[0]) + 20 + "px")
-        .style("top", document.getElementById("map_viz").getBoundingClientRect().y + (d3.mouse(this)[1])  + "px")
+        .style("left",document.getElementById("visGer").getBoundingClientRect().x + (d3.mouse(this)[0]) + 20 + "px")
+        .style("top", document.getElementById("visGer").getBoundingClientRect().y + (d3.mouse(this)[1])  + "px")
 };
 
 var mouseleave = function (d) {

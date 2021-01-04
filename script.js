@@ -9,12 +9,6 @@ function traverseData(data){
     visualizeAsLineChart(fallzahlen);
 }
 
-//Get Data Kaufverhalten
-function salesData(data){
-    const racezahlen = data.filter(item => item);
-    visualizeRace(racezahlen);
-};
-
 // Visualisiere Fallzahlen Funktion
 function visualizeAsLineChart(data){
 
@@ -67,7 +61,8 @@ function visualizeAsLineChart(data){
         .domain([data[0].dateRep, data[data.length-1].dateRep])
         .range([0, targetValue])
         .clamp(true);
-    
+        //.domain([data[0].dateRep, data[data.length-1].dateRep])
+
     var y = d3.scaleLinear()
         .domain([0, 24000])
         .range([height, 0]);
@@ -249,7 +244,7 @@ function visualizeAsLineChart(data){
  
 //----------------------------------------------------------------------------------
 //Visualisiere das Race
-function visualizeRace(data){
+d3.json("/Data/absatzindex.json", function(data) {
     
     var margin = {top: 10, right: 30, bottom: 30, left: 60},
     width = 500 - margin.left - margin.right,
@@ -263,11 +258,10 @@ function visualizeRace(data){
             .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
     //Formatierungen für die Zeit
-    var parseDate = d3.timeParse("%W. KW %Y"),
-        bisectDate = d3.bisector(function(d) { return d.Kalenderwoche; }).left,
+    var parseDate = d3.timeParse("%Y/%W"),
+        //bisectDate = d3.bisector(function(d) { return d.Kalenderwoche; }).left,
         formatValue = d3.format(","),
-        dateFormatter = d3.timeFormat("%Y");
-        dateFormatter2 = d3.timeFormat("%m");
+        dateFormatterRace = d3.timeFormat("%m");
 
     //Formatiert Kalenderwochen in den Daten
     data.forEach(function(d) {
@@ -343,9 +337,9 @@ function visualizeRace(data){
     }
 
     // for (let i of data) {
-    // if (dateFormatter2(d.Kalenderwoche) == week){
+    // if (dateFormatterRace(d.Kalenderwoche) == week){
     // timeChoose(data[i]);}}
-    timeChoose(data[30]);
+    timeChoose(data[0]);
 
     function timeChoose(data){
     var newData = [
@@ -403,4 +397,4 @@ function visualizeRace(data){
     .attr("x", 324)
     .attr("y",  y(90 + newData[4].Count) );
     }
-}
+});
