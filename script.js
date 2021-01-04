@@ -1,6 +1,7 @@
 var month;
 var week;
 
+
 // Get Data Fallzahlen
 function traverseData(data){
     const fallzahlen = data.filter(item => item.year == 2020);
@@ -243,6 +244,7 @@ function visualizeAsLineChart(data){
         //TODO: Auslagern für Race und Grafik
         month = dateFormatter3(h);
         week = dateFormatter4(h);
+
     }
 }
  
