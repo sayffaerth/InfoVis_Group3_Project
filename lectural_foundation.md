@@ -64,4 +64,28 @@ Channels:
             --> Rennen: 100 % als Referenzlinie zum Vorjahresumsatz
             --> Infektionszahlen gesamt: 0 Punkt der Infektionen
     
+Task Abstraktion:
+    --> Ausgewählte Graphen geben sofort einen Überblick über die zu zeigenden Daten
+    --> Zoom und Filter-Funktionen sind für die Graphen nicht relevant (möglich aber out-of-scope)
+    --> Details-on-demand für die Bundesländer der Deutschlandkarte
 
+    --> Zeit der Daten
+        --> Für alle dargestellten Daten wird ein Zeitstempel auf Tagesbasis gewählt
+            --> Zeitliche Übereinstimmung der Daten aller Graphen um den Vergleich bzw. Zusammenhang erkennbar zu machen
+        --> Für Graphen der Infektionszahlen gesamt sind die Daten kontinuierlich
+            --> Wahl eines Liniendiagramms für die Darstellung
+        --> Für die Deutschlandkarte sind die Daten diskret
+        --> Für das Rennen können die Daten entweder kontinulierlich oder diskret dargestellt werden
+            --> Wahl eines Balkendiagramms (Liniendiagramm wäre auch möglich um die Entwicklung zu zeigen), da dieses das Prinzip des "Rennens" besser darstellt
+
+Interaktion:
+    --> Zoom
+        --> Möglichkeit, Zoom für Deutschlandkarte anzuwenden z.B. um herauszuzoomen um andere europäische Länder zu betrachten oder reinzuzoomen um einzelne Landkreise zu betrachten (Beispiel Map des RKI-Dashboards: https://experience.arcgis.com/experience/478220a4c454480e823b17327b2bf1d4/page/page_1/)
+        --> Für dieses Projekt sind die Inzidenzwerte anderer Länder bzw. auf Landkreisebene out-of-scope
+            --> Zoom-Funktion hätte keinen Nutzen und wird deshalb auch nicht implementiert
+    --> Zeitslider für individuelle Anzeige Infektions- und Umsatzverlaufs
+        --> Darstellung startet mit aktuellem Tag (um den Erwartungen der User zu entsprechen und Verwirrungen zu vermeiden)
+        --> Play Button um die Zeit vom "ersten Tag" an zu starten und den Verlauf bis "heute" sichtbar zu machen
+        --> Möglichkeit für den/die User/in, die Zeit manuell via Drag auszuwählen
+
+        
