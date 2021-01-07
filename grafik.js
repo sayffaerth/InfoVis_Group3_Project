@@ -44,8 +44,6 @@ function dataLoaded(error, topo) {
     updateMapFillData();
 }
 
-
-
 //Fügt den einzelnen Ländern ihre Namen als class als Identifier hinzu
 //Aktuell hardgecodet für RKI Tagesstand
 function assignIDs(){
@@ -62,6 +60,73 @@ function updateMapFillData(){
         return d3.interpolateReds(valueMap(inzidenz,0,200,0,1));
     }));
 }
+
+//Adding the color legend for the map
+var legendFullHeight = height;
+var legendFullWidth = 70;
+var legendMargin = { top: 20, bottom: 20, left: 5, right: 40 };
+
+//margined measurements
+var legendWidth = legendFullWidth - legendMargin.left - legendMargin.right;
+var legendHeight = legendFullHeight - legendMargin.top - legendMargin.bottom;
+
+var legendSvg = d3.select('#legend-svg')
+    .attr('width', legendFullWidth)
+    .attr('height', legendFullHeight)
+    .append('g')
+    .attr('transform', 'translate(' + legendMargin.left + ',' +
+        legendMargin.top + ')');
+
+var legend = legendSvg.append("defs")
+    .append("svg:linearGradient")
+    .attr("id", "gradient")
+    .attr("x1", "0%")
+    .attr("y1", "100%")
+    .attr("x2", "0%")
+    .attr("y2", "0%")
+    .attr("spreadMethod", "pad");
+
+legend.append("stop")
+    .attr("offset", "0%")
+    .attr("stop-color", d3.interpolateReds(0))
+    .attr("stop-opacity", 1);
+
+legend.append("stop")
+    .attr("offset", "25%")
+    .attr("stop-color", d3.interpolateReds(0.25))
+    .attr("stop-opacity", 1);
+
+legend.append("stop")
+    .attr("offset", "50%")
+    .attr("stop-color", d3.interpolateReds(0.5))
+    .attr("stop-opacity", 1);
+
+legend.append("stop")
+    .attr("offset", "75%")
+    .attr("stop-color", d3.interpolateReds(0.75))
+    .attr("stop-opacity", 1);
+
+legend.append("stop")
+    .attr("offset", "100%")
+    .attr("stop-color", d3.interpolateReds(1))
+    .attr("stop-opacity", 1);
+
+legendSvg.append("rect")
+    .attr("width", legendWidth)
+    .attr("height", legendHeight)
+    .style("fill", "url(#gradient)");
+
+var yRange = d3.scaleLinear()
+    .domain([0, 20])
+    .range([legendHeight, 0]);
+
+var legendAxis = d3.axisRight(yRange)
+    .tickValues(d3.range(0, 21));
+
+legendSvg.append("g")
+    .attr("class", "legend axis")
+    .attr("transform", "translate(" + legendWidth + ", 0)")
+    .call(legendAxis);
 
 
 // %%%%%%%%%%%%%%%%%%%%
