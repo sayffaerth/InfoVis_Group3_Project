@@ -116,7 +116,14 @@ function visualizeAsLineChart(data){
             .on("start.interrupt", function() { slider.interrupt(); })
             .on("start drag", function() {
               currentValue = d3.event.x;
-              update(x.invert(currentValue)); 
+              update(x.invert(currentValue));
+              week = update(x.invert(currentValue), "week");
+              if(checkContainer("raceContainer")) {
+                //replaceContainer("visRace", "visRace");
+                visualizeRace(true, week); 
+              } else {
+                visualizeRace(week); 
+              }
             })
         );
     
@@ -173,7 +180,7 @@ function visualizeAsLineChart(data){
     //Button Funktion
     playButton
         .on("click", function() {
-        var button = d3.select(this);
+        var button = d3.select(this);  
         if (button.text() == "Pause") {
           moving = false;
           clearInterval(timer);
@@ -189,15 +196,19 @@ function visualizeAsLineChart(data){
     
     //Play Funktion
     function step() {
-      update(x.invert(currentValue));
-      currentValue = currentValue + (targetValue/1500);
+      update(x.invert(currentValue), "week");
+      week = update(x.invert(currentValue), "week");
+      if(checkContainer("raceContainer")) {
+        //replaceContainer("visRace", "visRace");
+        visualizeRace(true, week); 
+      }
+      currentValue = currentValue + (targetValue/2000);
       if (currentValue > targetValue) {
         moving = false;
         currentValue = 0;
         clearInterval(timer);
         // timer = 0;
         playButton.text("Play");
-        //console.log("Slider moving: " + moving);
       }
     }
 
@@ -212,7 +223,7 @@ function visualizeAsLineChart(data){
     }
     
     // Update position and text of label according to slider scale
-    function update(h) {
+    function update(h, format) {
         
         //Mitbewegen der Linie
         liner.attr("x1", x(h));
@@ -236,211 +247,347 @@ function visualizeAsLineChart(data){
 
         //Angabe aktueller Monat und Week
         //TODO: Auslagern für Race und Grafik
-        month = dateFormatter3(h);
-        week = dateFormatter4(h);
- 
+        if(format == "month") {
+            month = dateFormatter3(h);
+            if(month[0] == 0) {
+                return month.charAt(1)
+            } else {
+                return dateFormatter3(h);
+            }
+        } else if(format == "week") {
+            week = dateFormatter4(h);
+            if(week[0] == 0) {
+                return week.charAt(1)
+            } else {
+                return dateFormatter4(h);
+            }
+        } else {
+            return null;
+        }
+    }
+
+    function checkContainer(id) {
+        element = document.getElementById(id);
+        if(element != undefined) {
+            elementID = element.id;
+            if (elementID == id) {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    function replaceContainer(newElement , oldElement) {
+        oldOne = document.getElementById(oldElement);
+        if(oldElement != undefined) {
+        newDiv = document.createElement(newElement);
+        oldOne.replaceWith(newDiv);
+        newDiv.setAttribute('id',"visRace");
+        }
     }
 }
  
 //----------------------------------------------------------------------------------
 //Visualisiere das Race
+
+visualizeRace(false, 0);
+
+function visualizeRace(update, week) {
 d3.json("/Data/absatzindex.json", function(data) {
+        
+    if(!update) {
+        console.log(" nicht update");
+
+        var margin = {top: 10, right: 30, bottom: 30, left: 60},
+        width = 500 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+
+        var svg = d3.select("#visRace")
+            .append("svg")
+                .attr("id", "raceContainer")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+                .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+        //Formatierungen für die Zeit
+        var parseDate = d3.timeParse("%Y/%W"),
+            //bisectDate = d3.bisector(function(d) { return d.Kalenderwoche; }).left,
+            formatValue = d3.format(","),
+            dateFormatterRace = d3.timeFormat("%m");
+
+        //Formatiert Kalenderwochen in den Daten
+        data.forEach(function(d) {
+            d.Kalenderwoche = parseDate(d.Kalenderwoche);
+        });
+
+        //Größe Achsen
+        var x = d3.scaleBand()
+                .range([0, width]).padding(0.7);
+
+        var y = d3.scaleLinear()
+                .range([height, 0]);
+
+        //Position Achse
+        var xAxis = d3.axisBottom(x);
+        var yAxis = d3.axisLeft(y).tickFormat(d3.format(""));
+
+        //Sortieren
+        data.sort(function(a, b) {
+            return a.Kalenderwoche - b.Kalenderwoche;
+        });
+
+        //Achsenbeschriftung
+        x.domain(Object.keys(dataToDraw(data)));
+        y.domain([0, 1000]);
+
+        //X-Achse
+        svg.append("g")
+            .attr("class", "xaxis")
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);
+
+        //Y-Achse
+        svg.append("g")
+            .attr("class", "yaxis")
+            .call(yAxis)
+            .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 6)
+            .attr("dy", ".71em")
+            .style("text-anchor", "end")
+            .text("Absatzindex");
+
+        svg.append("line")
+            .attr("class", "x")
+            .style("stroke", "#ef885a")
+            .style("opacity", 1)
+            .style("stroke-width", "2px")
+            .attr("y1", 414.5)
+            .attr("y2", 414.5)
+            .attr("x1", 0)
+            .attr("x2", 410);
+
+        svg.append("text")  
+            .attr("class", "hunder")
+            .text("Vorjahres Durchschnitt")
+            .attr("transform", "translate("+ (318) + "," + (410) + ")")
+            .attr("font-family", "calibri")
+            .attr("font-size","10px")
+            .style("fill", "#ef885a")
+            .style("opacity", 1);
+
+        // for (let i of data) {
+        // if (dateFormatterRace(d.Kalenderwoche) == week){
+        // timeChoose(data[i]);}}
+        timeChoose(data[week]);
+    } else {
+        console.log("update");
+
+        container = d3.select("#raceContainer")
+            .remove();
+        
+            var margin = {top: 10, right: 30, bottom: 30, left: 60},
+            width = 500 - margin.left - margin.right,
+            height = 500 - margin.top - margin.bottom;
     
-    var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 500 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+            var svg = d3.select("#visRace")
+                .append("svg")
+                    .attr("id", "raceContainer")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+    
+            //Formatierungen für die Zeit
+            var parseDate = d3.timeParse("%Y/%W"),
+                //bisectDate = d3.bisector(function(d) { return d.Kalenderwoche; }).left,
+                formatValue = d3.format(","),
+                dateFormatterRace = d3.timeFormat("%m");
+    
+            //Formatiert Kalenderwochen in den Daten
+            data.forEach(function(d) {
+                d.Kalenderwoche = parseDate(d.Kalenderwoche);
+            });
+    
+            //Größe Achsen
+            var x = d3.scaleBand()
+                    .range([0, width]).padding(0.7);
+    
+            var y = d3.scaleLinear()
+                    .range([height, 0]);
+    
+            //Position Achse
+            var xAxis = d3.axisBottom(x);
+            var yAxis = d3.axisLeft(y).tickFormat(d3.format(""));
+    
+            //Sortieren
+            data.sort(function(a, b) {
+                return a.Kalenderwoche - b.Kalenderwoche;
+            });
+    
+            //Achsenbeschriftung
+            x.domain(Object.keys(dataToDraw(data)));
+            y.domain([0, 1000]);
+    
+            //X-Achse
+            svg.append("g")
+                .attr("class", "xaxis")
+                .attr("transform", "translate(0," + height + ")")
+                .call(xAxis);
+    
+            //Y-Achse
+            svg.append("g")
+                .attr("class", "yaxis")
+                .call(yAxis)
+                .append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 6)
+                .attr("dy", ".71em")
+                .style("text-anchor", "end")
+                .text("Absatzindex");
+    
+            svg.append("line")
+                .attr("class", "x")
+                .style("stroke", "#ef885a")
+                .style("opacity", 1)
+                .style("stroke-width", "2px")
+                .attr("y1", 414.5)
+                .attr("y2", 414.5)
+                .attr("x1", 0)
+                .attr("x2", 410);
+    
+            svg.append("text")  
+                .attr("class", "hunder")
+                .text("Vorjahres Durchschnitt")
+                .attr("transform", "translate("+ (318) + "," + (410) + ")")
+                .attr("font-family", "calibri")
+                .attr("font-size","10px")
+                .style("fill", "#ef885a")
+                .style("opacity", 1);
 
-    var svg = d3.select("#visRace")
-        .append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-            .attr("transform", `translate(${margin.left}, ${margin.top})`);
+        timeChoose(data[week])
+    }
 
-    //Formatierungen für die Zeit
-    var parseDate = d3.timeParse("%Y/%W"),
-        //bisectDate = d3.bisector(function(d) { return d.Kalenderwoche; }).left,
-        formatValue = d3.format(","),
-        dateFormatterRace = d3.timeFormat("%m");
+    function timeChoose(data){
 
-    //Formatiert Kalenderwochen in den Daten
-    data.forEach(function(d) {
-        d.Kalenderwoche = parseDate(d.Kalenderwoche);
-    });
+        var newData = [
+            {"Product": "Seife", "Count": parseFloat(data.Seife)},
+            {"Product": "Toilettenpapier", "Count": parseFloat(data.Toilettenpapier)},
+            {"Product": "Mehl", "Count": parseFloat(data.Mehl)},
+            {"Product": "Desinfektionsmittel", "Count": parseFloat(data.Desinfektionsmittel)},
+            {"Product": "Hefe", "Count": parseFloat(data.Hefe)}
+        ]
+    
+        bars = svg.selectAll(".bar")
+            .data(newData)
 
-    //Größe Achsen
-    var x = d3.scaleBand()
-            .range([0, width]).padding(0.7);
+        bars.enter()
+            .append("rect")
+                .attr("class", "bar")
+                .attr("x", function(d) { return x(d.Product); })
+                .attr("y", function(d) { return y(d.Count); })
+                .attr("height", function(d) { return height - y(d.Count); })
+                .attr("width", x.bandwidth())
+                .attr("fill", "#9de0ff");
+                //.transition()
+                //.duration(100)
+                //.delay(function(d,i){ return i*50})
+                //.attr("y", function(d) { return y(d.Count); })
+                //.attr("height", function(d) { return height - y(d.Count); })
+        
+        //Bilder
+        var imgSeife = svg.append('image')
+        .attr('href', './Pictures/Verkaufszahlen/Seife_oB.png')
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr("x", 36)
+        .attr("y",  y(110 + newData[0].Count) );
 
-    var y = d3.scaleLinear()
-            .range([height, 0]);
+        var imgToi = svg.append('image')
+        .attr('href', './Pictures/Verkaufszahlen/Klopapier.png')
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr("x", 108)
+        .attr("y", y(105 + newData[1].Count) );
 
-    //Position Achse
-    var xAxis = d3.axisBottom(x);
-    var yAxis = d3.axisLeft(y).tickFormat(d3.format(""));
+        var imgMehl = svg.append('image')
+        .attr('href', './Pictures/Verkaufszahlen/Mehl.png')
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr("x", 180)
+        .attr("y", y(100 + newData[2].Count) );
+        
+        var imgDes = svg.append('image')
+        .attr('href', './Pictures/Verkaufszahlen/Desinfektionsmittel.png')
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr("x", 252)
+        .attr("y", y(105 + newData[3].Count) );
+        
+        var imgHefe = svg.append('image')
+        .attr('href', './Pictures/Verkaufszahlen/Hefe.png')
+        .attr('width', 50)
+        .attr('height', 50)
+        .attr("x", 324)
+        .attr("y",  y(90 + newData[4].Count) );
+    
 
-    //Sortieren
-    data.sort(function(a, b) {
-        return a.Kalenderwoche - b.Kalenderwoche;
-    });
+        //Zahlen über Balken
+        var textSeife = svg.append("text")  
+            .attr("class", "hunder")
+            .text(newData[0].Count.toString()) 
+            .attr("transform", "translate("+ (61-newData[0].Count.toString().length*3) + "," + y(70 + newData[0].Count) + ")")
+            .attr("font-family", "arial")
+            .attr("font-size","11px")
+            .style("fill", "white")
+            .style("text-align", "center");
 
-    //Achsenbeschriftung
-    x.domain(Object.keys(dataToDraw(data)));
-    y.domain([0, 1000]);
+        var textToi = svg.append("text")  
+            .attr("class", "hunder")
+            .text(newData[1].Count.toString())
+            .attr("transform", "translate("+ (132-newData[1].Count.toString().length*3) + "," + y(95 + newData[1].Count) + ")")
+            .attr("font-family", "arial")
+            .attr("font-size","11px")
+            .style("fill", "white");
 
-    //X-Achse
-    svg.append("g")
-        .attr("class", "xaxis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
+        var textMehl = svg.append("text")  
+            .attr("class", "hunder")
+            .text(newData[2].Count.toString())
+            .attr("transform", "translate("+ (205-newData[2].Count.toString().length*3) + "," + y(95 + newData[2].Count) + ")")
+            .attr("font-family", "arial")
+            .attr("font-size","11px")
+            .style("fill", "white");
 
-    //Y-Achse
-    svg.append("g")
-        .attr("class", "yaxis")
-        .call(yAxis)
-        .append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("text-anchor", "end")
-        .text("Absatzindex");
+        var textDes = svg.append("text")  
+            .attr("class", "hunder")
+            .text(newData[3].Count.toString())
+            .attr("transform", "translate("+ (277-newData[3].Count.toString().length*3) + "," + y(103 + newData[3].Count) + ")")
+            .attr("font-family", "arial")
+            .attr("font-size","11px")
+            .style("fill", "white");
 
-    svg.append("line")
-        .attr("class", "x")
-        .style("stroke", "#ef885a")
-        .style("opacity", 1)
-        .style("stroke-width", "2px")
-        .attr("y1", 414.5)
-        .attr("y2", 414.5)
-        .attr("x1", 0)
-        .attr("x2", 410);
-
-    svg.append("text")  
-        .attr("class", "hunder")
-        .text("Vorjahres Durchschnitt")
-        .attr("transform", "translate("+ (318) + "," + (410) + ")")
-        .attr("font-family", "calibri")
-        .attr("font-size","10px")
-        .style("fill", "#ef885a")
-        .style("opacity", 1);
+        var textHefe = svg.append("text")  
+            .attr("class", "hunder")
+            .text(newData[4].Count.toString())
+            .attr("transform", "translate("+ (348-newData[4].Count.toString().length*3) + "," + y(68 + newData[4].Count) + ")")
+            .attr("font-family", "arial")
+            .attr("font-size","11px")
+            .style("fill", "white");
+    }
 
     //Entfernt die Kalenderwochen von den Daten
     function dataToDraw(data){
-            let returnData = {
-                Seife : parseFloat(data.Seife),
-                Toilettenpapier : parseFloat(data.Toilettenpapier), 
-                Mehl : parseFloat(data.Mehl),
-                Desinfektionsmittel : parseFloat(data.Desinfektionsmittel),
-                Hefe : parseFloat(data.Hefe)
-            }
-            return returnData
-    }
-
-    // for (let i of data) {
-    // if (dateFormatterRace(d.Kalenderwoche) == week){
-    // timeChoose(data[i]);}}
-    timeChoose(data[0]);
-
-    function timeChoose(data){
-    var newData = [
-        {"Product": "Seife", "Count": parseFloat(data.Seife)},
-        {"Product": "Toilettenpapier", Count: parseFloat(data.Toilettenpapier)},
-        {"Product": "Mehl", "Count": parseFloat(data.Mehl)},
-        {"Product": "Desinfektionsmittel", Count: parseFloat(data.Desinfektionsmittel)},
-        {"Product": "Hefe", "Count": parseFloat(data.Hefe)}
-    ]
-    
-    svg.selectAll(".bar")
-        .data(newData)
-        .enter()
-        .append("rect")
-            .attr("class", "bar")
-            .attr("x", function(d) { return x(d.Product); })
-            .attr("y", function(d) { return y(d.Count); })
-            .attr("width", x.bandwidth())
-            .attr("height", function(d) { return height - y(d.Count); })
-            .attr("fill", "#9de0ff");
-    
-    //Bilder
-    var imgSeife = svg.append('image')
-    .attr('href', './Pictures/Verkaufszahlen/Seife_oB.png')
-    .attr('width', 50)
-    .attr('height', 50)
-    .attr("x", 36)
-    .attr("y",  y(110 + newData[0].Count) );
-
-    var imgToi = svg.append('image')
-    .attr('href', './Pictures/Verkaufszahlen/Klopapier.png')
-    .attr('width', 50)
-    .attr('height', 50)
-    .attr("x", 108)
-    .attr("y", y(105 + newData[1].Count) );
-
-    var imgMehl = svg.append('image')
-    .attr('href', './Pictures/Verkaufszahlen/Mehl.png')
-    .attr('width', 50)
-    .attr('height', 50)
-    .attr("x", 180)
-    .attr("y", y(100 + newData[2].Count) );
-    
-    var imgDes = svg.append('image')
-    .attr('href', './Pictures/Verkaufszahlen/Desinfektionsmittel.png')
-    .attr('width', 50)
-    .attr('height', 50)
-    .attr("x", 252)
-    .attr("y", y(105 + newData[3].Count) );
-    
-    var imgHefe = svg.append('image')
-    .attr('href', './Pictures/Verkaufszahlen/Hefe.png')
-    .attr('width', 50)
-    .attr('height', 50)
-    .attr("x", 324)
-    .attr("y",  y(90 + newData[4].Count) );
-    
-
-    //Zahlen über Balken
-    var textSeife = svg.append("text")  
-        .attr("class", "hunder")
-        .text(newData[0].Count.toString()) 
-        .attr("transform", "translate("+ (61-newData[0].Count.toString().length*3) + "," + y(70 + newData[0].Count) + ")")
-        .attr("font-family", "arial")
-        .attr("font-size","11px")
-        .style("fill", "white")
-        .style("text-align", "center");
-
-    var textToi = svg.append("text")  
-        .attr("class", "hunder")
-        .text(newData[1].Count.toString())
-        .attr("transform", "translate("+ (132-newData[1].Count.toString().length*3) + "," + y(95 + newData[1].Count) + ")")
-        .attr("font-family", "arial")
-        .attr("font-size","11px")
-        .style("fill", "white");
-
-    var textMehl = svg.append("text")  
-        .attr("class", "hunder")
-        .text(newData[2].Count.toString())
-        .attr("transform", "translate("+ (205-newData[2].Count.toString().length*3) + "," + y(95 + newData[2].Count) + ")")
-        .attr("font-family", "arial")
-        .attr("font-size","11px")
-        .style("fill", "white");
-
-    var textDes = svg.append("text")  
-        .attr("class", "hunder")
-        .text(newData[3].Count.toString())
-        .attr("transform", "translate("+ (277-newData[3].Count.toString().length*3) + "," + y(103 + newData[3].Count) + ")")
-        .attr("font-family", "arial")
-        .attr("font-size","11px")
-        .style("fill", "white");
-
-    var textHefe = svg.append("text")  
-        .attr("class", "hunder")
-        .text(newData[4].Count.toString())
-        .attr("transform", "translate("+ (348-newData[4].Count.toString().length*3) + "," + y(68 + newData[4].Count) + ")")
-        .attr("font-family", "arial")
-        .attr("font-size","11px")
-        .style("fill", "white");
-
-
+        let returnData = {
+            Seife : parseFloat(data.Seife),
+            Toilettenpapier : parseFloat(data.Toilettenpapier), 
+            Mehl : parseFloat(data.Mehl),
+            Desinfektionsmittel : parseFloat(data.Desinfektionsmittel),
+            Hefe : parseFloat(data.Hefe)
+        }
+        return returnData
     }
 
 });
+}
