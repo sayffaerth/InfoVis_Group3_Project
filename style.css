@@ -1,6 +1,6 @@
 h2, div, .images{
     text-align: center;
-
+    color: white;
 }
 
 h4 {
@@ -8,9 +8,53 @@ h4 {
     color: gray;
 }
 
-.dataWrapper{
-    position: absolute;
+body{
+    background-color: #262626;
+}
+
+.xaxis line, .yaxis line, .xaxis path, .yaxis path, .xaxis text, .yaxis text{
+    stroke: white;
+}
+
+svg {
+    position: relative;
     display: block;
+    margin: 0 auto;
+}
+
+#dataWrapper{
+    margin: auto;
+}
+
+#visGer{
+    right: 200px;
+    display: block;
+}
+
+#visRace{
+    height: 500px;
+    width: 500px;
+    position: relative;
+    display: block;
+    margin-top: -520px;
+    margin-left: 50%;
+}
+
+#visFall{
+    height: 170px;
+    width: 700px;
+    position: relative;
+    display: block;
+    margin: auto;
+    padding-right: 120px;
+    padding-top: 20px;
+}
+
+#mapSVG{
+    height: 560px;
+    width: 560px;
+    display: block;
+    margin: auto;
 }
 
 #container {
@@ -20,3 +64,40 @@ h4 {
     margin: 0;
     padding: 0;
 }
+
+
+/* Playbutton und seine Funktion */
+#play-button {
+    position: relative;
+    top: 187px;
+    left: -440px;
+    background: #f08080;
+    padding-right: 0px;
+    border-radius: 3px;
+    border: none;
+    color: white;
+    margin: 0;
+    padding: 0 12px;
+    width: 60px;
+    cursor: pointer;
+    height: 30px;
+}
+
+#play-button:hover {
+    background-color: #696969;
+}    
+  
+.ticks {
+    font-size: 10px;
+}
+
+.track-overlay {
+    pointer-events: stroke;
+    stroke-width: 500px;
+    stroke: transparent;
+    cursor: crosshair;
+}
+
+.track {
+    stroke-opacity: 0;
+  }
