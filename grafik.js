@@ -127,11 +127,12 @@ legendSvg.append("rect")
     .style("fill", "url(#gradient)");
 
 var yRange = d3.scaleLinear()
-    .domain([0, 20])
+    .domain([0, 200])
     .range([legendHeight, 0]);
 
 var legendAxis = d3.axisRight(yRange)
-    .tickValues(d3.range(0, 21));
+    .tickValues(d3.range(0, 201, 20));
+
 
 legendSvg.append("g")
     .attr("class", "axisWhite")
