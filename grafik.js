@@ -73,8 +73,8 @@ function updateMapFillData() {
 
 //Adding the color legend for the map
 var legendFullHeight = height;
-var legendFullWidth = 70;
-var legendMargin = { top: 20, bottom: 20, left: 5, right: 40 };
+var legendFullWidth = 60;
+var legendMargin = { top: 20, bottom: 20, left: 5, right: 30 };
 
 //margined measurements
 var legendWidth = legendFullWidth - legendMargin.left - legendMargin.right;
@@ -134,7 +134,7 @@ var legendAxis = d3.axisRight(yRange)
     .tickValues(d3.range(0, 21));
 
 legendSvg.append("g")
-    .attr("class", "legend axis")
+    .attr("class", "axisWhite")
     .attr("transform", "translate(" + legendWidth + ", 0)")
     .call(legendAxis);
 
