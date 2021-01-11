@@ -72,8 +72,8 @@ function updateMapFillData() {
 }
 
 //Adding the color legend for the map
-var legendFullHeight = height;
-var legendFullWidth = 60;
+var legendFullHeight = height*0.6;
+var legendFullWidth = 50;
 var legendMargin = { top: 20, bottom: 20, left: 5, right: 30 };
 
 //margined measurements
