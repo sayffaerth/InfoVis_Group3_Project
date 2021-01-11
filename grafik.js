@@ -3,6 +3,7 @@ var svg = d3.select("#visGer"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
 
+var mapParentSVG =d3.select("#mapParentSVG");
 // %%%%%%%%%%%%%%%%%%%%
 // % Map & projection %
 // %%%%%%%%%%%%%%%%%%%%
@@ -138,6 +139,15 @@ legendSvg.append("g")
     .attr("class", "axisWhite")
     .attr("transform", "translate(" + legendWidth + ", 0)")
     .call(legendAxis);
+
+mapParentSVG.append("text")
+    .attr("x", 0)
+    .attr("y", 0)
+    .attr("dy", legendFullHeight)
+    .style("fill","whiteSmoke")
+    .style("font-size", "12px")
+    .text("Inzidenzwert");
+
 
 
 // %%%%%%%%%%%%%%%%%%%%
