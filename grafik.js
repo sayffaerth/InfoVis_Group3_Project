@@ -151,6 +151,8 @@ mapParentSVG.append("text")
 
 
 
+console.log("Current date is: "+currentDate);
+
 // %%%%%%%%%%%%%%%%%%%%
 // % Tooltip          %
 // %%%%%%%%%%%%%%%%%%%%

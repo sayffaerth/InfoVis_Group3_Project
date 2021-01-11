@@ -1,5 +1,6 @@
 var month;
 var week;
+var currentDate = "01/01/2020";
 
 
 // Get Data Fallzahlen
@@ -244,6 +245,8 @@ function visualizeAsLineChart(data){
     
         quader
             .attr("x", x(h));
+
+        currentDate = dateFormatter2(h);
 
         //Angabe aktueller Monat und Week
         //TODO: Auslagern für Race und Grafik
@@ -588,6 +591,5 @@ d3.json("./Data/absatzindex.json", function(data) {
         }
         return returnData
     }
-
 });
 }
