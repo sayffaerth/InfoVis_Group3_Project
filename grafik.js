@@ -185,9 +185,20 @@ var htmlTooltip = d3.select("#mapSVG")
 // %%%%%%%%%%%%%%%%%%%%
 // % Helper functions %
 // %%%%%%%%%%%%%%%%%%%%
-
+//helper variable to check if the day of the date actually changed.
+var tempDate;
+//Gets called whenever the var currentDate.val gets changed
 function dateUpdated(){
+    if(currentDate.val == tempDate){
+        //The day of the date hasn't actually changed so we can return now.
+        return;
+    }
+    tempDate = currentDate.val;
+
+    //---------- Insert functionality below ----------//
     console.log("The date "+currentDate.val+" has been selected.");
+
+    
 }
 
 function doSomethingWithTheCovidMeasuresAndRules(d) {
