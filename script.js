@@ -446,7 +446,7 @@ d3.json("./Data/absatzindex.json", function(data) {
                 .attr("y", 6)
                 .attr("dy", ".71em")
                 .style("text-anchor", "end")
-                .text("Absatzindex");
+                .text("Absatzindex pro KW");
     
             svg.append("line")
                 .attr("class", "x")
