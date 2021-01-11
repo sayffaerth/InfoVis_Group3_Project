@@ -172,7 +172,7 @@ mapParentSVG.append("text")
 var htmlTooltip = d3.select("#mapSVG")
     .append("div")
     .style("opacity", 0)
-    .attr("class", "tooltip")
+    .attr("class", "MapTooltip")
     .style("background-color", "#262626")
     .style("color", "white")
     .style("border", "solid")
@@ -196,13 +196,12 @@ function dateUpdated(){
     tempDate = currentDate.val;
 
     //---------- Insert functionality below ----------//
-    console.log("The date "+currentDate.val+" has been selected.");
+    d3.select(".MapTooltip").html(land + " am " + currentDate.val + ": <br> Inzidenz: " + cases);
 
-    
 }
 
 function doSomethingWithTheCovidMeasuresAndRules(d) {
-    console.log(d)
+    console.log(d);
 }
 
 var mouseover = function (d) {
@@ -213,12 +212,14 @@ var mouseover = function (d) {
         .style("opacity", 1)
 };
 
+var land;
+var cases;
+
 var mousemove = function (d) {
-    let cases = d3.select(this).data()[0].properties.cases7_bl_per_100k;
-    cases = Math.round(cases);
-    let land = d3.select(this).data()[0].properties.LAN_ew_GEN;
+    cases = Math.round(d3.select(this).data()[0].properties.cases7_bl_per_100k);
+    land = d3.select(this).data()[0].properties.LAN_ew_GEN;
     htmlTooltip
-        .html(land + "<br> Inzidenzwert: " + cases)
+        .html(land + " am " + currentDate.val + ": <br> Inzidenz: " + cases)
         .style("left",document.getElementById("dataWrapper").getBoundingClientRect().x + (d3.mouse(this)[0]) + 20 + "px")
         .style("top", document.getElementById("dataWrapper").getBoundingClientRect().y + (d3.mouse(this)[1]) - 80 + "px")
 };
