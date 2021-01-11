@@ -202,7 +202,7 @@ function visualizeAsLineChart(data){
         //replaceContainer("visRace", "visRace");
         visualizeRace(true, week); 
       }
-      currentValue = currentValue + (targetValue/2000);
+      currentValue = currentValue + (targetValue/5000);
       if (currentValue > targetValue) {
         moving = false;
         currentValue = 0;
@@ -357,7 +357,7 @@ d3.json("./Data/absatzindex.json", function(data) {
             .attr("y", 6)
             .attr("dy", ".71em")
             .style("text-anchor", "end")
-            .text("Absatzindex");
+            .text("Absatzindex pro KW");
 
         svg.append("line")
             .attr("class", "x")
