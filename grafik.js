@@ -4,6 +4,20 @@ var svg = d3.select("#visGer"),
     height = +svg.attr("height");
 
 var mapParentSVG =d3.select("#mapParentSVG");
+
+//Variable with Getter and Setter that notify an dateUpdated() function when changed, so the map can be adjusted
+var currentDate = {
+    value: "",
+    get val() {
+        return this.value;
+    },
+    set val(value) {
+        this.value = value;
+        dateUpdated();
+    }
+}
+
+currentDate.val = "01/01/2020"
 // %%%%%%%%%%%%%%%%%%%%
 // % Map & projection %
 // %%%%%%%%%%%%%%%%%%%%
@@ -149,10 +163,6 @@ mapParentSVG.append("text")
     .text("Inzidenzwert")
     .attr("font-family", "arial");
 
-
-
-console.log("Current date is: "+currentDate);
-
 // %%%%%%%%%%%%%%%%%%%%
 // % Tooltip          %
 // %%%%%%%%%%%%%%%%%%%%
@@ -175,6 +185,11 @@ var htmlTooltip = d3.select("#mapSVG")
 // %%%%%%%%%%%%%%%%%%%%
 // % Helper functions %
 // %%%%%%%%%%%%%%%%%%%%
+
+function dateUpdated(){
+    console.log("The date "+currentDate.val+" has been selected.");
+}
+
 function doSomethingWithTheCovidMeasuresAndRules(d) {
     console.log(d)
 }
