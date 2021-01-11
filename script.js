@@ -294,7 +294,7 @@ function visualizeAsLineChart(data){
 visualizeRace(false, 0);
 
 function visualizeRace(update, week) {
-d3.json("/Data/absatzindex.json", function(data) {
+d3.json("./Data/absatzindex.json", function(data) {
         
     if(!update) {
         console.log(" nicht update");
