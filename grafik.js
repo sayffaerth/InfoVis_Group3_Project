@@ -141,12 +141,13 @@ legendSvg.append("g")
     .call(legendAxis);
 
 mapParentSVG.append("text")
-    .attr("x", 0)
-    .attr("y", 0)
+    .attr("x", 4)
+    .attr("y", -5)
     .attr("dy", legendFullHeight)
     .style("fill","whiteSmoke")
-    .style("font-size", "12px")
-    .text("Inzidenzwert");
+    .style("font-size", "9px")
+    .text("Inzidenzwert")
+    .attr("font-family", "arial");
 
 
 

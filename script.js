@@ -300,7 +300,7 @@ d3.json("/Data/absatzindex.json", function(data) {
         console.log(" nicht update");
 
         var margin = {top: 10, right: 30, bottom: 30, left: 60},
-        width = 500 - margin.left - margin.right,
+        width = 480 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
         var svg = d3.select("#visRace")
@@ -367,14 +367,14 @@ d3.json("/Data/absatzindex.json", function(data) {
             .attr("y1", 414.5)
             .attr("y2", 414.5)
             .attr("x1", 0)
-            .attr("x2", 410);
+            .attr("x2", 393);
 
         svg.append("text")  
             .attr("class", "hunder")
-            .text("Vorjahres Durchschnitt")
-            .attr("transform", "translate("+ (318) + "," + (410) + ")")
+            .text("Vorjahres Ø")
+            .attr("transform", "translate("+ (350) + "," + (411) + ")")
             .attr("font-family", "calibri")
-            .attr("font-size","10px")
+            .attr("font-size","9px")
             .style("fill", "#ef885a")
             .style("opacity", 1);
 
@@ -389,7 +389,7 @@ d3.json("/Data/absatzindex.json", function(data) {
             .remove();
         
             var margin = {top: 10, right: 30, bottom: 30, left: 60},
-            width = 500 - margin.left - margin.right,
+            width = 480 - margin.left - margin.right,
             height = 500 - margin.top - margin.bottom;
     
             var svg = d3.select("#visRace")
@@ -456,14 +456,14 @@ d3.json("/Data/absatzindex.json", function(data) {
                 .attr("y1", 414.5)
                 .attr("y2", 414.5)
                 .attr("x1", 0)
-                .attr("x2", 410);
+                .attr("x2", 393);
     
             svg.append("text")  
                 .attr("class", "hunder")
-                .text("Vorjahres Durchschnitt")
-                .attr("transform", "translate("+ (318) + "," + (410) + ")")
+                .text("Vorjahres Ø")
+                .attr("transform", "translate("+ (350) + "," + (411) + ")")
                 .attr("font-family", "calibri")
-                .attr("font-size","10px")
+                .attr("font-size","9px")
                 .style("fill", "#ef885a")
                 .style("opacity", 1);
 
@@ -502,35 +502,35 @@ d3.json("/Data/absatzindex.json", function(data) {
         .attr('href', './Pictures/Verkaufszahlen/Seife_oB.png')
         .attr('width', 50)
         .attr('height', 50)
-        .attr("x", 36)
+        .attr("x", 33)
         .attr("y",  y(110 + newData[0].Count) );
 
         var imgToi = svg.append('image')
         .attr('href', './Pictures/Verkaufszahlen/Klopapier.png')
         .attr('width', 50)
         .attr('height', 50)
-        .attr("x", 108)
+        .attr("x", 104)
         .attr("y", y(105 + newData[1].Count) );
 
         var imgMehl = svg.append('image')
         .attr('href', './Pictures/Verkaufszahlen/Mehl.png')
         .attr('width', 50)
         .attr('height', 50)
-        .attr("x", 180)
+        .attr("x", 170)
         .attr("y", y(100 + newData[2].Count) );
         
         var imgDes = svg.append('image')
         .attr('href', './Pictures/Verkaufszahlen/Desinfektionsmittel.png')
         .attr('width', 50)
         .attr('height', 50)
-        .attr("x", 252)
+        .attr("x", 239)
         .attr("y", y(105 + newData[3].Count) );
         
         var imgHefe = svg.append('image')
         .attr('href', './Pictures/Verkaufszahlen/Hefe.png')
         .attr('width', 50)
         .attr('height', 50)
-        .attr("x", 324)
+        .attr("x", 307)
         .attr("y",  y(90 + newData[4].Count) );
     
 
@@ -538,7 +538,7 @@ d3.json("/Data/absatzindex.json", function(data) {
         var textSeife = svg.append("text")  
             .attr("class", "hunder")
             .text(newData[0].Count.toString()) 
-            .attr("transform", "translate("+ (61-newData[0].Count.toString().length*3) + "," + y(70 + newData[0].Count) + ")")
+            .attr("transform", "translate("+ (58-newData[0].Count.toString().length*3) + "," + y(70 + newData[0].Count) + ")")
             .attr("font-family", "arial")
             .attr("font-size","11px")
             .style("fill", "white")
@@ -547,7 +547,7 @@ d3.json("/Data/absatzindex.json", function(data) {
         var textToi = svg.append("text")  
             .attr("class", "hunder")
             .text(newData[1].Count.toString())
-            .attr("transform", "translate("+ (132-newData[1].Count.toString().length*3) + "," + y(95 + newData[1].Count) + ")")
+            .attr("transform", "translate("+ (127-newData[1].Count.toString().length*3) + "," + y(95 + newData[1].Count) + ")")
             .attr("font-family", "arial")
             .attr("font-size","11px")
             .style("fill", "white");
@@ -555,7 +555,7 @@ d3.json("/Data/absatzindex.json", function(data) {
         var textMehl = svg.append("text")  
             .attr("class", "hunder")
             .text(newData[2].Count.toString())
-            .attr("transform", "translate("+ (205-newData[2].Count.toString().length*3) + "," + y(95 + newData[2].Count) + ")")
+            .attr("transform", "translate("+ (195-newData[2].Count.toString().length*3) + "," + y(95 + newData[2].Count) + ")")
             .attr("font-family", "arial")
             .attr("font-size","11px")
             .style("fill", "white");
@@ -563,7 +563,7 @@ d3.json("/Data/absatzindex.json", function(data) {
         var textDes = svg.append("text")  
             .attr("class", "hunder")
             .text(newData[3].Count.toString())
-            .attr("transform", "translate("+ (277-newData[3].Count.toString().length*3) + "," + y(103 + newData[3].Count) + ")")
+            .attr("transform", "translate("+ (264-newData[3].Count.toString().length*3) + "," + y(103 + newData[3].Count) + ")")
             .attr("font-family", "arial")
             .attr("font-size","11px")
             .style("fill", "white");
@@ -571,7 +571,7 @@ d3.json("/Data/absatzindex.json", function(data) {
         var textHefe = svg.append("text")  
             .attr("class", "hunder")
             .text(newData[4].Count.toString())
-            .attr("transform", "translate("+ (348-newData[4].Count.toString().length*3) + "," + y(68 + newData[4].Count) + ")")
+            .attr("transform", "translate("+ (332-newData[4].Count.toString().length*3) + "," + y(68 + newData[4].Count) + ")")
             .attr("font-family", "arial")
             .attr("font-size","11px")
             .style("fill", "white");

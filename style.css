@@ -37,7 +37,7 @@ svg {
     position: relative;
     display: block;
     margin-top: -520px;
-    margin-left: 50%;
+    margin-left: 51%;
 }
 
 #visFall{
@@ -53,8 +53,10 @@ svg {
 #mapSVG{
     height: 560px;
     width: 560px;
+    position: relative;
     display: block;
     margin: auto;
+    padding-right: 310px;
 }
 
 #container {
@@ -105,12 +107,8 @@ svg {
 
 
 
-/* CSS aus html*/
-.axisWhite line{
-    stroke: whiteSmoke;
-}
-
-.axisWhite path{
+/* Karte Fallzahlstrahl*/
+.axisWhite line, .axisWhite path{
     stroke: whiteSmoke;
 }
 
