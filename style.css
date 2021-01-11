@@ -101,3 +101,19 @@ svg {
 .track {
     stroke-opacity: 0;
   }
+
+
+
+
+/* CSS aus html*/
+.axisWhite line{
+    stroke: whiteSmoke;
+}
+
+.axisWhite path{
+    stroke: whiteSmoke;
+}
+
+.axisWhite text{
+    fill: whiteSmoke;
+}
