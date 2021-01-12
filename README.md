@@ -20,6 +20,6 @@
 
 # Optional Components
 
-- Ein Play-Button und ein Zeitslider (inkl. Datumsanzeige) oberhalb aller Darstellungen für eine intuitivere Interaktionskomponente
+- Ein Play-Button (und ein Zeitslider (inkl. Datumsanzeige)) oberhalb aller Darstellungen für eine intuitivere Interaktionskomponente
 - Anzeige der aktuellen Maßnahmen der Bundesländer im jeweiligen Tooltip
 
