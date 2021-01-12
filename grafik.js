@@ -3,21 +3,28 @@ var svg = d3.select("#visGer"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
 
-var mapParentSVG =d3.select("#mapParentSVG");
+var mapParentSVG = d3.select("#mapParentSVG");
 
 //Variable with Getter and Setter that notify an dateUpdated() function when changed, so the map can be adjusted
 var currentDate = {
-    value: "",
+    value: "01/01/2020",
+    value2: "2020-01-01",
     get val() {
         return this.value;
     },
     set val(value) {
         this.value = value;
+    },
+    get val2() {
+        return this.value2;
+    },
+    set val2(value) {
+        this.value2 = value;
+        //Muss hier sein (oder in beiden Settern) sonst unerwünschtes Verhalten beim rum klicken in dem Fallzahlengraph
         dateUpdated();
     }
 }
 
-currentDate.val = "01/01/2020"
 // %%%%%%%%%%%%%%%%%%%%
 // % Map & projection %
 // %%%%%%%%%%%%%%%%%%%%
@@ -25,7 +32,7 @@ currentDate.val = "01/01/2020"
 var path = d3.geoPath();
 var projection = d3.geoMercator()
     .scale(2400)        // This is like the zoom
-    .center([11,51.2])  // GPS of location to zoom on
+    .center([11, 51.2])  // GPS of location to zoom on
     .translate([width / 2, height / 2]);
 
 // Fetch JSON Data and use it in visualisation as soon as it's done loading
@@ -68,7 +75,6 @@ function dataLoaded(topo) {
 
 }
 
-
 //Fügt den einzelnen Ländern ihre Namen als class als Identifier hinzu
 //Aktuell hardgecodet für RKI Tagesstand
 function assignIDs() {
@@ -78,7 +84,6 @@ function assignIDs() {
     })
 }
 
-
 function updateMapFillData() {
     d3.select(".map").selectAll("path").attr("fill", (function () {
         var inzidenz = d3.select(this).data()[0].properties.cases7_bl_per_100k;
@@ -87,9 +92,9 @@ function updateMapFillData() {
 }
 
 //Adding the color legend for the map
-var legendFullHeight = height*0.6;
+var legendFullHeight = height * 0.6;
 var legendFullWidth = 50;
-var legendMargin = { top: 20, bottom: 20, left: 5, right: 30 };
+var legendMargin = {top: 20, bottom: 20, left: 5, right: 30};
 
 //margined measurements
 var legendWidth = legendFullWidth - legendMargin.left - legendMargin.right;
@@ -158,7 +163,7 @@ mapParentSVG.append("text")
     .attr("x", 4)
     .attr("y", -5)
     .attr("dy", legendFullHeight)
-    .style("fill","whiteSmoke")
+    .style("fill", "whiteSmoke")
     .style("font-size", "9px")
     .text("Inzidenzwert")
     .attr("font-family", "arial");
@@ -181,30 +186,123 @@ var htmlTooltip = d3.select("#mapSVG")
     .style("padding", "5px")
     .style("position", "absolute");
 
-
 // %%%%%%%%%%%%%%%%%%%%
 // % Helper functions %
 // %%%%%%%%%%%%%%%%%%%%
 //helper variable to check if the day of the date actually changed.
 var tempDate;
+
 //Gets called whenever the var currentDate.val gets changed
-function dateUpdated(){
-    if(currentDate.val == tempDate){
+function dateUpdated() {
+    if (currentDate.val === tempDate) {
         //The day of the date hasn't actually changed so we can return now.
         return;
     }
     tempDate = currentDate.val;
 
     //---------- Insert functionality below ----------//
-    d3.select(".MapTooltip").html(land + " am " + currentDate.val + ": <br> Inzidenz: " + cases);
+    d3.select(".map").selectAll("path").each(function () {
+        loadCovidRulesIntoMap(CovidMeasuresAndRules, d3.select(this));
+    })
+    if (tooltipRequired)
+        updateTooltipInfo();
 
+    d3.select(".MapTooltip")
+        .html(buildTooltipText());
 }
 
+var CovidMeasuresAndRules;
+
 function doSomethingWithTheCovidMeasuresAndRules(d) {
-    console.log(d);
+    CovidMeasuresAndRules = d;
+}
+
+function loadCovidRulesIntoMap(d, selection) {
+    let tmpLand;
+    let date = currentDate.val2;
+    // if(date vor dem 08. März 2020 ) then date = 08.März 2020
+    for (let i = 0; i < 16; i++) {
+        tmpLand = selection.data()[0].properties.LAN_ew_GEN;
+        for (let j = 0; j < d.length; j++) {
+            if (tmpLand === d[j].state) {
+                selection.attr(d[j].Measure, d[j][date]);
+            }
+        }
+    }
+}
+
+var tooltipRequired = false;
+var selection;
+var land;
+var cases;
+
+//Alle möglichen Maßnahmen
+var leavehome;
+var dist;
+var msk = null;
+var shppng;
+var hcut;
+var ess_shps;
+var zoo;
+var demo;
+var school;
+var church;
+var onefriend;
+var morefriends;
+var plygrnd;
+var daycare;
+
+function updateTooltipInfo() {
+    cases = Math.round(selection.data()[0].properties.cases7_bl_per_100k);
+    land = selection.data()[0].properties.LAN_ew_GEN;
+    leavehome = selection.attr("leavehome");
+    dist = selection.attr("dist");
+    msk = selection.attr("msk");
+    shppng = selection.attr("shppng");
+    hcut = selection.attr("hcut");
+    ess_shps = selection.attr("ess_shps");
+    zoo = selection.attr("zoo");
+    demo = selection.attr("demo");
+    school = selection.attr("school");
+    church = selection.attr("church");
+    onefriend = selection.attr("onefriend");
+    morefriends = selection.attr("morefriends");
+    plygrnd = selection.attr("plygrnd");
+    daycare = selection.attr("daycare");
+}
+
+function buildTooltipText(){
+    if(!!msk) {
+        return (
+            land + " am " + currentDate.val +
+            ": <br> Inzidenz: " + cases +
+            "<br> Zuhause bleiben: " + leavehome +
+            "<br> Abstandsregelung: " + dist +
+            "<br> Maskenpflicht: " + msk +
+            "<br> Läden geschlossen: " + shppng +
+            "<br> Friseure geschlossen: " + hcut +
+            "<br> Essentielle Läden: " + ess_shps +
+            "<br> Zoo geschlossen: " + zoo +
+            "<br> Demos verboten: " + demo +
+            "<br> Schulen geschlossen: " + school +
+            "<br> Kirchen geschlossen: " + church +
+            "<br> Treff mit einer Person verboten: " + onefriend +
+            "<br> Treff mit mehreren Person verboten: " + morefriends +
+            "<br> Spielplätze gesperrt: " + plygrnd +
+            "<br> Kinderbetreuung geschlossen: " + daycare
+        );
+    } else {
+        return (
+            land + " am " + currentDate.val +
+            ": <br> Inzidenz: " + cases +
+            "<br> Keine Daten zu Maßnahmen"
+        );
+    }
 }
 
 var mouseover = function (d) {
+    tooltipRequired = true;
+    selection = d3.select(this);
     htmlTooltip
         .style("opacity", 1);
     d3.select(this)
@@ -212,15 +310,13 @@ var mouseover = function (d) {
         .style("opacity", 1)
 };
 
-var land;
-var cases;
-
 var mousemove = function (d) {
-    cases = Math.round(d3.select(this).data()[0].properties.cases7_bl_per_100k);
-    land = d3.select(this).data()[0].properties.LAN_ew_GEN;
+    selection = d3.select(this);
+    updateTooltipInfo();
+
     htmlTooltip
-        .html(land + " am " + currentDate.val + ": <br> Inzidenz: " + cases)
-        .style("left",document.getElementById("dataWrapper").getBoundingClientRect().x + (d3.mouse(this)[0]) + 20 + "px")
+        .html(buildTooltipText())
+        .style("left", document.getElementById("dataWrapper").getBoundingClientRect().x + (d3.mouse(this)[0]) + 20 + "px")
         .style("top", document.getElementById("dataWrapper").getBoundingClientRect().y + (d3.mouse(this)[1]) - 80 + "px")
 };
 
