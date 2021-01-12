@@ -68,7 +68,7 @@ function dataLoaded(topo) {
         )
         // basecolor = 50% gray to see the countries even when no data is available
         .attr("fill", "#808080")
-        .style("stroke", "#fff")
+        .style("stroke", "black")
         .on("mouseover", mouseover)
         .on("mousemove", mousemove)
         .on("mouseleave", mouseleave);
@@ -210,6 +210,13 @@ var htmlTooltip = d3.select("#mapSVG")
     .append("div")
     .style("opacity", 0)
     .attr("class", "MapTooltip")
+    .style("text-align", "center")
+    //TODO make tooltip unselectable
+    // .style("-webkit-user-select", "none")
+    // .style("-moz-user-select", "none")
+    // .style("-khtml-user-select", "none")
+    // .style("-ms-user-select", "none")
+    // .style("user-select", "none")
     .style("background-color", "#262626")
     .style("color", "white")
     .style("border", "solid")
@@ -297,60 +304,213 @@ var land;
 var cases;
 
 //Alle möglichen Maßnahmen
-var leavehome;
-var dist;
-var msk = null;
-var shppng;
-var hcut;
-var ess_shps;
-var zoo;
-var demo;
-var school;
-var church;
-var onefriend;
-var morefriends;
-var plygrnd;
-var daycare;
+
+var rulesAndMeasures = {
+    leavehome: "",
+    dist: "",
+    msk: "",
+    shppng: "",
+    hcut: "",
+    ess_shps: "",
+    zoo: "",
+    demo: "",
+    school: "",
+    church: "",
+    onefriend: "",
+    morefriends: "",
+    plygrnd: "",
+    daycare: ""
+}
+
+function* iterate_object(o) {
+    var keys = Object.keys(o);
+    for (var i = 0; i < keys.length; i++) {
+        yield [keys[i], o[keys[i]]];
+    }
+}
 
 function updateTooltipInfo() {
     land = selection.data()[0].properties.LAN_ew_GEN;
     cases = Math.round(getInzidenzForBL(land));
-    leavehome = selection.attr("leavehome");
-    dist = selection.attr("dist");
-    msk = selection.attr("msk");
-    shppng = selection.attr("shppng");
-    hcut = selection.attr("hcut");
-    ess_shps = selection.attr("ess_shps");
-    zoo = selection.attr("zoo");
-    demo = selection.attr("demo");
-    school = selection.attr("school");
-    church = selection.attr("church");
-    onefriend = selection.attr("onefriend");
-    morefriends = selection.attr("morefriends");
-    plygrnd = selection.attr("plygrnd");
-    daycare = selection.attr("daycare");
+
+    for (let [key, value] of iterate_object(rulesAndMeasures)) {
+        rulesAndMeasures[key] = selection.attr("" + key);
+    }
+
+    // rulesAndMeasures.leavehome = selection.attr("leavehome");
+    // rulesAndMeasures.dist = selection.attr("dist");
+    // rulesAndMeasures.msk = selection.attr("msk");
+    // rulesAndMeasures.shppng = selection.attr("shppng");
+    // rulesAndMeasures.hcut = selection.attr("hcut");
+    // rulesAndMeasures.ess_shps = selection.attr("ess_shps");
+    // rulesAndMeasures.zoo = selection.attr("zoo");
+    // rulesAndMeasures.demo = selection.attr("demo");
+    // rulesAndMeasures.school = selection.attr("school");
+    // rulesAndMeasures.church = selection.attr("church");
+    // rulesAndMeasures.onefriend = selection.attr("onefriend");
+    // rulesAndMeasures.morefriends = selection.attr("morefriends");
+    // rulesAndMeasures.plygrnd = selection.attr("plygrnd");
+    // rulesAndMeasures.daycare = selection.attr("daycare");
 }
 
-function buildTooltipText(){
-    if(!!msk) {
-        return (
-            land + " am " + currentDate.val +
-            ": <br> Inzidenz: " + cases +
-            "<br> Zuhause bleiben: " + leavehome +
-            "<br> Abstandsregelung: " + dist +
-            "<br> Maskenpflicht: " + msk +
-            "<br> Läden geschlossen: " + shppng +
-            "<br> Friseure geschlossen: " + hcut +
-            "<br> Essentielle Läden: " + ess_shps +
-            "<br> Zoo geschlossen: " + zoo +
-            "<br> Demos verboten: " + demo +
-            "<br> Schulen geschlossen: " + school +
-            "<br> Kirchen geschlossen: " + church +
-            "<br> Treff mit einer Person verboten: " + onefriend +
-            "<br> Treff mit mehreren Person verboten: " + morefriends +
-            "<br> Spielplätze gesperrt: " + plygrnd +
-            "<br> Kinderbetreuung geschlossen: " + daycare
-        );
+function buildTooltipText() {
+    let string = land + " am " + currentDate.val + ": <br> Inzidenz: " + cases;
+    if (!!rulesAndMeasures.msk) {
+        for (let [key, value] of iterate_object(rulesAndMeasures)) {
+            if (value !== "0") {
+                let strenge = "";
+                switch (key) {
+                    case "leavehome":
+                        if(rulesAndMeasures.leavehome === "1") {
+                            strenge = "teilweise ";
+                        }
+                        else{
+                            strenge = "strenge ";
+                        }
+
+                        string += (
+                            '<br> <img src="./Pictures/Maßnahmen/Stayhome.png\" alt="Zuhause bleiben" width="20" height="20">' +
+                            strenge + "Ausgangsbeschränkung: ");
+                        break;
+                    case "dist":
+                        string += ("<br> Abstandsregel");
+                        break;
+                    case "msk":
+                        if(rulesAndMeasures.msk === "1") {
+                            strenge = "teilweise ";
+                        }
+                        else {
+                            strenge = "strenge ";
+                        }
+                        string += (
+                            '<br> <img src="./Pictures/Maßnahmen/Masken.png\" alt="Maskenpflicht" width="20" height="20">' +
+                            strenge + "Maskenpflicht"
+                        );
+                        break;
+                    case "shppng":
+                        if(rulesAndMeasures.shppng === "1") {
+                            strenge = "teilweise ";
+                        }
+                        else {
+                            strenge = "strenge ";
+                        }
+                        string += (
+                            "<br> " + strenge + "Ladeneinschränkungen"
+                        );
+                        break;
+                    case "hcut":
+                        if(rulesAndMeasures.hcut === "1") {
+                            strenge = "teilweise ";
+                        }
+                        else {
+                            strenge = "strenge ";
+                        }
+                        string += (
+                            "<br>" + strenge + "Friseure geschlossen"
+                        );
+                        break;
+                    case "ess_shps":
+                        if(rulesAndMeasures.ess_shps === "1") {
+                            strenge = "teilweise ";
+                        }
+                        else {
+                            strenge = "strenge ";
+                        }
+                        string += (
+                            "<br>" + strenge + "Alles ausser Supermärkte zu"
+                        );
+                        break;
+                    case "zoo":
+                        if(rulesAndMeasures.zoo === "1") {
+                            strenge = "teilweise ";
+                        }
+                        else {
+                            strenge = "strenge ";
+                        }
+                        string += (
+                            "<br>" + strenge + "Zoos geschlossen"
+                        );
+                        break;
+
+                    case "demo":
+                        if(rulesAndMeasures.demo === "1") {
+                            strenge = "teilweise ";
+                        }
+                        else {
+                            strenge = "strenge ";
+                        }
+                        string += (
+                            "<br>" + strenge + "Demoverbot"
+                        )
+                        break;
+                    case "school":
+                        if(rulesAndMeasures.school === "1") {
+                            strenge = "teilweise ";
+                        }
+                        else {
+                            strenge = "strenge ";
+                        }
+                        string += (
+                            '<br> <img src="./Pictures/Maßnahmen/Schulen.png\" alt="Schulen geschlossen" width="20" height="20">'+
+                            strenge + "Schulen geschlossen"
+                        )
+                        break;
+                    case "church":
+                        if(rulesAndMeasures.church === "1") {
+                            strenge = "teilweise ";
+                        }
+                        else {
+                            strenge = "strenge ";
+                        }
+                        string += (
+                            "<br>" + strenge + "Kirchen geschlossen"
+                        )
+                        break;
+                    case "onefriend":
+                        string += (
+                            "<br> Treff mit einer oder mehr Personen verboten"
+                        )
+                        break;
+                    case "morefriends":
+                        if(rulesAndMeasures.morefriends === "1") {
+                            strenge = "teilweise ";
+                        }
+                        else {
+                            strenge = "strenge ";
+                        }
+                        string += (
+                            "<br>" + strenge + "Kontaktbeschränkung"
+                        )
+                        break;
+                    case "plygrnd":
+                        if(rulesAndMeasures.plygrnd === "1") {
+                            strenge = "teilweise ";
+                        }
+                        else {
+                            strenge = "strenge ";
+                        }
+                        string += (
+                            "<br>" + strenge + "Spielplatzsperrung"
+                        )
+                        break;
+                    case "daycare":
+                        if(rulesAndMeasures.daycare === "1") {
+                            strenge = "teilweise ";
+                        }
+                        else {
+                            strenge = "strenge ";
+                        }
+                        string += (
+                            '<br> <img src="./Pictures/Maßnahmen/Daycare.png\" alt="Kinderbetreuung geschlossen" width="20" height="20">' +
+                            strenge + "Kinderbetreuung geschlossen"
+                        )
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        return string;
     } else {
         return (
             land + " am " + currentDate.val +
@@ -366,7 +526,7 @@ var mouseover = function (d) {
     htmlTooltip
         .style("opacity", 1);
     d3.select(this)
-        .style("stroke", "black")
+        .style("stroke", "#6ad3ff")
         .style("opacity", 1)
 };
 
@@ -378,13 +538,14 @@ var mousemove = function (d) {
         .html(buildTooltipText())
         .style("left", document.getElementById("dataWrapper").getBoundingClientRect().x + (d3.mouse(this)[0]) + 20 + "px")
         .style("top", document.getElementById("dataWrapper").getBoundingClientRect().y + (d3.mouse(this)[1]) - 80 + "px")
+
 };
 
 var mouseleave = function (d) {
     htmlTooltip
         .style("opacity", 0);
     d3.select(this)
-        .style("stroke", "white")
+        .style("stroke", "black")
 };
 
 const valueMap = (value, x1, y1, x2, y2) => (value - x1) * (y2 - x2) / (y1 - x1) + x2;
