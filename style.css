@@ -38,6 +38,7 @@ svg {
     display: block;
     margin-top: -520px;
     margin-left: 51%;
+    z-index: -1;
 }
 
 #visFall{
