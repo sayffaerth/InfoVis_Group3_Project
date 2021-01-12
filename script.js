@@ -4,7 +4,7 @@ var week;
 
 // Get Data Fallzahlen
 function traverseData(data){
-    const fallzahlen = data.filter(item => item.year == 2020);
+    const fallzahlen = data.filter(item => item);
 
     visualizeAsLineChart(fallzahlen);
 }
@@ -66,7 +66,7 @@ function visualizeAsLineChart(data){
     //.domain([data[0].dateRep, data[data.length-1].dateRep])
 
     var y = d3.scaleLinear()
-        .domain([0, 24000])
+        .domain([0, 30000])
         .range([height, 0]);
     //y.domain(d3.extent(data, function(d) { return d.cases; }));
 

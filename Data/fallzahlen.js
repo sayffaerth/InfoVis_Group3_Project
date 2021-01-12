@@ -1,6 +1,380 @@
 traverseData(
-    [
-        {
+   [
+         {
+            "dateRep":"14/12/2020",
+            
+            "day":"14",
+
+            "month":"12",
+
+            "year":"2020",
+
+            "cases":"16362",
+
+            "deaths":"188",
+
+            "countriesAndTerritories":"Germany",
+
+            "geoId":"DE",
+
+            "countryterritoryCode":"DEU",
+
+            "popData2019":"83019213",
+
+            "continentExp":"Europe",
+
+            "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000":"341.13669567"
+
+         },
+         {
+
+            "dateRep":"13/12/2020",
+
+            "day":"13",
+
+            "month":"12",
+
+            "year":"2020",
+
+            "cases":"20200",
+
+            "deaths":"321",
+
+            "countriesAndTerritories":"Germany",
+
+            "geoId":"DE",
+
+            "countryterritoryCode":"DEU",
+
+            "popData2019":"83019213",
+
+            "continentExp":"Europe",
+
+            "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000":"334.88151713"
+
+         },
+         {
+
+            "dateRep":"12/12/2020",
+
+            "day":"12",
+
+            "month":"12",
+
+            "year":"2020",
+
+            "cases":"28438",
+
+            "deaths":"496",
+
+            "countriesAndTerritories":"Germany",
+
+            "geoId":"DE",
+
+            "countryterritoryCode":"DEU",
+
+            "popData2019":"83019213",
+
+            "continentExp":"Europe",
+
+            "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000":"328.14934056"
+
+         },
+         {
+
+            "dateRep":"11/12/2020",
+
+            "day":"11",
+
+            "month":"12",
+
+            "year":"2020",
+
+            "cases":"29875",
+
+            "deaths":"598",
+
+            "countriesAndTerritories":"Germany",
+
+            "geoId":"DE",
+
+            "countryterritoryCode":"DEU",
+
+            "popData2019":"83019213",
+
+            "continentExp":"Europe",
+
+            "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000":"320.02712432"
+
+         },
+         {
+
+            "dateRep":"10/12/2020",
+
+            "day":"10",
+
+            "month":"12",
+
+            "year":"2020",
+
+            "cases":"23679",
+
+            "deaths":"440",
+
+            "countriesAndTerritories":"Germany",
+
+            "geoId":"DE",
+
+            "countryterritoryCode":"DEU",
+
+            "popData2019":"83019213",
+
+            "continentExp":"Europe",
+
+            "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000":"311.5122279"
+
+         },
+         {
+
+            "dateRep":"09/12/2020",
+
+            "day":"9",
+
+            "month":"12",
+
+            "year":"2020",
+
+            "cases":"20815",
+
+            "deaths":"590",
+
+            "countriesAndTerritories":"Germany",
+
+            "geoId":"DE",
+
+            "countryterritoryCode":"DEU",
+
+            "popData2019":"83019213",
+
+            "continentExp":"Europe",
+
+            "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000":"309.81262133"
+
+         },
+         {
+
+            "dateRep":"08/12/2020",
+
+            "day":"8",
+
+            "month":"12",
+
+            "year":"2020",
+
+            "cases":"14055",
+
+            "deaths":"423",
+
+            "countriesAndTerritories":"Germany",
+
+            "geoId":"DE",
+
+            "countryterritoryCode":"DEU",
+
+            "popData2019":"83019213",
+
+            "continentExp":"Europe",
+
+            "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000":"307.18431407"
+
+         },
+         {
+            "dateRep":"07/12/2020",
+
+            "day":"7",
+
+            "month":"12",
+
+            "year":"2020",
+
+            "cases":"12332",
+
+            "deaths":"147",
+
+            "countriesAndTerritories":"Germany",
+
+            "geoId":"DE",
+
+            "countryterritoryCode":"DEU","popData2019":"83019213",
+
+            "continentExp":"Europe",
+
+            "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000":"306.58083931"
+
+         },
+         {
+
+            "dateRep":"06/12/2020",
+
+            "day":"6",
+
+            "month":"12",
+
+            "year":"2020",
+
+            "cases":"17767",
+
+            "deaths":"255",
+
+            "countriesAndTerritories":"Germany",
+
+            "geoId":"DE",
+
+            "countryterritoryCode":"DEU",
+
+            "popData2019":"83019213",
+
+            "continentExp":"Europe",
+
+            "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000":"304.81257393"
+
+         },
+         {
+
+            "dateRep":"05/12/2020",
+
+            "day":"5",
+
+            "month":"12",
+
+            "year":"2020",
+
+            "cases":"23318",
+
+
+            "deaths":"483",
+
+            "countriesAndTerritories":"Germany",
+
+            "geoId":"DE",
+
+            "countryterritoryCode":"DEU",
+
+            "popData2019":"83019213",
+
+            "continentExp":"Europe",
+
+            "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000":"302.37217498"
+
+         },
+         {
+
+            "dateRep":"04/12/2020",
+
+            "day":"4",
+
+            "month":"12",
+
+            "year":"2020",
+
+            "cases":"23448",
+
+            "deaths":"432",
+
+            "countriesAndTerritories":"Germany",
+
+            "geoId":"DE",
+
+            "countryterritoryCode":"DEU",
+
+            "popData2019":"83019213",
+
+            "continentExp":"Europe",
+
+            "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000":"301.94576766"
+
+         },
+         {
+
+            "dateRep":"03/12/2020",
+
+            "day":"3",
+
+            "month":"12",
+
+
+            "year":"2020",
+
+            "cases":"22046",
+
+            "deaths":"479",
+
+            "countriesAndTerritories":"Germany",
+
+            "geoId":"DE","countryterritoryCode":"DEU",
+
+            "popData2019":"83019213",
+
+            "continentExp":"Europe",
+
+            "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000":"302.18667575"
+
+         },
+         {
+
+            "dateRep":"02/12/2020",
+
+            "day":"2",
+
+            "month":"12",
+
+            "year":"2020",
+
+            "cases":"17270",
+
+            "deaths":"487",
+
+            "countriesAndTerritories":"Germany",
+
+            "geoId":"DE",
+
+            "countryterritoryCode":"DEU",
+
+            "popData2019":"83019213",
+
+            "continentExp":"Europe",
+
+            "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000":"302.86483202"
+
+         },
+         {
+
+            "dateRep":"01/12/2020",
+
+            "day":"1",
+
+            "month":"12",
+
+            "year":"2020",
+
+            "cases":"13604",
+
+            "deaths":"388",
+
+            "countriesAndTerritories":"Germany",
+
+            "geoId":"DE",
+
+            "countryterritoryCode":"DEU",
+
+            "popData2019":"83019213",
+
+            "continentExp":"Europe",
+
+            "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000":"303.21535329"
+
+         },
+         {
 
             "dateRep" : "30/11/2020",
    
@@ -9361,34 +9735,6 @@ traverseData(
             "month" : "01",
    
             "year" : "2020",
-   
-            "cases" : 0,
-   
-            "deaths" : 0,
-   
-            "countriesAndTerritories" : "Germany",
-   
-            "geoId" : "DE",
-   
-            "countryterritoryCode" : "DEU",
-   
-            "popData2019" : 83019213,
-   
-            "continentExp" : "Europe",
-   
-            "Cumulative_number_for_14_days_of_COVID-19_cases_per_100000" : ""
-   
-         },
-   
-         {
-   
-            "dateRep" : "31/12/2019",
-   
-            "day" : "31",
-   
-            "month" : "12",
-   
-            "year" : "2019",
    
             "cases" : 0,
    
