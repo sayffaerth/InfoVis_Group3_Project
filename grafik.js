@@ -34,16 +34,19 @@ var projection = d3.geoMercator()
     .scale(2400)        // This is like the zoom
     .center([11, 51.2])  // GPS of location to zoom on
     .translate([width / 2, height / 2]);
+var caseData;
 
 // Fetch JSON Data and use it in visualisation as soon as it's done loading
 var data = d3.map();
 d3.queue()
     .defer(d3.json, "https://opendata.arcgis.com/datasets/ef4b445a53c1406892257fe63129a8ea_0.geojson")
+    .defer(d3.json, "./Data/rki2020data-parsed.json")
     .defer(d3.csv, "./Data/ZPID lockdown measures dataset 3.0.csv")
-    .await(function (error, topo, rules) {
+    .await(function (error, topo, cases, rules) {
         if (error) {
             console.log('Error when loading .csv files in grafik.js');
         } else {
+            caseData = cases;
             dataLoaded(topo);
             doSomethingWithTheCovidMeasuresAndRules(rules);
         }
@@ -85,8 +88,37 @@ function assignIDs() {
 }
 
 function updateMapFillData() {
+    /* Previous approach: Using the current RKI data
     d3.select(".map").selectAll("path").attr("fill", (function () {
         var inzidenz = d3.select(this).data()[0].properties.cases7_bl_per_100k;
+        return d3.interpolateReds(valueMap(inzidenz, 0, 200, 0, 1));
+    })); */
+
+    /* New apporach: Using parsed 2020 case data */
+    var dataIndexForDate = 0;
+    for(i = 0; i < caseData.length; i++){
+        if(caseData[i].Meldedatum == currentDate.val){
+            dataIndexForDate = i;
+            //console.log("Index for date is "+i);
+            break;
+        }
+    }
+
+    d3.select(".map").selectAll("path").attr("fill", (function () {
+        var state2update = d3.select(this).data()[0].properties.LAN_ew_GEN;
+        var date2update = currentDate.val;
+        //console.log("Please update "+state2update+" to "+date2update);
+
+        var dataIndexForState = 0;
+        for(i = 0; i < caseData[dataIndexForDate].casesByBL.length; i++){
+            if(caseData[dataIndexForDate].casesByBL[i].Bundesland == state2update){
+                dataIndexForState = i;
+                //console.log("Index for state is "+i);
+                break;
+            }
+        }
+        var inzidenz = caseData[dataIndexForDate].casesByBL[dataIndexForState].cases.Inzidenz;
+        //console.log("Inzidenz for "+state2update+" on "+currentDate.val+" is "+inzidenz);
         return d3.interpolateReds(valueMap(inzidenz, 0, 200, 0, 1));
     }));
 }
@@ -201,6 +233,8 @@ function dateUpdated() {
     tempDate = currentDate.val;
 
     //---------- Insert functionality below ----------//
+    updateMapFillData();
+
     d3.select(".map").selectAll("path").each(function () {
         loadCovidRulesIntoMap(CovidMeasuresAndRules, d3.select(this));
     })
