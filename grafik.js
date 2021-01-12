@@ -245,6 +245,32 @@ function dateUpdated() {
         .html(buildTooltipText());
 }
 
+//Returns the Inzidenz for the current date for the provided state (BL) name.
+function getInzidenzForBL(stateName){
+    var date2update = currentDate.val;
+
+    var dataIndexForDate = 0;
+    for(i = 0; i < caseData.length; i++){
+        if(caseData[i].Meldedatum == currentDate.val){
+            dataIndexForDate = i;
+            //console.log("Index for date is "+i);
+            break;
+        }
+    }
+
+    var dataIndexForState = 0;
+    for(i = 0; i < caseData[dataIndexForDate].casesByBL.length; i++){
+        if(caseData[dataIndexForDate].casesByBL[i].Bundesland == stateName){
+            dataIndexForState = i;
+            //console.log("Index for state is "+i);
+            break;
+        }
+    }
+    var inzidenz = caseData[dataIndexForDate].casesByBL[dataIndexForState].cases.Inzidenz;
+    //console.log("Inzidenz for "+stateName+" on "+currentDate.val+" is "+inzidenz);
+    return inzidenz;
+}
+
 var CovidMeasuresAndRules;
 
 function doSomethingWithTheCovidMeasuresAndRules(d) {
@@ -287,8 +313,8 @@ var plygrnd;
 var daycare;
 
 function updateTooltipInfo() {
-    cases = Math.round(selection.data()[0].properties.cases7_bl_per_100k);
     land = selection.data()[0].properties.LAN_ew_GEN;
+    cases = Math.round(getInzidenzForBL(land));
     leavehome = selection.attr("leavehome");
     dist = selection.attr("dist");
     msk = selection.attr("msk");
