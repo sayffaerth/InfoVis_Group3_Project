@@ -33,7 +33,7 @@ svg {
 
 #visRace{
     height: 500px;
-    width: 500px;
+    width: 550px;
     position: relative;
     display: block;
     margin-top: -520px;
@@ -59,7 +59,6 @@ svg {
     margin: auto;
     padding-right: 310px;
 }
-
 
 #container {
     float: left;
@@ -89,7 +88,7 @@ svg {
 
 #play-button:hover {
     background-color: #696969;
-}    
+}
   
 .ticks {
     font-size: 10px;
@@ -104,7 +103,7 @@ svg {
 
 .track {
     stroke-opacity: 0;
-  }
+}
 
 
 
@@ -116,4 +115,64 @@ svg {
 
 .axisWhite text{
     fill: whiteSmoke;
+}
+
+/*** Maßnahmen Legende ***/
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 300px;
+    color: white;
+}
+
+td, th {
+    border: none;
+    text-align: left;
+    padding: 10px;
+}
+
+tr {
+    background-color: #515151;
+}
+
+.parentFlex {
+    display: flex;
+}
+
+/** Accordion **/
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    background-color: #515151;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    width: 300px;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+    background-color: #353535;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    padding: 0 5px;
+    background-color: #6e6e6e;
+    width: 290px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    color: white;
+    text-align: left;
+}
+
+.alignleft {
+    float: left;
+}
+.alignright {
+    float: right;
 }
