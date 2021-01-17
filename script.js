@@ -66,8 +66,8 @@ function visualizeAsLineChart(data){
     //.domain([data[0].dateRep, data[data.length-1].dateRep])
 
     var y = d3.scaleLinear()
-        .domain([0, 30000])
-        .range([height, 0]);
+        .range([height, 0])
+        .domain([0, 30000, 50000]);
     //y.domain(d3.extent(data, function(d) { return d.cases; }));
 
     var xAxis = d3.axisBottom(x)
@@ -450,6 +450,30 @@ function visualizeRace(update, week) {
                 .style("text-anchor", "end")
                 .text("Absatzindex pro KW");
 
+            timeChoose(data[week], week);
+        }
+
+        function timeChoose(data, week){
+            if(week>45){
+                svg.append("text")
+                .attr("class", "hunder")
+                .text("Keine Daten für die Kalenderwoche "+(Number(week)+1)+".")
+                .attr("dy", "0em")
+                .attr("transform", "translate("+ (40) + "," + (235) + ")")
+                .attr("font-family", "calibri")
+                .attr("font-size","20px")
+                .style("fill", "white")
+                .style("opacity", 1); 
+            }
+            else{
+            var newData = [
+                {"Product": "Seife", "Count": parseFloat(data.Seife)},
+                {"Product": "Toilettenpapier", "Count": parseFloat(data.Toilettenpapier)},
+                {"Product": "Mehl", "Count": parseFloat(data.Mehl)},
+                {"Product": "Desinfektionsmittel", "Count": parseFloat(data.Desinfektionsmittel)},
+                {"Product": "Hefe", "Count": parseFloat(data.Hefe)}
+            ]
+
             svg.append("line")
                 .attr("class", "x")
                 .style("stroke", "#ef885a")
@@ -469,22 +493,9 @@ function visualizeRace(update, week) {
                 .style("fill", "#ef885a")
                 .style("opacity", 1);
 
-            timeChoose(data[week])
-        }
-
-        function timeChoose(data){
-
-            var newData = [
-                {"Product": "Seife", "Count": parseFloat(data.Seife)},
-                {"Product": "Toilettenpapier", "Count": parseFloat(data.Toilettenpapier)},
-                {"Product": "Mehl", "Count": parseFloat(data.Mehl)},
-                {"Product": "Desinfektionsmittel", "Count": parseFloat(data.Desinfektionsmittel)},
-                {"Product": "Hefe", "Count": parseFloat(data.Hefe)}
-            ]
-
             bars = svg.selectAll(".bar")
                 .data(newData)
-
+    
             bars.enter()
                 .append("rect")
                 .attr("class", "bar")
@@ -577,6 +588,7 @@ function visualizeRace(update, week) {
                 .attr("font-family", "arial")
                 .attr("font-size","11px")
                 .style("fill", "white");
+            }
         }
 
         //Entfernt die Kalenderwochen von den Daten
