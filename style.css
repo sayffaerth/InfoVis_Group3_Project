@@ -12,6 +12,27 @@ body{
     background-color: #262626;
 }
 
+img#infobox1{
+    transform: translate(57px, 370px);
+    height: 20px;
+}
+
+img#infobox2{
+    height: 20px;
+    transform: translate(300px, 30px);
+}
+
+img#infobox3{
+    height: 20px;
+    transform: translate(90px,10px);
+}
+
+#div3{
+    background-color: white;
+    height: 50px;
+    width: 30px;
+}
+
 .xaxis line, .yaxis line, .xaxis path, .yaxis path, .xaxis text, .yaxis text{
     stroke: white;
 }

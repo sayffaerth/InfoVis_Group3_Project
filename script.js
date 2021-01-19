@@ -307,13 +307,14 @@ function visualizeRace(update, week) {
                 width = 480 - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
 
+
             var svg = d3.select("#visRace")
                 .append("svg")
                 .attr("id", "raceContainer")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
-                .attr("transform", `translate(${margin.left}, ${margin.top})`);
+                .attr("transform", `translate(${margin.left}, ${margin.top})`)    
 
             //Formatierungen für die Zeit
             var parseDate = d3.timeParse("%Y/%W"),

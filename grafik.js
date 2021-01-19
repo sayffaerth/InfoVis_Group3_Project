@@ -74,6 +74,7 @@ d3.queue()
     });
 //For additional details about the datasets used please refer to the Github Project Wiki - Datensätze (german)
 
+
 // Call this as soon as the data is loaded to use it in the visualisation
 function dataLoaded(topo) {
     // Draw the map
