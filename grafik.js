@@ -25,6 +25,27 @@ var currentDate = {
     }
 }
 
+//The Color Scale is scale exponentially to account for the exponential nature of virus spreads with the following factor
+const scaleFactor = 1.2
+
+var scaleDomain = new Array(12);
+scaleDomain[0] = 0;
+
+for (i=1; i<scaleDomain.length; i++){
+    scaleDomain[i] = (Math.pow(scaleFactor,i)) / (Math.pow(scaleFactor,scaleDomain.length));
+    //console.log(scaleDomain[i] + " = (" + scaleFactor + " ^ " + i + " ) / ( " + scaleFactor + " ^ " + scaleDomain.length + " )");
+}
+
+//Distributing Colors across the exponential scale stops from light yellow to dark purple, modified in equal steps according to hue and later on also luminance.
+var inzColorScale = d3.scaleLinear()
+    .domain(scaleDomain)
+    .range(["#ffffff","#ffff4d","#ffd24d","#ffc34d","#ffa64d","#ff794d","#ff4d4d","#ff1a1a","#e60039","#b30059","#800060","#4d004d"]);
+
+//Inzidenz Value where the scale and map color changes cap out
+const inzidenzMax = 400;
+//Stops on the scale between which the color is interpolated
+const legendAccuracy = 50;
+
 // %%%%%%%%%%%%%%%%%%%%
 // % Map & projection %
 // %%%%%%%%%%%%%%%%%%%%
@@ -91,7 +112,7 @@ function updateMapFillData() {
     /* Previous approach: Using the current RKI data
     d3.select(".map").selectAll("path").attr("fill", (function () {
         var inzidenz = d3.select(this).data()[0].properties.cases7_bl_per_100k;
-        return d3.interpolateReds(valueMap(inzidenz, 0, 200, 0, 1));
+        return inzColorScale(valueMap(inzidenz, 0, 200, 0, 1));
     })); */
 
     /* New apporach: Using parsed 2020 case data */
@@ -119,7 +140,7 @@ function updateMapFillData() {
         }
         var inzidenz = caseData[dataIndexForDate].casesByBL[dataIndexForState].cases.Inzidenz;
         //console.log("Inzidenz for "+state2update+" on "+currentDate.val+" is "+inzidenz);
-        return d3.interpolateReds(valueMap(inzidenz, 0, 200, 0, 1));
+        return inzColorScale(valueMap(inzidenz, 0, inzidenzMax, 0, 1));
     }));
 }
 
@@ -148,30 +169,12 @@ var legend = legendSvg.append("defs")
     .attr("y2", "0%")
     .attr("spreadMethod", "pad");
 
-legend.append("stop")
-    .attr("offset", "0%")
-    .attr("stop-color", d3.interpolateReds(0))
-    .attr("stop-opacity", 1);
-
-legend.append("stop")
-    .attr("offset", "25%")
-    .attr("stop-color", d3.interpolateReds(0.25))
-    .attr("stop-opacity", 1);
-
-legend.append("stop")
-    .attr("offset", "50%")
-    .attr("stop-color", d3.interpolateReds(0.5))
-    .attr("stop-opacity", 1);
-
-legend.append("stop")
-    .attr("offset", "75%")
-    .attr("stop-color", d3.interpolateReds(0.75))
-    .attr("stop-opacity", 1);
-
-legend.append("stop")
-    .attr("offset", "100%")
-    .attr("stop-color", d3.interpolateReds(1))
-    .attr("stop-opacity", 1);
+for(i = 0; i <= legendAccuracy; i++){
+    legend.append("stop")
+        .attr("offset", ( (100/legendAccuracy)*i) +"%" )
+        .attr("stop-color", inzColorScale((1/legendAccuracy)*i))
+        .attr("stop-opacity", 1);
+}
 
 legendSvg.append("rect")
     .attr("width", legendWidth)
@@ -179,11 +182,11 @@ legendSvg.append("rect")
     .style("fill", "url(#gradient)");
 
 var yRange = d3.scaleLinear()
-    .domain([0, 200])
+    .domain([0, inzidenzMax])
     .range([legendHeight, 0]);
 
 var legendAxis = d3.axisRight(yRange)
-    .tickValues(d3.range(0, 201, 20));
+    .tickValues(d3.range(0, inzidenzMax+1, 25));
 
 
 legendSvg.append("g")
