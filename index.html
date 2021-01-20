@@ -8,11 +8,14 @@
 <body>
     <h2>Die durch die Coronafälle beschlossenen Maßnahmen <br>
          und das daraus resultierende Kaufverhalten in Deutschland.</h2>
-    <img id="infobox1" src="./Pictures/InfoIcon_white.png" style="height: 20px; transform: translate(330px, 430px);" alt="InfoBox1" onmouseover="showInfo(1)" onmouseout="hideInfo(1)"/>
-    <div id="div1" style="visibility: hidden;">test</div>
-
-    <img id="infobox2" src="./Pictures/InfoIcon_white.png" style="height: 20px; transform: translate(820px, 50px);" alt="InfoBox2" onmouseover="showInfo(2)" onmouseout="hideInfo(2)"/>
-    <div id="div2" style="visibility: hidden;">test</div>
+    
+    <div id="infoDiv1">
+        <img id="infobox1" src="./Pictures/InfoIcon_white.png" style="height: 20px; transform: translate(-410px, 40px);z-index: 100;" alt="InfoBox1"/>
+    </div>
+    
+    <div id="infoDiv2">
+        <img id="infobox2" src="./Pictures/InfoIcon_white.png" style="height: 20px; transform: translate(90px, 10px);z-index: 100;" alt="InfoBox2"/>
+    </div>
     
     <div id="dataWrapper"></div>
     <div id="mapSVG">
@@ -37,15 +40,17 @@
         <div id="visRace"></div>
         <div>
             <button id="play-button">Play</button>
-        </div>    
-        <img id="infobox3" src="./Pictures/InfoIcon_white.png" alt="InfoBox3" style="height: 20px; transform: translate(360px,30px);" onmouseover="showInfo(3)" onmouseout="hideInfo(3)"/>
-        <div id="div3" style="visibility: hidden;;">test</div>
+        </div> 
+        <div id="infoDiv3">   
+            <img id="infobox3" src="./Pictures/InfoIcon_white.png" alt="InfoBox3" style="height: 20px; transform: translate(-385px,10px); z-index: 100;"/>
+        </div>
         <div id="visFall"></div>
     </div>
 
     
 
     <!--D3 und JavaScript imports-->
+    <script src="infobox.js"></script>
     <script src="grafik.js"></script>
     <script src="script.js"></script>
     <script src="./Data/fallzahlen.js"></script>

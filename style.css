@@ -24,13 +24,14 @@ img#infobox2{
 
 img#infobox3{
     height: 20px;
-    transform: translate(90px,10px);
+    transform: translate(-385px,10px);
 }
 
-#div3{
+#div3, #div1, #div2{
     background-color: white;
     height: 50px;
     width: 30px;
+    z-index: 10;
 }
 
 .xaxis line, .yaxis line, .xaxis path, .yaxis path, .xaxis text, .yaxis text{
@@ -59,7 +60,6 @@ svg {
     display: block;
     margin-top: -520px;
     margin-left: 51%;
-    z-index: -1;
 }
 
 #visFall{
@@ -79,6 +79,7 @@ svg {
     display: block;
     margin: auto;
     padding-right: 310px;
+    z-index: -1;
 }
 
 
