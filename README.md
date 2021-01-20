@@ -4,6 +4,7 @@
     - Deutschlandkarte ist nach Bundesländern aufgeteilt, welche den jeweiligen Inzidenzwert des Bundeslandes farblich anzeigt
     - Eine Farbskala definiert die Inzidenzwerte der Bundesländer (linearer Farbverlauf)
     - Beim Hovern mit der Maus über Bundesländer wird ein Tooltip eingeblendet, der den Namen des Bundeslandes und den genauen Inzidenzwert anzeigt
+    - Zusätzlich werden im Tooltip die jeweilig eingeführten Maßnahmen angezeigt
 
 - Rennen (Kaufverhalten zu ausgewählten Produkten)
     - Säulendiagramm zeigt die Veränderung in Absatz für Seife, Toilettenpapier, Mehl, Desinfektionsmittel und Hefe pro Kalenderwoche in Prozent
@@ -21,5 +22,5 @@
 # Optional Components
 
 - Ein Play-Button (und ein Zeitslider (inkl. Datumsanzeige)) oberhalb aller Darstellungen für eine intuitivere Interaktionskomponente
-- Anzeige der aktuellen Maßnahmen der Bundesländer im jeweiligen Tooltip
+- Feinschilff an div. Funktionen und Darstellungen
 
