@@ -8,13 +8,17 @@
 <body>
     <h2>Die durch die Coronafälle beschlossenen Maßnahmen <br>
          und das daraus resultierende Kaufverhalten in Deutschland.</h2>
-    
-    <div id="infoDiv1">
-        <img id="infobox1" src="./Pictures/InfoIcon_white.png" style="height: 20px; transform: translate(-410px, 40px);z-index: 100;" alt="InfoBox1"/>
-    </div>
-    
-    <div id="infoDiv2">
-        <img id="infobox2" src="./Pictures/InfoIcon_white.png" style="height: 20px; transform: translate(90px, 10px);z-index: 100;" alt="InfoBox2"/>
+
+    <div id="div1">
+        <a id="a1" href="#">
+            <img id="img1" src="./Pictures/InfoIcon_white.png" style="height: 20px; transform: translate(-410px, 30px);z-index: 100;" alt="InfoBox1"/>
+            <span id="span1">
+                <p><b>Deutschlandkarte</b></p>
+                <p>Einfärbung entsprechend des Inzidenzwertes stärker oder schwächer</p>
+                <p>Tooltip pro Bundesland angepasst an die Fallzahlen</p>
+                <p><b>Inhalt:</b><br/>- Datum<br/>- Inzidenzwert<br/>- geltende Maßnahmen</p>
+            </span>
+        </a>
     </div>
     
     <div id="dataWrapper"></div>
@@ -32,19 +36,37 @@
             <svg id="visGer" width="550" height="550"></svg>
             <svg id="legend-svg"></svg>
         </svg>
-    <!--<script src="race.js"></script>-->
+    </div>
+
+    <div id="div2">
+        <a id="a2" href="#">
+            <img id="img2" src="./Pictures/InfoIcon_white.png" style="height: 20px; transform: translate(500px, -100px);z-index: 100;" alt="InfoBox1"/>
+            <span id="span2">
+                <p><b>Verkaufsrace</b></p>
+                <p>Absatzindex ausgewählter Produkte pro Kalenderwoche deutschlandweit</p>
+                <p><b>Produkte:</b><br/>- Seife<br/>- Tiolettenpapier<br/>- Mehl<br/>- Desinfektionsmittel<br/>- Hefe</p>
+            </span>
+        </a>
     </div>
 
     <!--Graphen-->
     
-        <div id="visRace"></div>
+        <div id="visRace" style="transform: translate(0px, -90px)"></div>
         <div>
             <button id="play-button">Play</button>
         </div> 
-        <div id="infoDiv3">   
-            <img id="infobox3" src="./Pictures/InfoIcon_white.png" alt="InfoBox3" style="height: 20px; transform: translate(-385px,10px); z-index: 100;"/>
-        </div>
         <div id="visFall"></div>
+        <div id="div3">  
+            <a id="a3" href="#"> 
+            <img id="img3" src="./Pictures/InfoIcon_white.png" alt="InfoBox3" style="height: 20px; transform: translate(500px,-50px); z-index: 100;"/>
+            <span id="span3">
+                <p><b>Fallzahlen Deutschland</b></p>
+                <p>Anzahl der Infektionen pro Tag duetschlandweit</p>
+                <p><b>Play-Button:</b> Spielt gesamte Animation ab und visualisiert den Infektionsverlauf 2020</p>
+                <p>Es besteht die Möglichkeit die Animation zu pausieren und zu einem beliebeigen Tag per <i>'Klick'</i> zu springen</p>
+            </span>
+        </a>
+        </div>
     </div>
 
     
