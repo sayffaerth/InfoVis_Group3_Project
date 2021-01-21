@@ -356,7 +356,12 @@ function updateTooltipInfo() {
 }
 
 function buildTooltipText() {
-    let string = land + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
+    let string;
+    if(land === "Mecklenburg-Vorpommern"){
+        string = "Mecklenburg-<br>Vorpommern "+ " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
+    } else {
+        string = land + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
+    }
     if (!!rulesAndMeasures.msk) {
         for (let [key, value] of iterate_object(rulesAndMeasures)) {
             switch (key) {
