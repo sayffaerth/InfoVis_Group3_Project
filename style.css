@@ -1,6 +1,8 @@
+/** Allgemeine Formatierung**/
 h2, div, .images{
     text-align: center;
     color: white;
+    font-family: "calibri";
 }
 
 h4 {
@@ -36,7 +38,7 @@ svg {
     width: 500px;
     position: relative;
     display: block;
-    margin-top: -520px;
+    margin-top: -550px;
     margin-left: 51%;
 }
 
@@ -68,12 +70,23 @@ svg {
     padding: 0;
 }
 
+#DataWrapper{
+    bottom: 1000px;
+}
 
-/* Playbutton und seine Funktion */
-#play-button {
+
+/** Playbutton und seine Funktion **/
+#Play{
     position: relative;
-    top: 187px;
-    left: -440px;
+    display: block;
+    margin: auto;
+    height: 30px;
+    width: 60px;
+    padding-right: 870px;
+    top: -49px;
+}
+
+#play-button {
     background: #f08080;
     padding-right: 0px;
     border-radius: 3px;
@@ -107,8 +120,7 @@ svg {
 
 
 
-
-/* Karte Fallzahlstrahl*/
+/** Karte Fallzahlstrahl **/
 .axisWhite line, .axisWhite path{
     stroke: whiteSmoke;
 }
@@ -117,12 +129,9 @@ svg {
     fill: whiteSmoke;
 }
 
-/*Infoboxen*/
+/** Infoboxen **/
 #div1, #div2, #div3 {
-    max-width: 25em;
-    height: auto;
     position: relative;
-    margin: 1.563em auto;
 }
 
 #a1, #a2, #a3 {
@@ -132,11 +141,26 @@ svg {
     font-weight: normal;
 }
 
+/*Image Info 1*/
+#div1{
+    height: 22px;
+    width: 22px;
+    margin: auto;
+    display: block;
+    padding-right: 830px;
+    bottom: 230px;
+}
+
+#img1{
+    height: 20px;
+    z-index: 100;
+}
+
 #span1 {
     visibility: hidden;
     position: absolute;
-    left: -37em;
-    top: 3em;
+    left: -240px;
+    top: 2px;
     background: #262626;
     width: 17em;
     border: 2px solid white;
@@ -155,11 +179,26 @@ svg {
     visibility: visible;
 }
 
+/*Image Info 2*/
+#div2{
+    height: 22px;
+    width: 22px;
+    margin: auto;
+    display: block;
+    padding-left: 990px;
+    bottom: 260px;
+}
+
+#img2{
+    height: 20px;
+    z-index: 100;
+}
+
 #span2 {
     visibility: hidden;
     position: absolute;
-    left: 54em;
-    top: -26em;
+    right: -240px;
+    top: -206px;
     background: #262626;
     width: 17em;
     border: 2px solid white;
@@ -178,11 +217,26 @@ svg {
     visibility: visible;
 }
 
+/*Image Info 3*/
+#div3{
+    height: 22px;
+    width: 22px;
+    margin: auto;
+    display: block;
+    padding-left: 990px;
+    bottom: 82px;
+}
+
+#img3{
+    height: 20px;
+    z-index: 100;
+}
+
 #span3 {
     visibility: hidden;
     position: absolute;
-    left: 56em;
-    top: -20em;
+    right: -240px;
+    top: -219px;
     background: #262626;
     width: 17em;
     border: 2px solid white;
@@ -224,10 +278,18 @@ tr {
     display: flex;
 }
 
-/** Styling of the Map Tooltip is in grafik.js */
+/** Styling of the Map Tooltip is in grafik.js **/
 
 /** Accordion **/
 /* Style the buttons that are used to open and close the accordion panel */
+#AccordionFull {
+    width: 300px;
+    position: relative;
+    display: block;
+    margin: auto;
+    padding-right: 1300px;
+}
+
 .accordion {
     background-color: #515151;
     color: white;
@@ -238,6 +300,8 @@ tr {
     border: none;
     outline: none;
     transition: 0.4s;
+    font-family: "calibri";
+    font-size: 12px;
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -260,6 +324,21 @@ tr {
 .alignleft {
     float: left;
 }
+
 .alignright {
     float: right;
+}
+
+.stärkeTabelle{
+    font-family: "calibri";
+    font-size: 12px;
+}
+
+/** Contibuter **/
+#Contributer{
+    height: 16px;
+    width: 602px;
+    position: relative;
+    margin: auto;
+    top: -10px;
 }

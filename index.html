@@ -10,6 +10,7 @@
          und das daraus resultierende Kaufverhalten in Deutschland.</h2>
 
     <!-- Maßnahmen Icon Beschreibung -->
+    <div id="AccordionFull">
     <table class="stärkeTabelle">
         <tr>
             <td>Teilweise Einschränkungen</td>
@@ -167,21 +168,10 @@
     <div class="panel">
         <p>Restaurants und andere Gastronomie geschlossen</p>
     </div>
-
-
-
-    <div id="div1">
-        <a id="a1" href="#">
-            <img id="img1" src="./Pictures/InfoIcon_white.png" style="height: 20px; transform: translate(-410px, 30px);z-index: 100;" alt="InfoBox1"/>
-            <span id="span1">
-                <p><b>Deutschlandkarte</b></p>
-                <p>Einfärbung entsprechend des Inzidenzwertes s. Farbskala</p>
-                <p><b>Inhalt des Tooltips:</b>- Datum</b>- Inzidenzwert<br/>- geltende Maßnahmen</p>
-            </span>
-        </a>
     </div>
-    
-    <div id="dataWrapper"></div>
+
+
+    <div id="dataWrapper">
     <div id="mapSVG">
 
     <!-- Load d3.js -->
@@ -198,27 +188,38 @@
         </svg>
     </div>
 
-    <div id="div2">
-        <a id="a2" href="#">
-            <img id="img2" src="./Pictures/InfoIcon_white.png" style="height: 20px; transform: translate(520px, -100px);z-index: 100;" alt="InfoBox1"/>
-            <span id="span2">
-                <p><b>Verkaufsrace</b></p>
-                <p>Absatzindex ausgewählter Produkte pro Kalenderwoche deutschlandweit</p>
-                <p><b>Produkte:</b><br/>- Seife<br/>- Tiolettenpapier<br/>- Mehl<br/>- Desinfektionsmittel<br/>- Hefe</p>
+
+    <div id="div1">
+        <a id="a1" href="#">
+            <img id="img1" src="./Pictures/InfoIcon_white.png" alt="InfoBox1"/>
+            <span id="span1">
+                <p><b>Deutschlandkarte</b></p>
+                <p>Einfärbung entsprechend des Inzidenzwertes s. Farbskala</p>
+                <p><b>Inhalt des Tooltips:</b>- Datum</b>- Inzidenzwert<br/>- geltende Maßnahmen</p>
             </span>
         </a>
     </div>
 
     <!--Graphen-->
-    
-        <div id="visRace" style="transform: translate(0px, -90px)"></div>
-        <div>
+        <div id="visRace"></div>
+        <div id="visFall"></div>
+        <div id="Play">
             <button id="play-button">Play</button>
         </div> 
-        <div id="visFall"></div>
+        
+        <div id="div2">
+            <a id="a2" href="#">
+                <img id="img2" src="./Pictures/InfoIcon_white.png" alt="InfoBox1"/>
+                <span id="span2">
+                    <p><b>Verkaufsrace</b></p>
+                    <p>Absatzindex ausgewählter Produkte pro Kalenderwoche deutschlandweit</p>
+                    <p><b>Produkte:</b><br/>- Seife<br/>- Tiolettenpapier<br/>- Mehl<br/>- Desinfektionsmittel<br/>- Hefe</p>
+                </span>
+            </a>
+        </div>
         <div id="div3">  
             <a id="a3" href="#"> 
-            <img id="img3" src="./Pictures/InfoIcon_white.png" alt="InfoBox3" style="height: 20px; transform: translate(500px,-50px); z-index: 100;"/>
+            <img id="img3" src="./Pictures/InfoIcon_white.png" alt="InfoBox3"/>
             <span id="span3">
                 <p><b>Fallzahlen Deutschland</b></p>
                 <p>Anzahl der Infektionen pro Tag deutschlandweit</p>
@@ -240,7 +241,7 @@
 
 
     <!--Namen der Gruppenmitglieder-->
-    <h4>Alexander Schmidt | Clara Sayffaerth | Johanna Prinz | Kay Köhle | Michael Lobbichler</h4>
-    
+    <h4 id="Contributer">Alexander Schmidt | Clara Sayffaerth | Johanna Prinz | Kay Köhle | Michael Lobbichler</h4>
+    </div>
 </body>
 </html>

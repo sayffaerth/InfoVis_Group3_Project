@@ -200,9 +200,9 @@ mapParentSVG.append("text")
     .attr("y", -5)
     .attr("dy", legendFullHeight)
     .style("fill", "whiteSmoke")
-    .style("font-size", "9px")
+    .style("font-size", "10px")
     .text("Inzidenzwert")
-    .attr("font-family", "arial");
+    .attr("font-family", "calibri");
 
 // %%%%%%%%%%%%%%%%%%%%
 // % Tooltip          %
