@@ -135,20 +135,17 @@ svg {
 }
 
 #img1{
-    height: 20px; 
-    transform: translate(-410px, 30px);
+    height: 20px;
     z-index: 100;
 }
 
 #img2{
-    height: 20px; 
-    transform: translate(520px, -100px);
+    height: 20px;
     z-index: 100;
 }
 
 #img3{
-    height: 20px; 
-    transform: translate(500px,-108px); 
+    height: 20px;
     z-index: 100;
 }
 
