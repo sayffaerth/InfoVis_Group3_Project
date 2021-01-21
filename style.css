@@ -200,3 +200,66 @@ svg {
 #a3:hover #span3 {
     visibility: visible;
 }
+
+
+/*** Maßnahmen Legende ***/
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 300px;
+    color: white;
+}
+
+td, th {
+    border: none;
+    text-align: left;
+    padding: 10px;
+}
+
+tr {
+    background-color: #515151;
+}
+
+.parentFlex {
+    display: flex;
+}
+
+/** Styling of the Map Tooltip is in grafik.js */
+
+/** Accordion **/
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    background-color: #515151;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    width: 300px;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+    background-color: #353535;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    padding: 0 5px;
+    background-color: #6e6e6e;
+    width: 290px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    color: white;
+    text-align: left;
+}
+
+.alignleft {
+    float: left;
+}
+.alignright {
+    float: right;
+}
