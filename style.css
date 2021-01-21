@@ -50,7 +50,6 @@ svg {
     margin: auto;
     padding-right: 120px;
     padding-top: 20px;
-    top: -55px
 }
 
 #mapSVG{
@@ -79,7 +78,6 @@ svg {
 /** Playbutton und seine Funktion **/
 #Play{
     position: relative;
-<<<<<<< HEAD
     display: block;
     margin: auto;
     height: 30px;
@@ -89,10 +87,6 @@ svg {
 }
 
 #play-button {
-=======
-    top: 135px;
-    left: -440px;
->>>>>>> 83ecd1aa84cac5043c7ac5a4e711d52fd06fa213
     background: #f08080;
     padding-right: 0px;
     border-radius: 3px;
@@ -259,13 +253,8 @@ svg {
 #span3 {
     visibility: hidden;
     position: absolute;
-<<<<<<< HEAD
     right: -240px;
     top: -219px;
-=======
-    left: 56em;
-    top: -25em;
->>>>>>> 83ecd1aa84cac5043c7ac5a4e711d52fd06fa213
     background: #262626;
     width: 17em;
     border: 2px solid white;
