@@ -31,15 +31,15 @@ const scaleFactor = 1.2
 var scaleDomain = new Array(12);
 scaleDomain[0] = 0;
 
-for (i=1; i<scaleDomain.length; i++){
-    scaleDomain[i] = (Math.pow(scaleFactor,i)) / (Math.pow(scaleFactor,scaleDomain.length));
+for (i = 1; i < scaleDomain.length; i++) {
+    scaleDomain[i] = (Math.pow(scaleFactor, i)) / (Math.pow(scaleFactor, scaleDomain.length));
     //console.log(scaleDomain[i] + " = (" + scaleFactor + " ^ " + i + " ) / ( " + scaleFactor + " ^ " + scaleDomain.length + " )");
 }
 
 //Distributing Colors across the exponential scale stops from light yellow to dark purple, modified in equal steps according to hue and later on also luminance.
 var inzColorScale = d3.scaleLinear()
     .domain(scaleDomain)
-    .range(["#ffffff","#ffff4d","#ffd24d","#ffc34d","#ffa64d","#ff794d","#ff4d4d","#ff1a1a","#e60039","#b30059","#800060","#4d004d"]);
+    .range(["#ffffff", "#ffff4d", "#ffd24d", "#ffc34d", "#ffa64d", "#ff794d", "#ff4d4d", "#ff1a1a", "#e60039", "#b30059", "#800060", "#4d004d"]);
 
 //Inzidenz Value where the scale and map color changes cap out
 const inzidenzMax = 400;
@@ -69,7 +69,7 @@ d3.queue()
         } else {
             caseData = cases;
             dataLoaded(topo);
-            doSomethingWithTheCovidMeasuresAndRules(rules);
+            InitializeRulesAndMeasures(rules);
         }
     });
 //For additional details about the datasets used please refer to the Github Project Wiki - Datensätze (german)
@@ -170,10 +170,10 @@ var legend = legendSvg.append("defs")
     .attr("y2", "0%")
     .attr("spreadMethod", "pad");
 
-for(i = 0; i <= legendAccuracy; i++){
+for (i = 0; i <= legendAccuracy; i++) {
     legend.append("stop")
-        .attr("offset", ( (100/legendAccuracy)*i) +"%" )
-        .attr("stop-color", inzColorScale((1/legendAccuracy)*i))
+        .attr("offset", ((100 / legendAccuracy) * i) + "%")
+        .attr("stop-color", inzColorScale((1 / legendAccuracy) * i))
         .attr("stop-opacity", 1);
 }
 
@@ -187,7 +187,7 @@ var yRange = d3.scaleLinear()
     .range([legendHeight, 0]);
 
 var legendAxis = d3.axisRight(yRange)
-    .tickValues(d3.range(0, inzidenzMax+1, 25));
+    .tickValues(d3.range(0, inzidenzMax + 1, 25));
 
 
 legendSvg.append("g")
@@ -247,17 +247,19 @@ function dateUpdated() {
     //---------- Insert functionality below ----------//
     updateMapFillData();
 
+    //loads rules & measures dataset into the states on the map
     d3.select(".map").selectAll("path").each(function () {
-        loadCovidRulesIntoMap(CovidMeasuresAndRules, d3.select(this));
+        loadCovidRulesIntoMap(CovidRulesAndMeasures, d3.select(this));
     })
     if (tooltipRequired)
         updateTooltipInfo();
 
+    //Create the contents of the tooltip
     d3.select(".MapTooltip")
         .html(buildTooltipText());
 }
 
-//Returns the Inzidenz for the current date for the provided state (BL) name.
+//Returns the Incidence for the current date for the provided state (BL) name.
 function getInzidenzForBL(stateName) {
     var date2update = currentDate.val;
 
@@ -283,23 +285,29 @@ function getInzidenzForBL(stateName) {
     return inzidenz;
 }
 
-var CovidMeasuresAndRules;
+// contains the dataset with all the rules and measures
+var CovidRulesAndMeasures;
 
-function doSomethingWithTheCovidMeasuresAndRules(d) {
-    CovidMeasuresAndRules = d;
-    console.log(d);
+/**
+ * Gets called when the dataset is first loaded
+ * @param d Dataset with the rules & measures
+ */
+function InitializeRulesAndMeasures(d) {
+    CovidRulesAndMeasures = d;
     d3.select(".map").selectAll("path").each(function () {
-        loadCovidRulesIntoMap(CovidMeasuresAndRules, d3.select(this));
+        loadCovidRulesIntoMap(CovidRulesAndMeasures, d3.select(this));
     })
 }
 
-function isLater(dateString1, dateString2) {
-    return dateString1 > dateString2
-}
-
+/**
+ * Loads the corresponding rules and measures data into a state on the map via attribute
+ * @param d Dataset
+ * @param selection the state
+ */
 function loadCovidRulesIntoMap(d, selection) {
     let tmpLand;
     let date = currentDate.val2;
+    // on that day and before there were no measures, but dataset starts there
     if (date < "2020-03-08") {
         date = "2020-03-08";
     }
@@ -314,31 +322,41 @@ function loadCovidRulesIntoMap(d, selection) {
 }
 
 var tooltipRequired = false;
+/**
+ *
+ */
 var selection;
 var land;
 var cases;
 
-//Alle möglichen Maßnahmen
-
+/**
+ * All rules and measures
+ * Data gets loaded into here from state which is currently relevant for the tooltip
+ */
 var rulesAndMeasures = {
-    leavehome: "",
-    dist: "",
-    msk: "",
-    shppng: "",
-    hcut: "",
-    ess_shps: "",
-    zoo: "",
-    demo: "",
-    school: "",
-    church: "",
-    onefriend: "",
-    morefriends: "",
-    plygrnd: "",
-    daycare: "",
-    trvl: "",
-    gastr: ""
+    leavehome: "",  // permission to leave home without reason
+    dist: "",       //
+    msk: "",        //
+    shppng: "",     //
+    hcut: "",       //
+    ess_shps: "",   //
+    zoo: "",        //
+    demo: "",       //
+    school: "",     //
+    church: "",     //
+    onefriend: "",  //
+    morefriends: "",//
+    plygrnd: "",    //
+    daycare: "",    //
+    trvl: "",       //
+    gastr: ""       //
 }
 
+/**
+ * Helper function to be able to iterate through objects
+ * @param o Object to iterate through
+ * @returns {IterableIterator<*[]>} iterable key, value pair
+ */
 function* iterate_object(o) {
     var keys = Object.keys(o);
     for (var i = 0; i < keys.length; i++) {
@@ -346,6 +364,9 @@ function* iterate_object(o) {
     }
 }
 
+/**
+ * Update the data for the selected state
+ */
 function updateTooltipInfo() {
     land = selection.data()[0].properties.LAN_ew_GEN;
     cases = Math.round(getInzidenzForBL(land));
@@ -355,13 +376,25 @@ function updateTooltipInfo() {
     }
 }
 
+/**
+ * Creates the content of the rules & measures tooltip
+ * Includes state name, date, incidence and icons symbolizing the different measures
+ * @returns {string} html data which should be shown in the tooltip
+ */
 function buildTooltipText() {
     let string;
-    if(land === "Mecklenburg-Vorpommern"){
-        string = "Mecklenburg-<br>Vorpommern "+ " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
+
+    // this is only so the all tooltip boxes are of the same width and look neat
+    if (land === "Mecklenburg-Vorpommern") {
+        string = "Mecklenburg-<br>Vorpommern" + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
+    } else if (land === "Nordrhein-Westfalen") {
+        string = "Nordrhein-<br>Westfalen" + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
+    } else if (land === "Baden-Württemberg") {
+        string = "Baden-<br>Württemberg" + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
     } else {
         string = land + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
     }
+
     if (!!rulesAndMeasures.msk) {
         for (let [key, value] of iterate_object(rulesAndMeasures)) {
             switch (key) {
@@ -512,14 +545,18 @@ function buildTooltipText() {
             }
         }
     } else {
-        string += "Keine Daten zu Maßnahmen";
+        string += "Keine Daten";
     }
     return string;
 }
 
-var mouseover = function (d) {
+/**
+ * Shows the rules & measures tooltip by changing transparency
+ */
+var mouseover = function () {
     tooltipRequired = true;
     selection = d3.select(this);
+    updateTooltipInfo();
     htmlTooltip
         .style("opacity", 1);
     d3.select(this)
@@ -527,9 +564,11 @@ var mouseover = function (d) {
         .style("opacity", 1)
 };
 
-var mousemove = function (d) {
+/**
+ * Moves the rules & measures tooltip with the mouse
+ */
+var mousemove = function () {
     selection = d3.select(this);
-    updateTooltipInfo();
 
     htmlTooltip
         .html(buildTooltipText())
@@ -538,7 +577,10 @@ var mousemove = function (d) {
 
 };
 
-var mouseleave = function (d) {
+/**
+ * Hides the rules & measures tooltip by making it transparent
+ */
+var mouseleave = function () {
     htmlTooltip
         .style("opacity", 0);
     d3.select(this)

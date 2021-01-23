@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h2>Die durch die Coronafälle beschlossenen Maßnahmen <br>
-         und das daraus resultierende Kaufverhalten in Deutschland.</h2>
+<h2>Die durch die Coronafälle beschlossenen Maßnahmen <br>
+    und das daraus resultierende Kaufverhalten in Deutschland.</h2>
 
-    <!-- Maßnahmen Icon Beschreibung -->
-    <div id="AccordionFull">
+<!-- Maßnahmen Icon Beschreibung -->
+<div id="AccordionFull">
     <table class="stärkeTabelle">
         <tr>
             <td>Teilweise Einschränkungen</td>
@@ -168,20 +168,20 @@
     <div class="panel">
         <p>Restaurants und andere Gastronomie geschlossen</p>
     </div>
-    </div>
+</div>
 
 
-    <div id="dataWrapper">
+<div id="dataWrapper">
     <div id="mapSVG">
 
-    <!-- Load d3.js -->
-    <script src="https://d3js.org/d3.v4.js"></script>
-    <script src="https://d3js.org/d3-scale.v3.min.js"></script>
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
-    <!--<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>-->
+        <!-- Load d3.js -->
+        <script src="https://d3js.org/d3.v4.js"></script>
+        <script src="https://d3js.org/d3-scale.v3.min.js"></script>
+        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+        <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+        <!--<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>-->
 
-    <!-- Create an element where the map will take place -->
+        <!-- Create an element where the map will take place -->
         <svg id="mapParentSVG" width = "550" height = "550">
             <svg id="visGer" width="550" height="550"></svg>
             <svg id="legend-svg"></svg>
@@ -201,24 +201,24 @@
     </div>
 
     <!--Graphen-->
-        <div id="visRace"></div>
-        <div id="visFall"></div>
-        <div id="Play">
-            <button id="play-button">Play</button>
-        </div> 
-        
-        <div id="div2">
-            <a id="a2" href="#">
-                <img id="img2" src="./Pictures/InfoIcon_white.png" alt="InfoBox1"/>
-                <span id="span2">
+    <div id="visRace"></div>
+    <div id="visFall"></div>
+    <div id="Play">
+        <button id="play-button">Play</button>
+    </div>
+
+    <div id="div2">
+        <a id="a2" href="#">
+            <img id="img2" src="./Pictures/InfoIcon_white.png" alt="InfoBox1"/>
+            <span id="span2">
                     <p><b>Verkaufsrace</b></p>
                     <p>Absatzindex ausgewählter Produkte pro Kalenderwoche deutschlandweit</p>
                     <p><b>Produkte:</b><br/>- Seife<br/>- Tiolettenpapier<br/>- Mehl<br/>- Desinfektionsmittel<br/>- Hefe</p>
                 </span>
-            </a>
-        </div>
-        <div id="div3">  
-            <a id="a3" href="#"> 
+        </a>
+    </div>
+    <div id="div3">
+        <a id="a3" href="#">
             <img id="img3" src="./Pictures/InfoIcon_white.png" alt="InfoBox3"/>
             <span id="span3">
                 <p><b>Fallzahlen Deutschland</b></p>
@@ -227,21 +227,21 @@
                 <p>Es besteht die Möglichkeit die Animation zu pausieren und den Regler zu einem beliebeigen Tag zu ziehen</p>
             </span>
         </a>
-        </div>
     </div>
-
-    
-
-    <!--D3 und JavaScript imports-->
-    <script src="infobox.js"></script>
-    <script src="grafik.js"></script>
-    <script src="accordion.js"></script>
-    <script src="script.js"></script>
-    <script src="./Data/fallzahlen.js"></script>
+</div>
 
 
-    <!--Namen der Gruppenmitglieder-->
-    <h4 id="Contributer">Alexander Schmidt | Clara Sayffaerth | Johanna Prinz | Kay Köhle | Michael Lobbichler</h4>
-    </div>
+
+<!--D3 und JavaScript imports-->
+<script src="infobox.js"></script>
+<script src="grafik.js"></script>
+<script src="accordion.js"></script>
+<script src="script.js"></script>
+<script src="./Data/fallzahlen.js"></script>
+
+
+<!--Namen der Gruppenmitglieder-->
+<h4 id="Contributer">Alexander Schmidt | Clara Sayffaerth | Johanna Prinz | Kay Köhle | Michael Lobbichler</h4>
+</div>
 </body>
 </html>
