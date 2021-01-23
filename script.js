@@ -80,16 +80,19 @@ function visualizeAsLineChart(data){
     svg.append("g")
         .attr("class", "xaxis")
         .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
+        .call(xAxis)
+        .attr("font-family", "calibri");
 
     svg.append("g")
         .attr("class", "yaxis")
         .call(yAxis)
+        .attr("font-family", "calibri")
         .append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
+        .attr("font-family", "calibri")
         .text("Fallzahlen");
 
     //Fallzahlenverlauf
@@ -307,13 +310,14 @@ function visualizeRace(update, week) {
                 width = 480 - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
 
+
             var svg = d3.select("#visRace")
                 .append("svg")
                 .attr("id", "raceContainer")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
                 .append("g")
-                .attr("transform", `translate(${margin.left}, ${margin.top})`);
+                .attr("transform", `translate(${margin.left}, ${margin.top})`)    
 
             //Formatierungen für die Zeit
             var parseDate = d3.timeParse("%Y/%W"),
@@ -350,18 +354,23 @@ function visualizeRace(update, week) {
             svg.append("g")
                 .attr("class", "xaxis")
                 .attr("transform", "translate(0," + height + ")")
-                .call(xAxis);
+                .call(xAxis)
+                .attr("font-family", "calibri")
+                .attr("font-size","11px");
 
             //Y-Achse
             svg.append("g")
                 .attr("class", "yaxis")
                 .call(yAxis)
+                .attr("font-family", "calibri")
+                .attr("font-size","11px")
                 .append("text")
                 .attr("transform", "rotate(-90)")
                 .attr("y", 6)
                 .attr("dy", ".71em")
                 .style("text-anchor", "end")
-                .text("Absatzindex pro KW");
+                .text("Absatzindex pro KW")
+                .attr("font-family", "calibri");
 
             svg.append("line")
                 .attr("class", "x")
@@ -437,18 +446,21 @@ function visualizeRace(update, week) {
             svg.append("g")
                 .attr("class", "xaxis")
                 .attr("transform", "translate(0," + height + ")")
-                .call(xAxis);
+                .call(xAxis)
+                .attr("font-family", "calibri");
 
             //Y-Achse
             svg.append("g")
                 .attr("class", "yaxis")
                 .call(yAxis)
+                .attr("font-family", "calibri")
                 .append("text")
                 .attr("transform", "rotate(-90)")
                 .attr("y", 6)
                 .attr("dy", ".71em")
                 .style("text-anchor", "end")
-                .text("Absatzindex pro KW");
+                .text("Absatzindex pro KW")
+                .attr("font-family", "calibri");
 
             timeChoose(data[week], week);
         }
@@ -551,8 +563,8 @@ function visualizeRace(update, week) {
             var textSeife = svg.append("text")
                 .attr("class", "hunder")
                 .text(newData[0].Count.toString())
-                .attr("transform", "translate("+ (58-newData[0].Count.toString().length*3) + "," + y(70 + newData[0].Count) + ")")
-                .attr("font-family", "arial")
+                .attr("transform", "translate("+ (59-newData[0].Count.toString().length*3) + "," + y(70 + newData[0].Count) + ")")
+                .attr("font-family", "calibri")
                 .attr("font-size","11px")
                 .style("fill", "white")
                 .style("text-align", "center");
@@ -560,16 +572,16 @@ function visualizeRace(update, week) {
             var textToi = svg.append("text")
                 .attr("class", "hunder")
                 .text(newData[1].Count.toString())
-                .attr("transform", "translate("+ (127-newData[1].Count.toString().length*3) + "," + y(95 + newData[1].Count) + ")")
-                .attr("font-family", "arial")
+                .attr("transform", "translate("+ (128-newData[1].Count.toString().length*3) + "," + y(95 + newData[1].Count) + ")")
+                .attr("font-family", "calibri")
                 .attr("font-size","11px")
                 .style("fill", "white");
 
             var textMehl = svg.append("text")
                 .attr("class", "hunder")
                 .text(newData[2].Count.toString())
-                .attr("transform", "translate("+ (195-newData[2].Count.toString().length*3) + "," + y(95 + newData[2].Count) + ")")
-                .attr("font-family", "arial")
+                .attr("transform", "translate("+ (196-newData[2].Count.toString().length*3) + "," + y(95 + newData[2].Count) + ")")
+                .attr("font-family", "calibri")
                 .attr("font-size","11px")
                 .style("fill", "white");
 
@@ -577,7 +589,7 @@ function visualizeRace(update, week) {
                 .attr("class", "hunder")
                 .text(newData[3].Count.toString())
                 .attr("transform", "translate("+ (264-newData[3].Count.toString().length*3) + "," + y(103 + newData[3].Count) + ")")
-                .attr("font-family", "arial")
+                .attr("font-family", "calibri")
                 .attr("font-size","11px")
                 .style("fill", "white");
 
@@ -585,7 +597,7 @@ function visualizeRace(update, week) {
                 .attr("class", "hunder")
                 .text(newData[4].Count.toString())
                 .attr("transform", "translate("+ (332-newData[4].Count.toString().length*3) + "," + y(68 + newData[4].Count) + ")")
-                .attr("font-family", "arial")
+                .attr("font-family", "calibri")
                 .attr("font-size","11px")
                 .style("fill", "white");
             }

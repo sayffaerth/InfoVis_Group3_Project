@@ -6,45 +6,242 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h2>Die durch die Coronafälle beschlossenen Maßnahmen <br>
-         und das daraus resultierende Kaufverhalten in Deutschland.</h2>
-    <div id="dataWrapper"></div>
+<h2>Die durch die Coronafälle beschlossenen Maßnahmen <br>
+    und das daraus resultierende Kaufverhalten in Deutschland.</h2>
+
+<!-- Maßnahmen Icon Beschreibung -->
+<div id="AccordionFull">
+    <table class="stärkeTabelle">
+        <tr>
+            <td>Teilweise Einschränkungen</td>
+            <td>
+                <img src="./Pictures/Maßnahmen/Rot/zoo.png" alt="Zuhause bleiben" width="30" height="30">
+            </td>
+        </tr>
+        <tr>
+            <td>Strenge Einschränkungen</td>
+            <td>
+                <img src="./Pictures/Maßnahmen/Orange/zoo.png" alt="Zuhause bleiben" width="30" height="30">
+            </td>
+        </tr>
+    </table>
+
+    <button class="accordion">
+        <strong>
+            <p class="alignleft">
+                Maßnahme
+            </p>
+            <p class="alignright">
+                Icon
+            </p>
+        </strong>
+    </button>
+    <div class="panel"></div>
+
+    <button class="accordion">
+        <p class="alignleft">Zuhause bleiben </p>
+        <p class="alignright"><img src="./Pictures/Maßnahmen/zuhause.png" alt="Zuhause bleiben" width="30" height="30"></p>
+    </button>
+    <div class="panel">
+        <p>Rausgehen nur mit triftigen Grund erlaubt.</p>
+    </div>
+
+    <button class="accordion"><p class="alignleft">Abstandsregelung </p>
+        <p class="alignright">
+            <img src="./Pictures/Maßnahmen/abstand.png" alt="Abstandsregelung" width="30" height="30">
+        </p>
+    </button>
+    <div class="panel">
+        <p>Einhalten einer Mindestdistanz von 1.5m zu anderen Menschen.</p>
+    </div>
+
+    <button class="accordion"><p class="alignleft">Maskenpflicht</p>
+        <p class="alignright">
+            <img src="./Pictures/Maßnahmen/maske.png" alt="Maskenpflicht" width="30" height="30">
+        </p>
+    </button>
+    <div class="panel">
+        <p>Tragen einer Mund-Nase Maske in öffentlichen Verkehrsmitteln und in Geschäften verpflichtend.</p>
+    </div>
+
+    <button class="accordion"><p class="alignleft">Einkaufseinschränkungen</p>
+        <p class="alignright">
+            <img src="./Pictures/Maßnahmen/einkaufen.png" alt="Einkaufseinschränkungen" width="30" height="30"></p>
+    </button>
+    <div class="panel">
+        <p>Nicht-Essentielle Geschäfte wie Bücherläden und Warenhäusern geschlossen.</p>
+    </div>
+
+    <button class="accordion"><p class="alignleft">Friseure geschlossen</p>
+        <p class="alignright">
+            <img src="./Pictures/Maßnahmen/frisur.png" alt="Friseur" width="30" height="30"></p>
+    </button>
+    <div class="panel">
+        <p>Friseure und ähnliches (zB Kosmetikstudios, Tattoo Studios) geschlossen.</p>
+    </div>
+
+    <button class="accordion"><p class="alignleft">Essentielle Geschäfte geschlossen</p>
+        <p class="alignright">
+            <img src="./Pictures/Maßnahmen/essentiel.png" alt="Essentielle Geschäfte" width="30" height="30"></p>
+    </button>
+    <div class="panel">
+        <p>Schließen von "essentiellen Geschäften" wie Auto- und Fahrradverkauf, Baumärkten, Apotheken, Drogerien, Sanitätshäusern,
+            Tankstellen, und Banken (Geschäfte, die nicht relevant sind für Ernährung und Essen).</p>
+    </div>
+
+    <button class="accordion"><p class="alignleft">Zoos geschlossen</p>
+        <p class="alignright">
+            <img src="./Pictures/Maßnahmen/zoo.png" alt="Zoos geschlossen" width="30" height="30"></p>
+    </button>
+    <div class="panel">
+        <p>Zoos und Botanische Gärten geschlossen.</p>
+    </div>
+
+    <button class="accordion"><p class="alignleft">Demoverbot</p>
+        <p class="alignright">
+            <img src="./Pictures/Maßnahmen/demo.png" alt="Demoverbot" width="30" height="30"></p>
+    </button>
+    <div class="panel">
+        <p>Verbot, in öffentlichen und öffentlichen Versammlungen politisch zu demonstrieren</p>
+    </div>
+
+    <button class="accordion"><p class="alignleft">Schulen geschlossen</p>
+        <p class="alignright">
+            <img src="./Pictures/Maßnahmen/schule.png" alt="Schulen geschlossen" width="30" height="30"></p>
+    </button>
+    <div class="panel">
+        <p>Schließung von Schulen (einschließlich Grund- und weiterführender Schulen).</p>
+    </div>
+
+    <button class="accordion"><p class="alignleft">Kirchen geschlossen</p>
+        <p class="alignright">
+            <img src="./Pictures/Maßnahmen/kirche.png" alt="Kirchen geschlossen" width="30" height="30"></p>
+    </button>
+    <div class="panel">
+        <p>Schließung von Kirchen, Moscheen, Synagogen und anderen religiösen Einrichtungen.</p>
+    </div>
+
+    <button class="accordion"><p class="alignleft">Kontaktverbot</p>
+        <p class="alignright">
+            <img src="./Pictures/Maßnahmen/kontaktv.png" alt="Kontaktverbot" width="30" height="30"></p>
+    </button>
+    <div class="panel">
+        <p>Verbot, im öffentlichen Raum in Gesellschaft EINER anderen Person zu bleiben, die nicht demselben Haushalt angehört.</p>
+    </div>
+
+    <button class="accordion"><p class="alignleft">Kontakteinschränkung</p>
+        <p class="alignright">
+            <img src="./Pictures/Maßnahmen/kontaktb.png" alt="Kontakteinschränkung" width="30" height="30"></p>
+    </button>
+    <div class="panel">
+        <p>Verbot, im öffentlichen Raum in Gesellschaft mehrerer anderer Personen zu bleiben, die nicht demselben Haushalt angehören</p>
+    </div>
+
+    <button class="accordion"><p class="alignleft">Spielplätze gesperrt</p>
+        <p class="alignright">
+            <img src="./Pictures/Maßnahmen/spiel.png" alt="Spielplätze gesperrt" width="30" height="30"></p>
+    </button>
+    <div class="panel">
+        <p>Verbot, Spielplätze zu besuchen</p>
+    </div>
+
+    <button class="accordion"><p class="alignleft">Kindergärten geschlossen</p>
+        <p class="alignright">
+            <img src="./Pictures/Maßnahmen/kinder.png" alt="Kindergärten geschlossen" width="30" height="30"></p>
+    </button>
+    <div class="panel">
+        <p>Schließung von Kindergarten und Kindertagesstätte</p>
+    </div>
+
+    <button class="accordion"><p class="alignleft">Reisebeschränkungen</p>
+        <p class="alignright">
+            <img src="./Pictures/Maßnahmen/reise.png" alt="Reisebeschränkungen" width="30" height="30"></p>
+    </button>
+    <div class="panel">
+        <p>Einschränkungen, die das Reisen betreffen.</p>
+    </div>
+
+    <button class="accordion"><p class="alignleft">Gastronomie geschlossen</p>
+        <p class="alignright">
+            <img src="./Pictures/Maßnahmen/gastro.png" alt="Gastronomie geschlossen" width="30" height="30"></p>
+    </button>
+    <div class="panel">
+        <p>Restaurants und andere Gastronomie geschlossen</p>
+    </div>
+</div>
+
+
+<div id="dataWrapper">
     <div id="mapSVG">
 
-    <!-- Load d3.js -->
-    <script src="https://d3js.org/d3.v4.js"></script>
-    <script src="https://d3js.org/d3-scale.v3.min.js"></script>
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
-    <!--<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>-->
+        <!-- Load d3.js -->
+        <script src="https://d3js.org/d3.v4.js"></script>
+        <script src="https://d3js.org/d3-scale.v3.min.js"></script>
+        <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+        <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+        <!--<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>-->
 
-    <!-- Create an element where the map will take place -->
+        <!-- Create an element where the map will take place -->
         <svg id="mapParentSVG" width = "550" height = "550">
             <svg id="visGer" width="550" height="550"></svg>
             <svg id="legend-svg"></svg>
         </svg>
-    <!--<script src="race.js"></script>-->
+    </div>
+
+
+    <div id="div1">
+        <a id="a1" href="#">
+            <img id="img1" src="./Pictures/InfoIcon_white.png" alt="InfoBox1"/>
+            <span id="span1">
+                <p><b>Deutschlandkarte</b></p>
+                <p>Einfärbung entsprechend des Inzidenzwertes s. Farbskala</p>
+                <p><b>Inhalt des Tooltips:</b>- Datum</b>- Inzidenzwert<br/>- geltende Maßnahmen</p>
+            </span>
+        </a>
     </div>
 
     <!--Graphen-->
-    
-        <div id="visRace"></div>
-        <div>
-            <button id="play-button">Play</button>
-        </div>    
-        <div id="visFall"></div>
+    <div id="visRace"></div>
+    <div id="visFall"></div>
+    <div id="Play">
+        <button id="play-button">Play</button>
     </div>
 
-    
+    <div id="div2">
+        <a id="a2" href="#">
+            <img id="img2" src="./Pictures/InfoIcon_white.png" alt="InfoBox1"/>
+            <span id="span2">
+                    <p><b>Verkaufsrace</b></p>
+                    <p>Absatzindex ausgewählter Produkte pro Kalenderwoche deutschlandweit</p>
+                    <p><b>Produkte:</b><br/>- Seife<br/>- Tiolettenpapier<br/>- Mehl<br/>- Desinfektionsmittel<br/>- Hefe</p>
+                </span>
+        </a>
+    </div>
+    <div id="div3">
+        <a id="a3" href="#">
+            <img id="img3" src="./Pictures/InfoIcon_white.png" alt="InfoBox3"/>
+            <span id="span3">
+                <p><b>Fallzahlen Deutschland</b></p>
+                <p>Anzahl der Infektionen pro Tag deutschlandweit</p>
+                <p><b>Play-Button:</b> Spielt gesamte Animation ab und visualisiert den Infektionsverlauf 2020</p>
+                <p>Es besteht die Möglichkeit die Animation zu pausieren und den Regler zu einem beliebeigen Tag zu ziehen</p>
+            </span>
+        </a>
+    </div>
+</div>
 
-    <!--D3 und JavaScript imports-->
-    <script src="grafik.js"></script>
-    <script src="script.js"></script>
-    <script src="./Data/fallzahlen.js"></script>
-    
 
-    <!--Namen der Gruppenmitglieder-->
-    <h4>Alexander Schmidt | Clara Sayffaerth | Johanna Prinz | Kay Köhle | Michael Lobbichler</h4>
-    
+
+<!--D3 und JavaScript imports-->
+<script src="infobox.js"></script>
+<script src="grafik.js"></script>
+<script src="accordion.js"></script>
+<script src="script.js"></script>
+<script src="./Data/fallzahlen.js"></script>
+
+
+<!--Namen der Gruppenmitglieder-->
+<h4 id="Contributer">Alexander Schmidt | Clara Sayffaerth | Johanna Prinz | Kay Köhle | Michael Lobbichler</h4>
+</div>
 </body>
 </html>

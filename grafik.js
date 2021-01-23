@@ -31,15 +31,15 @@ const scaleFactor = 1.2
 var scaleDomain = new Array(12);
 scaleDomain[0] = 0;
 
-for (i=1; i<scaleDomain.length; i++){
-    scaleDomain[i] = (Math.pow(scaleFactor,i)) / (Math.pow(scaleFactor,scaleDomain.length));
+for (i = 1; i < scaleDomain.length; i++) {
+    scaleDomain[i] = (Math.pow(scaleFactor, i)) / (Math.pow(scaleFactor, scaleDomain.length));
     //console.log(scaleDomain[i] + " = (" + scaleFactor + " ^ " + i + " ) / ( " + scaleFactor + " ^ " + scaleDomain.length + " )");
 }
 
 //Distributing Colors across the exponential scale stops from light yellow to dark purple, modified in equal steps according to hue and later on also luminance.
 var inzColorScale = d3.scaleLinear()
     .domain(scaleDomain)
-    .range(["#ffffff","#ffff4d","#ffd24d","#ffc34d","#ffa64d","#ff794d","#ff4d4d","#ff1a1a","#e60039","#b30059","#800060","#4d004d"]);
+    .range(["#ffffff", "#ffff4d", "#ffd24d", "#ffc34d", "#ffa64d", "#ff794d", "#ff4d4d", "#ff1a1a", "#e60039", "#b30059", "#800060", "#4d004d"]);
 
 //Inzidenz Value where the scale and map color changes cap out
 const inzidenzMax = 400;
@@ -62,17 +62,18 @@ var data = d3.map();
 d3.queue()
     .defer(d3.json, "https://opendata.arcgis.com/datasets/ef4b445a53c1406892257fe63129a8ea_0.geojson")
     .defer(d3.json, "./Data/rki2020data-parsed.json")
-    .defer(d3.csv, "./Data/ZPID lockdown measures dataset 3.0.csv")
+    .defer(d3.csv, "./Data/ZPID lockdown measures dataset 4.0.csv")
     .await(function (error, topo, cases, rules) {
         if (error) {
             console.log('Error when loading .csv files in grafik.js');
         } else {
             caseData = cases;
             dataLoaded(topo);
-            doSomethingWithTheCovidMeasuresAndRules(rules);
+            InitializeRulesAndMeasures(rules);
         }
     });
 //For additional details about the datasets used please refer to the Github Project Wiki - Datensätze (german)
+
 
 // Call this as soon as the data is loaded to use it in the visualisation
 function dataLoaded(topo) {
@@ -169,10 +170,10 @@ var legend = legendSvg.append("defs")
     .attr("y2", "0%")
     .attr("spreadMethod", "pad");
 
-for(i = 0; i <= legendAccuracy; i++){
+for (i = 0; i <= legendAccuracy; i++) {
     legend.append("stop")
-        .attr("offset", ( (100/legendAccuracy)*i) +"%" )
-        .attr("stop-color", inzColorScale((1/legendAccuracy)*i))
+        .attr("offset", ((100 / legendAccuracy) * i) + "%")
+        .attr("stop-color", inzColorScale((1 / legendAccuracy) * i))
         .attr("stop-opacity", 1);
 }
 
@@ -186,7 +187,7 @@ var yRange = d3.scaleLinear()
     .range([legendHeight, 0]);
 
 var legendAxis = d3.axisRight(yRange)
-    .tickValues(d3.range(0, inzidenzMax+1, 25));
+    .tickValues(d3.range(0, inzidenzMax + 1, 25));
 
 
 legendSvg.append("g")
@@ -199,9 +200,9 @@ mapParentSVG.append("text")
     .attr("y", -5)
     .attr("dy", legendFullHeight)
     .style("fill", "whiteSmoke")
-    .style("font-size", "9px")
+    .style("font-size", "10px")
     .text("Inzidenzwert")
-    .attr("font-family", "arial");
+    .attr("font-family", "calibri");
 
 // %%%%%%%%%%%%%%%%%%%%
 // % Tooltip          %
@@ -214,6 +215,7 @@ var htmlTooltip = d3.select("#mapSVG")
     .style("opacity", 0)
     .attr("class", "MapTooltip")
     .style("text-align", "left")
+    .style("z-index", "100")
     //TODO make tooltip unselectable
     // .style("-webkit-user-select", "none")
     // .style("-moz-user-select", "none")
@@ -245,17 +247,19 @@ function dateUpdated() {
     //---------- Insert functionality below ----------//
     updateMapFillData();
 
+    //loads rules & measures dataset into the states on the map
     d3.select(".map").selectAll("path").each(function () {
-        loadCovidRulesIntoMap(CovidMeasuresAndRules, d3.select(this));
+        loadCovidRulesIntoMap(CovidRulesAndMeasures, d3.select(this));
     })
     if (tooltipRequired)
         updateTooltipInfo();
 
+    //Create the contents of the tooltip
     d3.select(".MapTooltip")
         .html(buildTooltipText());
 }
 
-//Returns the Inzidenz for the current date for the provided state (BL) name.
+//Returns the Incidence for the current date for the provided state (BL) name.
 function getInzidenzForBL(stateName) {
     var date2update = currentDate.val;
 
@@ -281,22 +285,29 @@ function getInzidenzForBL(stateName) {
     return inzidenz;
 }
 
-var CovidMeasuresAndRules;
+// contains the dataset with all the rules and measures
+var CovidRulesAndMeasures;
 
-function doSomethingWithTheCovidMeasuresAndRules(d) {
-    CovidMeasuresAndRules = d;
+/**
+ * Gets called when the dataset is first loaded
+ * @param d Dataset with the rules & measures
+ */
+function InitializeRulesAndMeasures(d) {
+    CovidRulesAndMeasures = d;
     d3.select(".map").selectAll("path").each(function () {
-        loadCovidRulesIntoMap(CovidMeasuresAndRules, d3.select(this));
+        loadCovidRulesIntoMap(CovidRulesAndMeasures, d3.select(this));
     })
 }
 
-function isLater(dateString1, dateString2) {
-    return dateString1 > dateString2
-}
-
+/**
+ * Loads the corresponding rules and measures data into a state on the map via attribute
+ * @param d Dataset
+ * @param selection the state
+ */
 function loadCovidRulesIntoMap(d, selection) {
     let tmpLand;
     let date = currentDate.val2;
+    // on that day and before there were no measures, but dataset starts there
     if (date < "2020-03-08") {
         date = "2020-03-08";
     }
@@ -311,29 +322,41 @@ function loadCovidRulesIntoMap(d, selection) {
 }
 
 var tooltipRequired = false;
+/**
+ *
+ */
 var selection;
 var land;
 var cases;
 
-//Alle möglichen Maßnahmen
-
+/**
+ * All rules and measures
+ * Data gets loaded into here from state which is currently relevant for the tooltip
+ */
 var rulesAndMeasures = {
-    leavehome: "",
-    dist: "",
-    msk: "",
-    shppng: "",
-    hcut: "",
-    ess_shps: "",
-    zoo: "",
-    demo: "",
-    school: "",
-    church: "",
-    onefriend: "",
-    morefriends: "",
-    plygrnd: "",
-    daycare: ""
+    leavehome: "",  // permission to leave home without reason
+    dist: "",       //
+    msk: "",        //
+    shppng: "",     //
+    hcut: "",       //
+    ess_shps: "",   //
+    zoo: "",        //
+    demo: "",       //
+    school: "",     //
+    church: "",     //
+    onefriend: "",  //
+    morefriends: "",//
+    plygrnd: "",    //
+    daycare: "",    //
+    trvl: "",       //
+    gastr: ""       //
 }
 
+/**
+ * Helper function to be able to iterate through objects
+ * @param o Object to iterate through
+ * @returns {IterableIterator<*[]>} iterable key, value pair
+ */
 function* iterate_object(o) {
     var keys = Object.keys(o);
     for (var i = 0; i < keys.length; i++) {
@@ -341,6 +364,9 @@ function* iterate_object(o) {
     }
 }
 
+/**
+ * Update the data for the selected state
+ */
 function updateTooltipInfo() {
     land = selection.data()[0].properties.LAN_ew_GEN;
     cases = Math.round(getInzidenzForBL(land));
@@ -350,8 +376,25 @@ function updateTooltipInfo() {
     }
 }
 
+/**
+ * Creates the content of the rules & measures tooltip
+ * Includes state name, date, incidence and icons symbolizing the different measures
+ * @returns {string} html data which should be shown in the tooltip
+ */
 function buildTooltipText() {
-    let string = land + "<br> Inzidenz: " + cases + "<br>";
+    let string;
+
+    // this is only so the all tooltip boxes are of the same width and look neat
+    if (land === "Mecklenburg-Vorpommern") {
+        string = "Mecklenburg-<br>Vorpommern" + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
+    } else if (land === "Nordrhein-Westfalen") {
+        string = "Nordrhein-<br>Westfalen" + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
+    } else if (land === "Baden-Württemberg") {
+        string = "Baden-<br>Württemberg" + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
+    } else {
+        string = land + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
+    }
+
     if (!!rulesAndMeasures.msk) {
         for (let [key, value] of iterate_object(rulesAndMeasures)) {
             switch (key) {
@@ -412,9 +455,9 @@ function buildTooltipText() {
                     if (rulesAndMeasures.zoo === "0") {
                         string += ('<img src="./Pictures/Maßnahmen/zoo.png\" alt="Zoos geschlossen" width="30" height="30">');
                     } else if (rulesAndMeasures.zoo === "1") {
-                        string += ('<img src="./Pictures/Maßnahmen/Orange/zoo.png\" alt="Essentielle Shops" width="30" height="30">');
+                        string += ('<img src="./Pictures/Maßnahmen/Orange/zoo.png\" alt="Zoos geschlossen" width="30" height="30">');
                     } else {
-                        string += ('<img src="./Pictures/Maßnahmen/Rot/zoo.png\" alt="Essentielle Shops" width="30" height="30">');
+                        string += ('<img src="./Pictures/Maßnahmen/Rot/zoo.png\" alt="Zoos geschlossen" width="30" height="30">');
                     }
                     break;
 
@@ -422,9 +465,9 @@ function buildTooltipText() {
                     if (rulesAndMeasures.demo === "0") {
                         string += ('<img src="./Pictures/Maßnahmen/demo.png\" alt="Demoverbot" width="30" height="30">');
                     } else if (rulesAndMeasures.demo === "1") {
-                        string += ('<img src="./Pictures/Maßnahmen/Orange/demo.png\" alt="Essentielle Shops" width="30" height="30">');
+                        string += ('<img src="./Pictures/Maßnahmen/Orange/demo.png\" alt="Demoverbot" width="30" height="30">');
                     } else {
-                        string += ('<img src="./Pictures/Maßnahmen/Rot/demo.png\" alt="Essentielle Shops" width="30" height="30">');
+                        string += ('<img src="./Pictures/Maßnahmen/Rot/demo.png\" alt="Demoverbot" width="30" height="30">');
                     }
                     string += '<br>';
                     break;
@@ -432,51 +475,69 @@ function buildTooltipText() {
                     if (rulesAndMeasures.school === "0") {
                         string += ('<img src="./Pictures/Maßnahmen/schule.png\" alt="Maskenpflicht" width="30" height="30">');
                     } else if (rulesAndMeasures.school === "1") {
-                        string += ('<img src="./Pictures/Maßnahmen/Orange/schule.png\" alt="Essentielle Shops" width="30" height="30">');
+                        string += ('<img src="./Pictures/Maßnahmen/Orange/schule.png\" alt="Maskenpflicht" width="30" height="30">');
                     } else {
-                        string += ('<img src="./Pictures/Maßnahmen/Rot/schule.png\" alt="Essentielle Shops" width="30" height="30">');
+                        string += ('<img src="./Pictures/Maßnahmen/Rot/schule.png\" alt="Maskenpflicht" width="30" height="30">');
                     }
                     break;
                 case "church":
                     if (rulesAndMeasures.church === "0") {
                         string += ('<img src="./Pictures/Maßnahmen/kirche.png\" alt="Kirchen geschlossen" width="30" height="30">');
                     } else if (rulesAndMeasures.church === "1") {
-                        string += ('<img src="./Pictures/Maßnahmen/Orange/kirche.png\" alt="Essentielle Shops" width="30" height="30">');
+                        string += ('<img src="./Pictures/Maßnahmen/Orange/kirche.png\" alt="Kirchen geschlossen" width="30" height="30">');
                     } else {
-                        string += ('<img src="./Pictures/Maßnahmen/Rot/kirche.png\" alt="Essentielle Shops" width="30" height="30">');
+                        string += ('<img src="./Pictures/Maßnahmen/Rot/kirche.png\" alt="Kirchen geschlossen" width="30" height="30">');
                     }
                     break;
                 case "onefriend":
                     if (rulesAndMeasures.onefriend === "0") {
                         string += ('<img src="./Pictures/Maßnahmen/kontaktv.png\" alt="Kontaktverbot" width="30" height="30">');
-                    } else string += ('<img src="./Pictures/Maßnahmen/Rot/kontaktv.png\" alt="Essentielle Shops" width="30" height="30">');
+                    } else string += ('<img src="./Pictures/Maßnahmen/Rot/kontaktv.png\" alt="Kontaktverbot" width="30" height="30">');
                     break;
                 case "morefriends":
                     if (rulesAndMeasures.morefriends === "0") {
                         string += ('<img src="./Pictures/Maßnahmen/kontaktb.png\" alt="Kontaktbeschränkung" width="30" height="30">');
                     } else if (rulesAndMeasures.morefriends === "1") {
-                        string += ('<img src="./Pictures/Maßnahmen/Orange/kontaktb.png\" alt="Essentielle Shops" width="30" height="30">');
+                        string += ('<img src="./Pictures/Maßnahmen/Orange/kontaktb.png\" alt="Kontaktbeschränkung" width="30" height="30">');
                     } else {
-                        string += ('<img src="./Pictures/Maßnahmen/Rot/kontaktb.png\" alt="Essentielle Shops" width="30" height="30">');
+                        string += ('<img src="./Pictures/Maßnahmen/Rot/kontaktb.png\" alt="Kontaktbeschränkung" width="30" height="30">');
                     }
                     string += '<br>';
                     break;
                 case "plygrnd":
                     if (rulesAndMeasures.plygrnd === "0") {
-                        string += ('<img src="./Pictures/Maßnahmen/maske.png\" alt="Spielplatz gesperrt" width="30" height="30">');
+                        string += ('<img src="./Pictures/Maßnahmen/maske.png\" alt="Kindergärten zu" width="30" height="30">');
                     } else if (rulesAndMeasures.plygrnd === "1") {
-                        string += ('<img src="./Pictures/Maßnahmen/Orange/spiel.png\" alt="Essentielle Shops" width="30" height="30">');
+                        string += ('<img src="./Pictures/Maßnahmen/Orange/spiel.png\" alt="Kindergärten zu" width="30" height="30">');
                     } else {
-                        string += ('<img src="./Pictures/Maßnahmen/Rot/spiel.png\" alt="Essentielle Shops" width="30" height="30">');
+                        string += ('<img src="./Pictures/Maßnahmen/Rot/spiel.png\" alt="Kindergärten zu" width="30" height="30">');
                     }
                     break;
                 case "daycare":
                     if (rulesAndMeasures.daycare === "0") {
                         string += ('<img src="./Pictures/Maßnahmen/kinder.png\" alt="Kindergärten zu" width="30" height="30">');
                     } else if (rulesAndMeasures.daycare === "1") {
-                        string += ('<img src="./Pictures/Maßnahmen/Orange/kinder.png\" alt="Essentielle Shops" width="30" height="30">');
+                        string += ('<img src="./Pictures/Maßnahmen/Orange/kinder.png\" alt="Kindergärten zu" width="30" height="30">');
                     } else {
-                        string += ('<img src="./Pictures/Maßnahmen/Rot/kinder.png\" alt="Essentielle Shops" width="30" height="30">');
+                        string += ('<img src="./Pictures/Maßnahmen/Rot/kinder.png\" alt="Kindergärten zu" width="30" height="30">');
+                    }
+                    break;
+                case "trvl":
+                    if (rulesAndMeasures.daycare === "0") {
+                        string += ('<img src="./Pictures/Maßnahmen/reise.png\" alt="Reisebeschränkungen" width="30" height="30">');
+                    } else if (rulesAndMeasures.daycare === "1") {
+                        string += ('<img src="./Pictures/Maßnahmen/Orange/reise.png\" alt="Reisebeschränkungen" width="30" height="30">');
+                    } else {
+                        string += ('<img src="./Pictures/Maßnahmen/Rot/reise.png\" alt="Reisebeschränkungen" width="30" height="30">');
+                    }
+                    break;
+                case "gastr":
+                    if (rulesAndMeasures.daycare === "0") {
+                        string += ('<img src="./Pictures/Maßnahmen/gastro.png\" alt="Gastronomie geschlossen" width="30" height="30">');
+                    } else if (rulesAndMeasures.daycare === "1") {
+                        string += ('<img src="./Pictures/Maßnahmen/Orange/gastro.png\" alt="Gastronomie geschlossen" width="30" height="30">');
+                    } else {
+                        string += ('<img src="./Pictures/Maßnahmen/Rot/gastro.png\" alt="Gastronomie geschlossen" width="30" height="30">');
                     }
                     break;
                 default:
@@ -484,14 +545,18 @@ function buildTooltipText() {
             }
         }
     } else {
-        string += "Keine Daten zu Maßnahmen";
+        string += "Keine Daten";
     }
     return string;
 }
 
-var mouseover = function (d) {
+/**
+ * Shows the rules & measures tooltip by changing transparency
+ */
+var mouseover = function () {
     tooltipRequired = true;
     selection = d3.select(this);
+    updateTooltipInfo();
     htmlTooltip
         .style("opacity", 1);
     d3.select(this)
@@ -499,9 +564,11 @@ var mouseover = function (d) {
         .style("opacity", 1)
 };
 
-var mousemove = function (d) {
+/**
+ * Moves the rules & measures tooltip with the mouse
+ */
+var mousemove = function () {
     selection = d3.select(this);
-    updateTooltipInfo();
 
     htmlTooltip
         .html(buildTooltipText())
@@ -510,7 +577,10 @@ var mousemove = function (d) {
 
 };
 
-var mouseleave = function (d) {
+/**
+ * Hides the rules & measures tooltip by making it transparent
+ */
+var mouseleave = function () {
     htmlTooltip
         .style("opacity", 0);
     d3.select(this)
