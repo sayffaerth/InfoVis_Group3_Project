@@ -67,7 +67,7 @@ function visualizeAsLineChart(data){
 
     var y = d3.scaleLinear()
         .range([height, 0])
-        .domain([0, 30000, 50000]);
+        .domain([0, 35000, 50000]);
     //y.domain(d3.extent(data, function(d) { return d.cases; }));
 
     var xAxis = d3.axisBottom(x)

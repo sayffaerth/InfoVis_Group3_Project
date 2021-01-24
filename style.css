@@ -26,6 +26,10 @@ svg {
 
 #dataWrapper{
     margin: auto;
+    position: relative;
+    display: block;
+    margin-top: -910px;
+    width: 990px;
 }
 
 #visGer{
@@ -59,6 +63,7 @@ svg {
     display: block;
     margin: auto;
     padding-right: 310px;
+    font-size: 11px;
 }
 
 
@@ -70,9 +75,6 @@ svg {
     padding: 0;
 }
 
-#DataWrapper{
-    bottom: 1000px;
-}
 
 
 /** Playbutton und seine Funktion **/
@@ -275,18 +277,27 @@ svg {
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
-    width: 300px;
+    width: 200px;
     color: white;
 }
 
 td, th {
     border: none;
     text-align: left;
-    padding: 10px;
+    padding-left: 5px;
+}
+
+table, tr {
+    border: 1.5px solid #262626;
+  }
+
+#exampleAcc{
+    text-align: right;
+    padding: 5px;
 }
 
 tr {
-    background-color: #515151;
+    background-color: #262626;
 }
 
 .parentFlex {
@@ -302,26 +313,43 @@ tr {
     position: relative;
     display: block;
     margin: auto;
-    padding-right: 1300px;
+    right: 650px;
+    margin-top: -75px;
+    height: 1000px;
+}
+
+#AccordionFull button{
+    margin-top: 2px;
+}
+
+#AccordionBottom{
+    margin-top: 0px
+}
+
+.accordion img{
+    margin-top: -6px
 }
 
 .accordion {
     background-color: #515151;
     color: white;
     cursor: pointer;
-    padding: 5px;
+    padding: 0px;
     width: 300px;
+    height: 40px;
     text-align: left;
     border: none;
     outline: none;
     transition: 0.4s;
-    font-family: "calibri";
-    font-size: 12px;
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .accordion:hover {
     background-color: #353535;
+}
+
+#AccDis{
+    background-color: #515151;
 }
 
 /* Style the accordion panel. Note: hidden by default */
@@ -334,14 +362,22 @@ tr {
     transition: max-height 0.2s ease-out;
     color: white;
     text-align: left;
+    font-family: "calibri";
+    font-size: 12px;
+    margin-top: -18px;
 }
 
 .alignleft {
     float: left;
+    font-family: "calibri";
+    font-size: 12px;
+    padding-left: 5px;
 }
 
 .alignright {
     float: right;
+    height: 30px;
+    padding-right: 5px;
 }
 
 .stärkeTabelle{

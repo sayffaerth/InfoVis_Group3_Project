@@ -384,16 +384,16 @@ function updateTooltipInfo() {
 function buildTooltipText() {
     let string;
 
-    // this is only so the all tooltip boxes are of the same width and look neat
+    /** this is only so the all tooltip boxes are of the same width and look neat
     if (land === "Mecklenburg-Vorpommern") {
         string = "Mecklenburg-<br>Vorpommern" + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
     } else if (land === "Nordrhein-Westfalen") {
         string = "Nordrhein-<br>Westfalen" + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
     } else if (land === "Baden-Württemberg") {
         string = "Baden-<br>Württemberg" + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
-    } else {
+    } else { */
         string = land + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
-    }
+    //}
 
     if (!!rulesAndMeasures.msk) {
         for (let [key, value] of iterate_object(rulesAndMeasures)) {
@@ -572,8 +572,8 @@ var mousemove = function () {
 
     htmlTooltip
         .html(buildTooltipText())
-        .style("left", document.getElementById("dataWrapper").getBoundingClientRect().x + (d3.mouse(this)[0]) + 20 + "px")
-        .style("top", document.getElementById("dataWrapper").getBoundingClientRect().y + (d3.mouse(this)[1]) - 80 + "px")
+        .style("left", document.getElementById("dataWrapper").getBoundingClientRect().x + (d3.mouse(this)[0]) -325 + "px")
+        .style("top", document.getElementById("dataWrapper").getBoundingClientRect().y + (d3.mouse(this)[1]) - 90 + "px")
 
 };
 

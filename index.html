@@ -11,22 +11,8 @@
 
 <!-- Maßnahmen Icon Beschreibung -->
 <div id="AccordionFull">
-    <table class="stärkeTabelle">
-        <tr>
-            <td>Teilweise Einschränkungen</td>
-            <td>
-                <img src="./Pictures/Maßnahmen/Rot/zoo.png" alt="Zuhause bleiben" width="30" height="30">
-            </td>
-        </tr>
-        <tr>
-            <td>Strenge Einschränkungen</td>
-            <td>
-                <img src="./Pictures/Maßnahmen/Orange/zoo.png" alt="Zuhause bleiben" width="30" height="30">
-            </td>
-        </tr>
-    </table>
-
-    <button class="accordion">
+    <div id="AccordionBottom">
+    <button class="accordion" id="AccDis">
         <strong>
             <p class="alignleft">
                 Maßnahme
@@ -168,6 +154,22 @@
     <div class="panel">
         <p>Restaurants und andere Gastronomie geschlossen</p>
     </div>
+    </div>
+
+    <table class="stärkeTabelle">
+        <tr>
+            <td>Teilweise Einschränkungen</td>
+            <td id="exampleAcc">
+                <img src="./Pictures/Maßnahmen/Rot/zoo.png" alt="Zuhause bleiben" width="30" height="30">
+            </td>
+        </tr>
+        <tr>
+            <td>Strenge Einschränkungen</td>
+            <td id="exampleAcc">
+                <img src="./Pictures/Maßnahmen/Orange/zoo.png" alt="Zuhause bleiben" width="30" height="30">
+            </td>
+        </tr>
+    </table>
 </div>
 
 
@@ -228,8 +230,10 @@
             </span>
         </a>
     </div>
-</div>
 
+    <!--Namen der Gruppenmitglieder-->
+    <h4 id="Contributer">Alexander Schmidt | Clara Sayffaerth | Johanna Prinz | Kay Köhle | Michael Lobbichler</h4>
+</div>
 
 
 <!--D3 und JavaScript imports-->
@@ -239,9 +243,6 @@
 <script src="script.js"></script>
 <script src="./Data/fallzahlen.js"></script>
 
-
-<!--Namen der Gruppenmitglieder-->
-<h4 id="Contributer">Alexander Schmidt | Clara Sayffaerth | Johanna Prinz | Kay Köhle | Michael Lobbichler</h4>
 </div>
 </body>
 </html>
