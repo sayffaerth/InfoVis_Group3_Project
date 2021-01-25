@@ -286,6 +286,7 @@ td, th {
     border: none;
     text-align: left;
     padding-left: 5px;
+    font-family: "calibri";
 }
 
 table, tr {
@@ -317,6 +318,7 @@ tr {
     right: 550px;
     margin-top: -75px;
     height: 1000px;
+    font-family: "calibri";
 }
 
 #AccordionFull button{
@@ -351,6 +353,7 @@ tr {
 
 #AccDis{
     background-color: #515151;
+    font-family: "calibri";
 }
 
 /* Style the accordion panel. Note: hidden by default */
@@ -379,6 +382,7 @@ tr {
     float: right;
     height: 30px;
     padding-right: 5px;
+    font-size: 12px;
 }
 
 .stärkeTabelle{
