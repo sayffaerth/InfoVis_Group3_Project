@@ -30,6 +30,7 @@ svg {
     display: block;
     margin-top: -910px;
     width: 990px;
+    left: 115px;
 }
 
 #visGer{
@@ -52,7 +53,7 @@ svg {
     position: relative;
     display: block;
     margin: auto;
-    padding-right: 120px;
+    padding-right: 200px;
     padding-top: 20px;
 }
 
@@ -84,12 +85,12 @@ svg {
     margin: auto;
     height: 30px;
     width: 60px;
-    padding-right: 870px;
-    top: -49px;
+    padding-right: 240px;
+    top: 16px;
 }
 
 #play-button {
-    background: #f08080;
+    background: #ef885a;
     padding-right: 0px;
     border-radius: 3px;
     border: none;
@@ -313,7 +314,7 @@ tr {
     position: relative;
     display: block;
     margin: auto;
-    right: 650px;
+    right: 550px;
     margin-top: -75px;
     height: 1000px;
 }

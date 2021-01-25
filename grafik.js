@@ -572,8 +572,8 @@ var mousemove = function () {
 
     htmlTooltip
         .html(buildTooltipText())
-        .style("left", document.getElementById("dataWrapper").getBoundingClientRect().x + (d3.mouse(this)[0]) -325 + "px")
-        .style("top", document.getElementById("dataWrapper").getBoundingClientRect().y + (d3.mouse(this)[1]) - 90 + "px")
+        .style("left", document.getElementById("dataWrapper").getBoundingClientRect().x + (d3.mouse(this)[0]) -480 + "px")
+        .style("top", document.getElementById("dataWrapper").getBoundingClientRect().y + (d3.mouse(this)[1]) - 80 + "px")
 
 };
 

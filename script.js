@@ -23,7 +23,7 @@ function visualizeAsLineChart(data){
 
 
     var margin = { top: 10, right: 120, bottom: 20, left: 50 },
-        width = 1000 - margin.left - margin.right,
+        width = 1040 - margin.left - margin.right,
         height = 170 - margin.top - margin.bottom;
 
     //Zeichnet Funktion
@@ -201,8 +201,8 @@ function visualizeAsLineChart(data){
 
     //Play Funktion
     function step() {
-        update(x.invert(currentValue), "week");
-        week = update(x.invert(currentValue), "week");
+        update(x.invert(currentValue));
+        week = update(x.invert(currentValue));
         if(checkContainer("raceContainer")) {
             //replaceContainer("visRace", "visRace");
             visualizeRace(true, week);
@@ -228,7 +228,7 @@ function visualizeAsLineChart(data){
     }
 
     // Update position and text of label according to slider scale
-    function update(h, format) {
+    function update(h) {
 
         //Mitbewegen der Linie
         liner.attr("x1", x(h));
@@ -255,23 +255,12 @@ function visualizeAsLineChart(data){
 
         //Angabe aktueller Monat und Week
         //TODO: Auslagern für Race und Grafik
-        if(format == "month") {
-            month = dateFormatter3(h);
-            if(month[0] == 0) {
-                return month.charAt(1)
-            } else {
-                return dateFormatter3(h);
-            }
-        } else if(format == "week") {
-            week = dateFormatter4(h);
+        week = dateFormatter4(h);
             if(week[0] == 0) {
                 return week.charAt(1)
             } else {
                 return dateFormatter4(h);
             }
-        } else {
-            return null;
-        }
     }
 
     function checkContainer(id) {
@@ -447,13 +436,15 @@ function visualizeRace(update, week) {
                 .attr("class", "xaxis")
                 .attr("transform", "translate(0," + height + ")")
                 .call(xAxis)
-                .attr("font-family", "calibri");
+                .attr("font-family", "calibri")
+                .attr("font-size","11px");
 
             //Y-Achse
             svg.append("g")
                 .attr("class", "yaxis")
                 .call(yAxis)
                 .attr("font-family", "calibri")
+                .attr("font-size","11px")
                 .append("text")
                 .attr("transform", "rotate(-90)")
                 .attr("y", 6)
