@@ -6,11 +6,12 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<!-- Über- und Unterüberschrift der Website -->
 <h2>CoViD-19: Kaufverhalten im Verhältnis zu Maßnahmen und Fallzahlen</h2>
 <h4>Eine Visualisierung der im Hinblick auf den Verlauf der CoViD-19 Pandemie in Deutschland<br>
     beschlossenen Maßnahmen und das daraus resultierende Kaufverhalten für das Jahr 2020.</h4>
 
-<!-- Maßnahmen Icon Beschreibung -->
+<!-- Accordion der Beschreibungen für die Icons der beschlossenen Maßnahmen -->
 <div id="AccordionFull">
     <div id="AccordionBottom">
     <button class="accordion" id="AccDis">
@@ -178,21 +179,20 @@
 <div id="dataWrapper">
     <div id="mapSVG">
 
-        <!-- Load d3.js -->
+        <!-- d3.js and the additional plugins we utilized -->
         <script src="https://d3js.org/d3.v4.js"></script>
         <script src="https://d3js.org/d3-scale.v3.min.js"></script>
         <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
         <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
-        <!--<script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>-->
 
-        <!-- Create an element where the map will take place -->
+        <!-- Container for the map and its color legend -->
         <svg id="mapParentSVG" width = "550" height = "550">
             <svg id="visGer" width="550" height="550"></svg>
             <svg id="legend-svg"></svg>
         </svg>
     </div>
 
-
+    <!-- Information Icon 1 below the color legend about the map -->
     <div id="div1">
         <a id="a1" href="#">
             <img id="img1" src="./Pictures/InfoIcon_white.png" alt="InfoBox1"/>
@@ -204,13 +204,18 @@
         </a>
     </div>
 
-    <!--Graphen-->
+    <!-- Container for the visualization of the "Absatzindex" -->
     <div id="visRace"></div>
+
+    <!-- Container for the visualization of the CoViD-19 case graph -->
     <div id="visFall"></div>
+
+    <!-- Button that starts / pauses the case graph animation -->
     <div id="Play">
         <button id="play-button">Play</button>
     </div>
 
+    <!-- Information Icon 2 to the right of the "Absatzindex" visualization -->
     <div id="div2">
         <a id="a2" href="#">
             <img id="img2" src="./Pictures/InfoIcon_white.png" alt="InfoBox1"/>
@@ -221,6 +226,8 @@
                 </span>
         </a>
     </div>
+
+    <!-- Information Icon 3 to the right of the case graph visualization -->
     <div id="div3">
         <a id="a3" href="#">
             <img id="img3" src="./Pictures/InfoIcon_white.png" alt="InfoBox3"/>
@@ -234,11 +241,11 @@
     </div>
 </div>
 
-<!--Namen der Gruppenmitglieder-->
+<!-- Names of contributing authors and github link for further information -->
 <h4 id="Contributer">Alexander Schmidt | Clara Sayffaerth | Johanna Prinz | Kay Köhle | Michael Lobbichler</h4>
 <h4>Weitere Informationen & Dokumentation: <a target="_blank" rel="noopener noreferrer" href="https://github.com/sayffaerth/InfoVis_Group3_Project/wiki">Github Wiki</a></h4>
 
-<!--D3 und JavaScript imports-->
+<!-- All JavaScript script imports in order of dependance (do not change!) -->
 <script src="grafik.js"></script>
 <script src="accordion.js"></script>
 <script src="script.js"></script>
