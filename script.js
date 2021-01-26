@@ -196,7 +196,6 @@ function visualizeAsLineChart(data){
                 timer = setInterval(step, 1);
                 button.text("Pause");
             }
-            //console.log("Slider moving: " + moving);
         })
 
     //Play Funktion
@@ -204,7 +203,6 @@ function visualizeAsLineChart(data){
         update(x.invert(currentValue));
         week = update(x.invert(currentValue));
         if(checkContainer("raceContainer")) {
-            //replaceContainer("visRace", "visRace");
             visualizeRace(true, week);
         }
         currentValue = currentValue + (targetValue/5000);
@@ -212,7 +210,6 @@ function visualizeAsLineChart(data){
             moving = false;
             currentValue = 0;
             clearInterval(timer);
-            // timer = 0;
             playButton.text("Play");
         }
     }
@@ -254,7 +251,6 @@ function visualizeAsLineChart(data){
         currentDate.val2 = dateFormatter5(h);
 
         //Angabe aktueller Monat und Week
-        //TODO: Auslagern für Race und Grafik
         week = dateFormatter4(h);
             if(week[0] == 0) {
                 return week.charAt(1)
@@ -275,14 +271,6 @@ function visualizeAsLineChart(data){
         }
     }
 
-    function replaceContainer(newElement , oldElement) {
-        oldOne = document.getElementById(oldElement);
-        if(oldElement != undefined) {
-            newDiv = document.createElement(newElement);
-            oldOne.replaceWith(newDiv);
-            newDiv.setAttribute('id',"visRace");
-        }
-    }
 }
 
 //----------------------------------------------------------------------------------
@@ -309,10 +297,7 @@ function visualizeRace(update, week) {
                 .attr("transform", `translate(${margin.left}, ${margin.top})`)    
 
             //Formatierungen für die Zeit
-            var parseDate = d3.timeParse("%Y/%W"),
-                //bisectDate = d3.bisector(function(d) { return d.Kalenderwoche; }).left,
-                formatValue = d3.format(","),
-                dateFormatterRace = d3.timeFormat("%m");
+            var parseDate = d3.timeParse("%Y/%W")
 
             //Formatiert Kalenderwochen in den Daten
             data.forEach(function(d) {
@@ -380,9 +365,6 @@ function visualizeRace(update, week) {
                 .style("fill", "#ef885a")
                 .style("opacity", 1);
 
-            // for (let i of data) {
-            // if (dateFormatterRace(d.Kalenderwoche) == week){
-            // timeChoose(data[i]);}}
             timeChoose(data[week]);
         } else {
             container = d3.select("#raceContainer")
@@ -401,10 +383,7 @@ function visualizeRace(update, week) {
                 .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
             //Formatierungen für die Zeit
-            var parseDate = d3.timeParse("%Y/%W"),
-                //bisectDate = d3.bisector(function(d) { return d.Kalenderwoche; }).left,
-                formatValue = d3.format(","),
-                dateFormatterRace = d3.timeFormat("%m");
+            var parseDate = d3.timeParse("%Y/%W")
 
             //Formatiert Kalenderwochen in den Daten
             data.forEach(function(d) {
@@ -507,12 +486,7 @@ function visualizeRace(update, week) {
                 .attr("height", function(d) { return height - y(d.Count); })
                 .attr("width", x.bandwidth())
                 .attr("fill", "#9de0ff");
-            //.transition()
-            //.duration(100)
-            //.delay(function(d,i){ return i*50})
-            //.attr("y", function(d) { return y(d.Count); })
-            //.attr("height", function(d) { return height - y(d.Count); })
-
+            
             //Bilder
             var imgSeife = svg.append('image')
                 .attr('href', './Pictures/Verkaufszahlen/Seife_oB.png')
