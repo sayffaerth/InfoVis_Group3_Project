@@ -1,12 +1,17 @@
-//Load the SVG elements that shall contain the visualisations
+/**
+ * SVG elements that shall contain the visualisations
+ */
 var svg = d3.select("#visGer"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
 
 var mapParentSVG = d3.select("#mapParentSVG");
 
-//Variable with Getter and Setter that notify an dateUpdated() function when changed, so the map can be adjusted
-//It contains two separate variables in order to accomodate different formatting requirements.
+/**
+ * Variable with Getter and Setter that notify an dateUpdated() function when changed, so the map can be adjusted
+ * It contains two separate variables in order to accomodate different formatting requirements.
+ * @type {{val, value2: string, val2, value: string}}
+ */
 var currentDate = {
     value: "01/01/2020",
     value2: "2020-01-01",
@@ -30,10 +35,16 @@ var currentDate = {
 // % Setup color scale %
 // %%%%%%%%%%%%%%%%%%%%%
 
-//The Color Scale is scaled exponentially to account for the exponential nature of virus spreads with the following factor
+/**
+ * The Color Scale is scaled exponentially to account for the exponential nature of virus spreads with the following factor
+ * @type {number}
+ */
 const scaleFactor = 1.2
 
-//Domain of the color scale with a length of colors to interpolate between.
+/**
+ * Domain of the color scale with a length of colors to interpolate between.
+ * @type {any[]}
+ */
 var scaleDomain = new Array(12);
 //Scale should start at 0 (not scaleFactor^0 = 1)
 scaleDomain[0] = 0;
@@ -44,15 +55,24 @@ for (i = 1; i < scaleDomain.length; i++) {
     //console.log(scaleDomain[i] + " = (" + scaleFactor + " ^ " + i + " ) / ( " + scaleFactor + " ^ " + scaleDomain.length + " )");
 }
 
-//Distributing Colors across the exponential scale stops from white to light yellow to dark purple, modified in equal steps according to hue and later on also luminance.
-//The colors have been carefully chosen with a RGB scale in order to accomodate for all types of color blindness.
+/**
+ * Distributing Colors across the exponential scale stops from white to light yellow to dark purple, modified in equal steps according to hue and later on also luminance.
+ * The colors have been carefully chosen with a RGB scale in order to accomodate for all types of color blindness.
+ */
 var inzColorScale = d3.scaleLinear()
     .domain(scaleDomain)
     .range(["#ffffff", "#ffff4d", "#ffd24d", "#ffc34d", "#ffa64d", "#ff794d", "#ff4d4d", "#ff1a1a", "#e60039", "#b30059", "#800060", "#4d004d"]);
 
-//Inzidenz Value where the scale and map color changes cap out
+/**
+ * Inzidenz Value where the scale and map color changes cap out
+ * @type {number}
+ */
 const inzidenzMax = 400;
-//How many stops on the scale between which the color is interpolated
+
+/**
+ * How many stops on the scale between which the color is interpolated
+ * @type {number}
+ */
 const legendAccuracy = 50;
 
 
@@ -67,11 +87,16 @@ var projection = d3.geoMercator()
     .center([11, 51.2])  // GPS of location to zoom on
     .translate([width / 2, height / 2]);
 
-//Variable that holds the case data as an array from a loaded JSON-String.
+/**
+ * Variable that holds the case data as an array from a loaded JSON-String.
+ */
 var caseData;
 
-// Fetch JSON / CSV Data from servers or load from included files
-// Afterwards save it in corrseponding variables or provide it to handling functions as soon as loading = complete
+/**
+ * Fetch JSON / CSV Data from servers or load from included files
+ * Afterwards save it in corrseponding variables or provide it to handling functions as soon as loading = complete
+ * For additional details about the datasets used please refer to the Github Project Wiki - Datensätze (german)
+ */
 var data = d3.map();
 d3.queue()
     .defer(d3.json, "https://opendata.arcgis.com/datasets/ef4b445a53c1406892257fe63129a8ea_0.geojson")
@@ -86,11 +111,12 @@ d3.queue()
             InitializeRulesAndMeasures(rules);
         }
     });
-//For additional details about the datasets used please refer to the Github Project Wiki - Datensätze (german)
 
-
-//This is called as soon as map data is successfully fetched from RKI
-//It draws the map and attaches the listeners required for the mouse tooltip
+/**
+ * This is called as soon as map data is successfully fetched from RKI
+ * It draws the map and attaches the listeners required for the mouse tooltip
+ * @param topo topographical data that was loaded and shall be used to draw the map and attached to it
+ */
 function dataLoaded(topo) {
     // Draw the map
     svg.append("g")
@@ -115,7 +141,9 @@ function dataLoaded(topo) {
 
 }
 
-//Assigns the states within the map their name as a class - drawn from the RKI map data
+/**
+ * Assigns the states within the map their name as a class - drawn from the RKI map data
+ */
 function assignIDs() {
     d3.select(".map").selectAll("path").each(function () {
         var u = d3.select(this);
@@ -123,8 +151,10 @@ function assignIDs() {
     })
 }
 
-//Updates the fill color of all states for their respective "Inzidenz"-value and the currently selected date
-//This is called whenever changes are applied either when first loading or a new date is selected
+/**
+ * Updates the fill color of all states for their respective "Inzidenz"-value and the currently selected date
+ * This is called whenever changes are applied either when first loading or a new date is selected
+ */
 function updateMapFillData() {
     /*
     // Previous approach: This uses the fetched date from RKI for the date of when the site is loaded.
@@ -267,10 +297,15 @@ var htmlTooltip = d3.select("#mapSVG")
 // %%%%%%%%%%%%%%%%%%%%
 // % Helper functions %
 // %%%%%%%%%%%%%%%%%%%%
-//helper variable to check if the day of the date actually changed.
+
+/**
+ * helper variable to check if the day of the date actually changed.
+ */
 var tempDate;
 
-//Gets called whenever the var currentDate.val gets changed
+/**
+ * Gets called whenever the var currentDate.val gets changed
+ */
 function dateUpdated() {
     if (currentDate.val === tempDate) {
         //The day of the date hasn't actually changed so we can return now.
@@ -293,7 +328,11 @@ function dateUpdated() {
         .html(buildTooltipText());
 }
 
-//Returns the Incidence for the current date for the provided state (BL) name.
+/**
+ * Returns the Incidence for the current date for the provided state (BL) name.
+ * @param stateName state for which you want to get the "Inzidenz" value
+ * @returns {*} the corresponding value
+ */
 function getInzidenzForBL(stateName) {
     var date2update = currentDate.val;
 
@@ -319,7 +358,9 @@ function getInzidenzForBL(stateName) {
     return inzidenz;
 }
 
-// contains the dataset with all the rules and measures
+/**
+ * contains the dataset with all the rules and measures
+ */
 var CovidRulesAndMeasures;
 
 /**
