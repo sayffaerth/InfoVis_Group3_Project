@@ -1,4 +1,4 @@
-//Load the SVG element that shall contain the visualisation
+//Load the SVG elements that shall contain the visualisations
 var svg = d3.select("#visGer"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
@@ -6,6 +6,7 @@ var svg = d3.select("#visGer"),
 var mapParentSVG = d3.select("#mapParentSVG");
 
 //Variable with Getter and Setter that notify an dateUpdated() function when changed, so the map can be adjusted
+//It contains two separate variables in order to accomodate different formatting requirements.
 var currentDate = {
     value: "01/01/2020",
     value2: "2020-01-01",
@@ -25,39 +26,52 @@ var currentDate = {
     }
 }
 
-//The Color Scale is scale exponentially to account for the exponential nature of virus spreads with the following factor
+// %%%%%%%%%%%%%%%%%%%%%
+// % Setup color scale %
+// %%%%%%%%%%%%%%%%%%%%%
+
+//The Color Scale is scaled exponentially to account for the exponential nature of virus spreads with the following factor
 const scaleFactor = 1.2
 
+//Domain of the color scale with a length of colors to interpolate between.
 var scaleDomain = new Array(12);
+//Scale should start at 0 (not scaleFactor^0 = 1)
 scaleDomain[0] = 0;
 
+//Distribute the colors across the domain according to the exponential scaleFactor above.
 for (i = 1; i < scaleDomain.length; i++) {
     scaleDomain[i] = (Math.pow(scaleFactor, i)) / (Math.pow(scaleFactor, scaleDomain.length));
     //console.log(scaleDomain[i] + " = (" + scaleFactor + " ^ " + i + " ) / ( " + scaleFactor + " ^ " + scaleDomain.length + " )");
 }
 
-//Distributing Colors across the exponential scale stops from light yellow to dark purple, modified in equal steps according to hue and later on also luminance.
+//Distributing Colors across the exponential scale stops from white to light yellow to dark purple, modified in equal steps according to hue and later on also luminance.
+//The colors have been carefully chosen with a RGB scale in order to accomodate for all types of color blindness.
 var inzColorScale = d3.scaleLinear()
     .domain(scaleDomain)
     .range(["#ffffff", "#ffff4d", "#ffd24d", "#ffc34d", "#ffa64d", "#ff794d", "#ff4d4d", "#ff1a1a", "#e60039", "#b30059", "#800060", "#4d004d"]);
 
 //Inzidenz Value where the scale and map color changes cap out
 const inzidenzMax = 400;
-//Stops on the scale between which the color is interpolated
+//How many stops on the scale between which the color is interpolated
 const legendAccuracy = 50;
+
 
 // %%%%%%%%%%%%%%%%%%%%
 // % Map & projection %
 // %%%%%%%%%%%%%%%%%%%%
 
+//We utilize d3.js geoPath for our map together with data provided by the RKI
 var path = d3.geoPath();
 var projection = d3.geoMercator()
     .scale(2400)        // This is like the zoom
     .center([11, 51.2])  // GPS of location to zoom on
     .translate([width / 2, height / 2]);
+
+//Variable that holds the case data as an array from a loaded JSON-String.
 var caseData;
 
-// Fetch JSON Data and use it in visualisation as soon as it's done loading
+// Fetch JSON / CSV Data from servers or load from included files
+// Afterwards save it in corrseponding variables or provide it to handling functions as soon as loading = complete
 var data = d3.map();
 d3.queue()
     .defer(d3.json, "https://opendata.arcgis.com/datasets/ef4b445a53c1406892257fe63129a8ea_0.geojson")
@@ -65,7 +79,7 @@ d3.queue()
     .defer(d3.csv, "./Data/ZPID lockdown measures dataset 4.0.csv")
     .await(function (error, topo, cases, rules) {
         if (error) {
-            console.log('Error when loading .csv files in grafik.js');
+            console.log('Error when loading .json or .csv files in grafik.js');
         } else {
             caseData = cases;
             dataLoaded(topo);
@@ -75,7 +89,8 @@ d3.queue()
 //For additional details about the datasets used please refer to the Github Project Wiki - Datensätze (german)
 
 
-// Call this as soon as the data is loaded to use it in the visualisation
+//This is called as soon as map data is successfully fetched from RKI
+//It draws the map and attaches the listeners required for the mouse tooltip
 function dataLoaded(topo) {
     // Draw the map
     svg.append("g")
@@ -100,8 +115,7 @@ function dataLoaded(topo) {
 
 }
 
-//Fügt den einzelnen Ländern ihre Namen als class als Identifier hinzu
-//Aktuell hardgecodet für RKI Tagesstand
+//Assigns the states within the map their name as a class - drawn from the RKI map data
 function assignIDs() {
     d3.select(".map").selectAll("path").each(function () {
         var u = d3.select(this);
@@ -109,14 +123,24 @@ function assignIDs() {
     })
 }
 
+//Updates the fill color of all states for their respective "Inzidenz"-value and the currently selected date
+//This is called whenever changes are applied either when first loading or a new date is selected
 function updateMapFillData() {
-    /* Previous approach: Using the current RKI data
+    /*
+    // Previous approach: This uses the fetched date from RKI for the date of when the site is loaded.
+    // This is no longer required, as we focus on 2020 as a whole. But it is left in for possible future expansion.
+    //
     d3.select(".map").selectAll("path").attr("fill", (function () {
         var inzidenz = d3.select(this).data()[0].properties.cases7_bl_per_100k;
         return inzColorScale(valueMap(inzidenz, 0, 200, 0, 1));
-    })); */
+    }));
+    // End - previous approach //
+    */
 
-    /* New apporach: Using parsed 2020 case data */
+    /*
+    // New apporach: Contrary to the above this now uses the parsed JSON for 2020 as a whole and no longer requires daily RKI data.
+    //*/
+    // Fetch the index of the array where the current date is located. This is done for performance's sake so less overall iterations are required.
     var dataIndexForDate = 0;
     for (i = 0; i < caseData.length; i++) {
         if (caseData[i].Meldedatum === currentDate.val) {
@@ -126,11 +150,15 @@ function updateMapFillData() {
         }
     }
 
+    //for all of the states within the map...
     d3.select(".map").selectAll("path").attr("fill", (function () {
+        //...get their name and the current date...
         var state2update = d3.select(this).data()[0].properties.LAN_ew_GEN;
         var date2update = currentDate.val;
         //console.log("Please update "+state2update+" to "+date2update);
 
+        //...then fetch the data index for that specific state...
+        //(same performance reason as above with the date index)
         var dataIndexForState = 0;
         for (i = 0; i < caseData[dataIndexForDate].casesByBL.length; i++) {
             if (caseData[dataIndexForDate].casesByBL[i].Bundesland === state2update) {
@@ -139,13 +167,19 @@ function updateMapFillData() {
                 break;
             }
         }
+
+        //... and finally fetch the "Inzidenz" value for those two indices, ...
         var inzidenz = caseData[dataIndexForDate].casesByBL[dataIndexForState].cases.Inzidenz;
         //console.log("Inzidenz for "+state2update+" on "+currentDate.val+" is "+inzidenz);
+
+        //... which is then being used to update the fill to the corresponding color from our color scale (that we setup in the beginning).
         return inzColorScale(valueMap(inzidenz, 0, inzidenzMax, 0, 1));
     }));
 }
 
-//Adding the color legend for the map
+// %%%%%%%%%%%%%%%%%%%%
+// % Map color legend %
+// %%%%%%%%%%%%%%%%%%%%
 var legendFullHeight = height * 0.6;
 var legendFullWidth = 50;
 var legendMargin = {top: 20, bottom: 20, left: 5, right: 30};
