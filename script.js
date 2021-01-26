@@ -21,7 +21,7 @@ function visualizeAsLineChart(data){
     dateFormatter4 = d3.timeFormat("%W"); //Week
     dateFormatter5 = d3.timeFormat("%Y-%m-%d"); //Tag/Monat/Jahr
 
-
+    //Abstand, Höhe, Breite Der Visualisierung
     var margin = { top: 10, right: 120, bottom: 20, left: 50 },
         width = 1040 - margin.left - margin.right,
         height = 170 - margin.top - margin.bottom;
@@ -63,12 +63,10 @@ function visualizeAsLineChart(data){
         .domain([data[0].dateRep, data[data.length-1].dateRep])
         .range([0, targetValue])
         .clamp(true);
-    //.domain([data[0].dateRep, data[data.length-1].dateRep])
 
     var y = d3.scaleLinear()
         .range([height, 0])
-        .domain([0, 35000, 50000]);
-    //y.domain(d3.extent(data, function(d) { return d.cases; }));
+        .domain([0, 35000, 50000]); 
 
     var xAxis = d3.axisBottom(x)
         .tickFormat(dateFormatter);
@@ -77,13 +75,14 @@ function visualizeAsLineChart(data){
         .tickFormat(d3.format(""));
 
     //Achsen
+    //x-Achse
     svg.append("g")
         .attr("class", "xaxis")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis)
-        .attr("font-family", "calibri")
-        .attr("font-size","12px");
+        .attr("font-family", "calibri");
 
+    //y-Achse
     svg.append("g")
         .attr("class", "yaxis")
         .call(yAxis)
@@ -127,14 +126,13 @@ function visualizeAsLineChart(data){
                 update(x.invert(currentValue));
                 week = update(x.invert(currentValue), "week");
                 if(checkContainer("raceContainer")) {
-                    //replaceContainer("visRace", "visRace");
                     visualizeRace(true, week);
                 } else {
                     visualizeRace(week);
                 }
             })
         );
-
+    //Transformation des sliders
     slider.insert("g", ".track-overlay")
         .attr("class", "ticks")
         .attr("transform", "translate(0," + 30 + ")");
@@ -262,6 +260,7 @@ function visualizeAsLineChart(data){
             }
     }
 
+    //Überprüft, ob ein gewisses Element existiert
     function checkContainer(id) {
         element = document.getElementById(id);
         if(element != undefined) {
@@ -284,13 +283,15 @@ visualizeRace(false, 0);
 function visualizeRace(update, week) {
     d3.json("./Data/absatzindex.json", function(data) {
 
+        //Wenn das Race noch nicht erstellt wurde
         if(!update) {
 
+            //Abstand, Höhe, Breite
             var margin = {top: 10, right: 30, bottom: 30, left: 60},
                 width = 480 - margin.left - margin.right,
                 height = 500 - margin.top - margin.bottom;
 
-
+            //Erstellen des Containers, in der die Visualisierung gebaut wird
             var svg = d3.select("#visRace")
                 .append("svg")
                 .attr("id", "raceContainer")
@@ -369,7 +370,11 @@ function visualizeRace(update, week) {
                 .style("opacity", 1);
 
             timeChoose(data[week]);
+
+        //Wenn das Race schon existiert - wird diese erneut gebaut
         } else {
+
+            //löschen der gesamten Visualisierung
             container = d3.select("#raceContainer")
                 .remove();
 
@@ -438,7 +443,9 @@ function visualizeRace(update, week) {
             timeChoose(data[week], week);
         }
 
+        //Erstellen der Balken + Text + Bilder je nach Woche
         function timeChoose(data, week){
+            //ab KW 45 gibt es keine daten mehr -> Anzeige im Diagramm
             if(week>45){
                 svg.append("text")
                 .attr("class", "hunder")
@@ -451,6 +458,7 @@ function visualizeRace(update, week) {
                 .style("opacity", 1); 
             }
             else{
+
             var newData = [
                 {"Product": "Seife", "Count": parseFloat(data.Seife)},
                 {"Product": "Toilettenpapier", "Count": parseFloat(data.Toilettenpapier)},
@@ -478,6 +486,7 @@ function visualizeRace(update, week) {
                 .style("fill", "#ef885a")
                 .style("opacity", 1);
 
+            //Fügt die Balken der Visualisierung hinzu
             bars = svg.selectAll(".bar")
                 .data(newData)
     
@@ -490,7 +499,7 @@ function visualizeRace(update, week) {
                 .attr("width", x.bandwidth())
                 .attr("fill", "#9de0ff");
             
-            //Bilder
+            //Bilder über den Balken
             var imgSeife = svg.append('image')
                 .attr('href', './Pictures/Verkaufszahlen/Seife_oB.png')
                 .attr('width', 50)
