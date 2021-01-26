@@ -81,19 +81,22 @@ function visualizeAsLineChart(data){
         .attr("class", "xaxis")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis)
-        .attr("font-family", "calibri");
+        .attr("font-family", "calibri")
+        .attr("font-size","12px");
 
     svg.append("g")
         .attr("class", "yaxis")
         .call(yAxis)
         .attr("font-family", "calibri")
+        .attr("font-size","12px")
         .append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
         .attr("font-family", "calibri")
-        .text("Fallzahlen");
+        .text("Fallzahlen")
+        .attr("font-size","12px");
 
     //Fallzahlenverlauf
     svg.append("path")
@@ -330,14 +333,14 @@ function visualizeRace(update, week) {
                 .attr("transform", "translate(0," + height + ")")
                 .call(xAxis)
                 .attr("font-family", "calibri")
-                .attr("font-size","11px");
+                .attr("font-size","12px");
 
             //Y-Achse
             svg.append("g")
                 .attr("class", "yaxis")
                 .call(yAxis)
                 .attr("font-family", "calibri")
-                .attr("font-size","11px")
+                .attr("font-size","12px")
                 .append("text")
                 .attr("transform", "rotate(-90)")
                 .attr("y", 6)
@@ -416,14 +419,14 @@ function visualizeRace(update, week) {
                 .attr("transform", "translate(0," + height + ")")
                 .call(xAxis)
                 .attr("font-family", "calibri")
-                .attr("font-size","11px");
+                .attr("font-size","12px");
 
             //Y-Achse
             svg.append("g")
                 .attr("class", "yaxis")
                 .call(yAxis)
                 .attr("font-family", "calibri")
-                .attr("font-size","11px")
+                .attr("font-size","12px")
                 .append("text")
                 .attr("transform", "rotate(-90)")
                 .attr("y", 6)
