@@ -272,27 +272,27 @@ mapParentSVG.append("text")
 // % Tooltip          %
 // %%%%%%%%%%%%%%%%%%%%
 
-
 // HTML Version of the Tooltip
-var htmlTooltip = d3.select("#mapSVG")
-    .append("div")
-    .style("opacity", 0)
-    .attr("class", "MapTooltip")
-    .style("text-align", "left")
-    .style("z-index", "100")
-    //TODO make tooltip unselectable
-    // .style("-webkit-user-select", "none")
-    // .style("-moz-user-select", "none")
-    // .style("-khtml-user-select", "none")
-    // .style("-ms-user-select", "none")
-    // .style("user-select", "none")
-    .style("background-color", "#262626")
-    .style("color", "white")
-    .style("border", "solid")
-    .style("border-width", "2px")
-    .style("border-radius", "5px")
-    .style("padding", "5px")
-    .style("position", "absolute");
+var htmlTooltip =
+    d3.select("#mapSVG")
+        .append("div")
+        .style("opacity", 0)
+        .attr("class", "MapTooltip")
+        .style("text-align", "left")
+        .style("z-index", "100")
+        //todo make tooltip unselectable
+        // .style("-webkit-user-select", "none")
+        // .style("-moz-user-select", "none")
+        // .style("-khtml-user-select", "none")
+        // .style("-ms-user-select", "none")
+        // .style("user-select", "none")
+        .style("background-color", "#262626")
+        .style("color", "white")
+        .style("border", "solid")
+        .style("border-width", "2px")
+        .style("border-radius", "5px")
+        .style("padding", "5px")
+        .style("position", "absolute");
 
 // %%%%%%%%%%%%%%%%%%%%
 // % Helper functions %
@@ -460,14 +460,14 @@ function buildTooltipText() {
     let string;
 
     /** this is only so the all tooltip boxes are of the same width and look neat
-    if (land === "Mecklenburg-Vorpommern") {
+     if (land === "Mecklenburg-Vorpommern") {
         string = "Mecklenburg-<br>Vorpommern" + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
     } else if (land === "Nordrhein-Westfalen") {
         string = "Nordrhein-<br>Westfalen" + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
     } else if (land === "Baden-Württemberg") {
         string = "Baden-<br>Württemberg" + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
     } else { */
-        string = land + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
+    string = land + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
     //}
 
     if (!!rulesAndMeasures.msk) {
@@ -642,13 +642,13 @@ var mouseover = function () {
 /**
  * Moves the rules & measures tooltip with the mouse
  */
-var mousemove = function () {
+var mousemove = function (d) {
     selection = d3.select(this);
 
     htmlTooltip
         .html(buildTooltipText())
-        .style("left", document.getElementById("dataWrapper").getBoundingClientRect().x + (d3.mouse(this)[0]) -400 + "px")
-        .style("top", document.getElementById("dataWrapper").getBoundingClientRect().y + (d3.mouse(this)[1]) - 80 + "px")
+        .style("left", d3.event.pageX - document.getElementById("mapSVG").getBoundingClientRect().x + 30 + "px")
+        .style("top", d3.event.pageY - document.getElementById("mapSVG").getBoundingClientRect().y + 30 + "px")
 
 };
 
