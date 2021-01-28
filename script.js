@@ -86,7 +86,8 @@ function visualizeAsLineChart(data){
         .attr("class", "xaxis")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis)
-        .attr("font-family", "calibri");
+        .attr("font-family", "calibri")
+        .attr("font-size","12px");
 
     //y-Achse
     svg.append("g")
