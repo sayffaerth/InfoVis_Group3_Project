@@ -87,8 +87,8 @@ svg {
     margin: auto;
     height: 30px;
     width: 60px;
-    padding-right: 818px;
-    top: 30px;
+    padding-right: 823px;
+    top: 35px;
 }
 
 #play-button {
@@ -99,9 +99,9 @@ svg {
     color: white;
     margin: 0;
     padding: 0 12px;
-    width: 910px;
+    width: 912px;
     cursor: pointer;
-    height: 30px;
+    height: 20px;
 }
 
 #play-button:hover {
