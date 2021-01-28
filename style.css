@@ -8,6 +8,8 @@ h2, div, .images{
 h4 {
     text-align: center;
     color: lightgray;
+    position: relative;
+    bottom: 16px;
 }
 
 body{
@@ -28,7 +30,7 @@ svg {
     margin: auto;
     position: relative;
     display: block;
-    margin-top: -910px;
+    margin-top: -930px;
     width: 990px;
     left: 115px;
 }
@@ -203,7 +205,7 @@ svg {
     width: 22px;
     margin: auto;
     display: block;
-    padding-left: 990px;
+    padding-left: 980px;
     bottom: 260px;
 }
 
@@ -216,7 +218,7 @@ svg {
     visibility: hidden;
     position: absolute;
     right: -240px;
-    top: -206px;
+    top: -278px;
     background: #262626;
     width: 17em;
     border: 2px solid white;
@@ -241,7 +243,7 @@ svg {
     width: 22px;
     margin: auto;
     display: block;
-    padding-left: 990px;
+    padding-left: 980px;
     bottom: 82px;
 }
 
@@ -254,7 +256,7 @@ svg {
     visibility: hidden;
     position: absolute;
     right: -240px;
-    top: -219px;
+    top: -220px;
     background: #262626;
     width: 17em;
     border: 2px solid white;

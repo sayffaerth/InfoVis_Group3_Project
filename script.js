@@ -26,6 +26,12 @@ function visualizeAsLineChart(data){
         width = 1040 - margin.left - margin.right,
         height = 170 - margin.top - margin.bottom;
 
+    //Zeichne Fläche unter Funktion
+    var area = d3.area()
+        .x(function(d) { return x(d.dateRep); })
+        .y0(height)
+        .y1(function(d) { return y(d.cases); });
+
     //Zeichnet Funktion
     var line = d3.line()
         .x(function(d) { return x(d.dateRep); })
@@ -98,6 +104,13 @@ function visualizeAsLineChart(data){
         .attr("font-size","12px");
 
     //Fallzahlenverlauf
+    svg.append("path")
+        .datum(data)
+        .attr("class", "area")
+        .attr("d", area)
+        .attr("fill", "#9de0ff")
+        .style("opacity", 0.2);
+
     svg.append("path")
         .datum(data)
         .attr("fill", "none")
