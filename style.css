@@ -206,7 +206,7 @@ svg {
     margin: auto;
     display: block;
     padding-left: 980px;
-    bottom: 260px;
+    bottom: 240px;
 }
 
 #img2{
@@ -244,7 +244,7 @@ svg {
     margin: auto;
     display: block;
     padding-left: 980px;
-    bottom: 82px;
+    bottom: 72px;
 }
 
 #img3{
@@ -398,12 +398,12 @@ tr {
     width: 602px;
     position: relative;
     margin: auto;
-    top: 40px;
+    top: 20px;
 }
 
 #InfoBottom{
     position: relative;
-    top: 30px;
+    top: 10px;
 }
 
 #linkGit{
