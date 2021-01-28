@@ -56,7 +56,7 @@ svg {
     display: block;
     margin: auto;
     padding-right: 200px;
-    padding-top: 20px;
+    top: 10px;
 }
 
 #mapSVG{
@@ -87,8 +87,8 @@ svg {
     margin: auto;
     height: 30px;
     width: 60px;
-    padding-right: 240px;
-    top: 16px;
+    padding-right: 818px;
+    top: 30px;
 }
 
 #play-button {
@@ -99,7 +99,7 @@ svg {
     color: white;
     margin: 0;
     padding: 0 12px;
-    width: 60px;
+    width: 910px;
     cursor: pointer;
     height: 30px;
 }
@@ -398,5 +398,14 @@ tr {
     width: 602px;
     position: relative;
     margin: auto;
-    top: -10px;
+    top: 40px;
+}
+
+#InfoBottom{
+    position: relative;
+    top: 30px;
+}
+
+#linkGit{
+    color: #ef885a;
 }
