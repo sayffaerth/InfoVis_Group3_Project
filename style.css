@@ -295,7 +295,7 @@ table, tr {
     border: 1.5px solid #262626;
   }
 
-#exampleAcc{
+.exampleAcc{
     text-align: right;
     padding: 5px;
 }
