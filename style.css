@@ -56,7 +56,7 @@ svg {
     display: block;
     margin: auto;
     padding-right: 200px;
-    top: 10px;
+    top: 20px;
 }
 
 #mapSVG{
@@ -88,7 +88,7 @@ svg {
     height: 30px;
     width: 60px;
     padding-right: 823px;
-    top: 30px;
+    top: 40px;
 }
 
 #play-button {
@@ -244,7 +244,7 @@ svg {
     margin: auto;
     display: block;
     padding-left: 980px;
-    bottom: 72px;
+    bottom: 62px;
 }
 
 #img3{
@@ -395,7 +395,7 @@ tr {
 /** Contibuter **/
 #Contributer{
     height: 16px;
-    width: 602px;
+    width: 620px;
     position: relative;
     margin: auto;
     top: 20px;
