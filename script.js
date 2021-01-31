@@ -515,7 +515,7 @@ function visualizeRace(update, week) {
             
             //Bilder über den Balken
             var imgSeife = svg.append('image')
-                .attr('href', './Pictures/Verkaufszahlen/Seife_oB.png')
+                .attr('href', './Pictures/Verkaufszahlen/Seife.png')
                 .attr('width', 50)
                 .attr('height', 50)
                 .attr("x", 33)
