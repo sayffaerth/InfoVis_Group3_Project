@@ -265,7 +265,7 @@ function visualizeAsLineChart(data){
         currentDate.val = dateFormatter2(h);
         currentDate.val2 = dateFormatter5(h);
 
-        //Angabe aktueller Monat und Week
+        //Angabe aktueller Woche
         week = dateFormatter4(h);
             if(week[0] == 0) {
                 return week.charAt(1)
