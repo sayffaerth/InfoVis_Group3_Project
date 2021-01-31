@@ -459,16 +459,9 @@ function updateTooltipInfo() {
 function buildTooltipText() {
     let string;
 
-    /** this is only so the all tooltip boxes are of the same width and look neat
-     if (land === "Mecklenburg-Vorpommern") {
-        string = "Mecklenburg-<br>Vorpommern" + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
-    } else if (land === "Nordrhein-Westfalen") {
-        string = "Nordrhein-<br>Westfalen" + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
-    } else if (land === "Baden-Württemberg") {
-        string = "Baden-<br>Württemberg" + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
-    } else { */
+    
     string = land + " <br> am " + currentDate.val + "<br> Inzidenz: " + cases + "<br>";
-    //}
+    
 
     if (!!rulesAndMeasures.msk) {
         for (let [key, value] of iterate_object(rulesAndMeasures)) {
